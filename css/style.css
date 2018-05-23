@@ -1,0 +1,105 @@
+/**seccion top menu - menu **/
+
+.top_menu{
+	padding:  20px;
+	background-color: #0091cd;
+	color: white;
+	font-size: 12px;
+	font-weight: 300;
+}
+.logo{
+	width: 200px;
+    height: 100px;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.logo{
+		width: 150px;
+    	height: 100px;
+    	margin-top: 15px;
+	}
+	
+}
+.caret {
+    display: none;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid \9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #1a3162;
+}
+
+.navbar-brand {
+    float: left;
+    height: 30px;
+    padding: 15px 50px;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: -75px;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px !important;
+    border: 1px solid transparent;
+}
+
+.navbar-default {
+    background-color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+	.navbar-brand {
+	    float: left;
+	    height: 50px;
+	    padding: 15px 20px;
+	    font-size: 18px;
+	    line-height: 20px;
+	    margin-top: -90px;
+	}
+	
+}
+
+
+
+/** seccion slider  derecho **/
+
+.bg_slide_de{
+	background: url(../images/1.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 400px;
+}
+
+
+
+/** seccion slider  izquierdo **/
+.bg_slide_iz{
+/*	background: url(../images/bitmap.png);*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 400px;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+
+
+
+.items{
+	height: 400px !important;
+}
+
+.lines{
+	border-color: 2px solid black;
+}
