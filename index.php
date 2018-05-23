@@ -89,7 +89,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Something 1</a></li>
             <li role="separator" class="divider"></li>
@@ -122,33 +122,124 @@
 </nav>
 <!--menu-->
 
-
-
-
 <!--slider-->
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 bg_slide_de">  
-
-            
+                <h1 style="margin: 30px;color: white; font-weight: 100; background-color: #ffffff50;padding: 10px;">Tituloo</h1>
         </div>
         <div class="col-sm-6 bg_slide_iz">
-
-
-            <div class="owl-carousel owl-theme">
-                <div class="item"><img src="images/bitmap.png" class="items"></div>
-                <div class="item"><img src="images/bitmap.png" class="items"></div>
+            <div class="owl-one owl-carousel owl-theme">
+                <div class="item items" style="background: url(images/bitmap.png);">
+                    <p class="textowl">loren ipsum #1<br><span>LOREN IPSUM</span></p>
+                </div>
+                 <div class="item items" style="background: url(images/bitmap.png);">
+                    <p class="textowl">loren ipsum #2<br><span>LOREN IPSUM</span></p>
+                </div>
+                 <div class="item items" style="background: url(images/bitmap.png);">
+                    <p class="textowl">loren ipsum #3<br><span>LOREN IPSUM</span></p>
+                </div>
             </div>
-
-            
         </div>
     </div>
 </div>
-
-
 <!--slider-->
 
+<!--search finder-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" align="center">
+            <br><br><br><br>
+            <span class="sea_textp">ENCUENTRA UN LUGAR PARA TI</span>
+            <p>Porque invertir en Plexus</p>
+                <form action="#" method="post">
+                    <div class="form-fields">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <select class="form-controls" style="border-radius: 0px;">
+                                <option>Venta</option>
+                                <option>Aquiler</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <select class="form-controls" style="border-radius: 0px;">
+                                <option>Casa</option>
+                                <option>Departamento</option>
+                                <option>Terreno</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12">
+                            <input type="text" class="form-controls" placeholder="Busco por Distrito, Codigo o Descripcion">
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12">
+                            <a class="btnt btn-defaulte" href="#" role="button">Buscar</a>
+                        </div>
+                    </div>
+                </form>
+                <br><br><br><br><br><br>
+        </div>
+    </div>
+</div>
+<!--search finder-->
+
+
+
+
+<!--cards-->
+
+
+<section class="seccion_bg">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" align="center">
+        <br><br><br><br>
+            <span class="sea_textp">NOVEDADES PARA TI</span>
+            <p>Lanzamientos Inmobiliarios</p>
+
+     
+            <div class="owl-two owl-carousel owl-theme">
+                <div class="item slushi" style="background: url(images/bitmap.png);">
+                    <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
+                        <div class="col-md-6 col-xs-12 card_home" align="left">Residencia Altamira</div>
+                        <div class="col-md-6 col-xs-12 card_price" align="right">$ 95.000</div>
+                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i> Direccion: Av la molica calle #1234 Lima - Peru</p>
+                    </div>
+                    <div class="row botton_title navbar-fixed-bottom" >
+                        <ul class="card_list">
+                            <li><i class="fas fa-home"></i> 78 mts</li>
+                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                            <li><i class="fas fa-car"></i> 1 Estacionamiento</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item slushi" style="background: url(images/1.png);">
+                    <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
+                        <div class="col-md-6 col-xs-12 card_home" align="left">Residencia Altamira</div>
+                        <div class="col-md-6 col-xs-12 card_price" align="right">$ 88.000</div>
+                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i> Direccion: Av la molica calle #1234 Lima - Peru</p>
+                    </div>
+                    <div class="row botton_title navbar-fixed-bottom" >
+                        <ul class="card_list">
+                            <li><i class="fas fa-home"></i> 78 mts</li>
+                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                            <li><i class="fas fa-car"></i> 1 Parking</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        <br><br><br><br>
+        </div>
+    </div>
+</div>
+</section>
+<!--cards-->
 
 
  <!-- Set up your HTML -->
@@ -166,7 +257,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-          $('.owl-carousel').owlCarousel({
+          $('.owl-one').owlCarousel({
                 loop:true,
                 margin:0,
                 autoplay:true,
@@ -181,6 +272,28 @@
                     },
                     1000:{
                         items:1
+                    }
+                }
+            })
+        });
+    </script>
+     <script type="text/javascript">
+        $(document).ready(function(){
+          $('.owl-two').owlCarousel({
+                loop:true,
+                margin:50,
+                autoplay:false,
+                autoplayTimeout:2000,
+                nav:false,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
                     }
                 }
             })

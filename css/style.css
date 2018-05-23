@@ -1,5 +1,4 @@
 /**seccion top menu - menu **/
-
 .top_menu{
 	padding:  20px;
 	background-color: #0091cd;
@@ -11,8 +10,6 @@
 	width: 200px;
     height: 100px;
 }
-
-
 @media only screen and (max-width: 600px) {
 	.logo{
 		width: 150px;
@@ -32,11 +29,11 @@
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
 }
-
 .navbar-default .navbar-nav > li > a {
     color: #1a3162;
+    font-size: 16px;
+    font-weight: 500;
 }
-
 .navbar-brand {
     float: left;
     height: 30px;
@@ -51,11 +48,9 @@
     margin-bottom: 0px !important;
     border: 1px solid transparent;
 }
-
 .navbar-default {
     background-color: #ffffff;
 }
-
 @media only screen and (max-width: 600px) {
 	.navbar-brand {
 	    float: left;
@@ -71,13 +66,31 @@
 
 
 /** seccion slider  derecho **/
-
 .bg_slide_de{
 	background: url(../images/1.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 400px;
 }
+.item{
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 400px;
+
+}
+.textowl{
+	color: white;
+	font-size: 24px;
+	font-weight: 100;
+	padding: 20px;
+	background-color: #f9f9f950;
+}
+.textowlp span{
+	color: white;
+	font-size: 32px;
+	font-weight: normal;
+}
+
 
 
 
@@ -90,12 +103,6 @@
 	margin: 0px;
 	padding: 0px;
 }
-
-
-
-
-
-
 .items{
 	height: 400px !important;
 }
@@ -103,3 +110,126 @@
 .lines{
 	border-color: 2px solid black;
 }
+
+/** Seccion search finder**/
+.sea_textp{
+	font-size: 42px;
+	font-weight: bold !important;
+	text-align: center;
+	color: #000;
+	letter-spacing: 2px;
+
+}
+.sea_texts{}
+
+.btnt {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+   /* border-radius: 4px;*/
+}
+
+.btn-defaulte {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.form-controls {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+   /* border-radius: 4px;*/
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+
+
+
+/** CARDS **/
+
+.seccion_bg{
+	background-color: #f7f7f7;
+
+}
+
+.card_title{
+	background-color: #20233e;
+	color: white;
+}
+.card_home{
+	color: white;
+	font-weight: 500;
+	line-height: 30px;
+}
+.card_price{
+	font-size: 22px;
+	color: #95c41f;
+	font-weight: 500;
+}
+.card_adres{
+	color: #f7f7f7;
+	font-weight: 300;
+	font-size: 12px;
+	text-align: left;
+	padding-left: 14px;
+}
+
+.slushi{
+	height: 430px !important;
+}
+
+
+.card_list{
+	list-style: none;
+	color: white;
+	padding: 0px;
+}
+
+
+.card_list li{
+	display: inline-block;
+	padding: 5px;
+}
+
+.botton_title{
+	margin: 0px;
+    padding: 10px 0px;
+    background-color: #00000050;
+
+}
+
+
+
+
+
+
+
+
