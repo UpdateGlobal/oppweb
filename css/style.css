@@ -13,10 +13,9 @@
 @media only screen and (max-width: 600px) {
 	.logo{
 		width: 150px;
-    	height: 100px;
-    	margin-top: 15px;
-	}
-	
+    	height: 80px;
+    	margin-top: 60px;	
+    	}	
 }
 .caret {
     display: none;
@@ -62,7 +61,45 @@
 	}
 	
 }
+.navbar-default .navbar-toggle {
+    border-color: #0191ce;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #0191cf;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #00519c;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #ffffff;
+}
 
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 2px solid transparent;
+    border-radius: 0px; 
+}
+.navbar-collapse {
+    padding-right: 15px;
+    padding-left: 35px;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+    border-top: 1px solid transparent;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+}
+.navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    line-height: 10px;
+}
 
 
 /** seccion slider  derecho **/
@@ -225,6 +262,166 @@
     background-color: #00000050;
 
 }
+
+
+
+
+/** card rents**/
+.card_rent{
+	height: 300px !important;
+}
+.rent_img{
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+.rent_valor{
+	font-size: 20px;
+	color: #95c41f;
+	font-weight: normal;
+}
+.rent_text{
+	font-size: 46px;
+	font-weight: 900;
+	margin: 0px;
+}
+.rent_p{
+font-size: 25px;
+    font-weight: 300;
+    margin: 0px;
+    color: grey;
+    line-height: 24px;
+}
+.botton_rent {
+margin: 0px;
+    padding: 10px 7px;
+    background-color: #20233e;
+    width: 160px;
+    position: relative;
+    margin-top: -48px;
+    float: right;
+}
+.rent_shadow{
+    border: 1px solid #9e9e9e50;
+}
+.rent_item {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+}
+.rent_titl{
+    margin: 15px;
+    color: grey;
+    font-size: 16px;
+}
+.rent_list{
+	list-style: none;
+	color: grey;
+	padding: 0px;
+}
+.rent_list li{
+	display: inline-block;
+	padding: 5px;
+}
+.owl-carousel .owl-item img {
+    display: block;
+    width: 100%;
+    height: 200px;
+}
+
+
+
+
+/** About **/
+
+.abt_img{
+padding: 30px;
+}
+.about{
+	font-size: 72px;
+    color: #e0dfdf;
+    font-weight: 900;
+    letter-spacing: 7px;
+}
+@media only screen and (max-width: 600px) {
+	.about{
+		font-size: 52px;
+	    color: #e0dfdf;
+	    font-weight: 900;
+	    letter-spacing: 7px;
+	}
+}
+.abt_nom{
+font-size: 32px;
+    color: #000;
+    font-weight: 500;
+    margin-top: -70px;
+    position: absolute;
+}
+.art_abt{
+	font-size: 22px;
+    color: #9e9e9e;
+    padding-right: 38px;
+    text-align: justify;
+}
+@media only screen and (max-width: 600px) {
+	.art_abt{
+	font-size: 22px;
+	    color: #9e9e9e;
+	    padding-right: 2px;
+	    text-align: justify;
+	}
+}
+
+
+/** cONTACTO **/
+.cont_bg{
+	background-color: #71b101;
+	padding: 30px;
+}
+
+.btn-default {
+    color: #fff;
+    background-color: #fff0;
+    border-color: #fff;
+}
+.btn-lg, .btn-group-lg > .btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 2px;
+}
+
+.cont_txt{
+	color: white;
+    border-left: 5px solid white;
+    padding-left: 20px
+
+}
+
+
+.cont_btn{
+	margin: 30px	;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

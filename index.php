@@ -59,7 +59,7 @@
 
 
 <!--topmenu-->
-<div class="top_menu">
+<div class="top_menu hidden-xs hidden-sm">
     <div class="container_fluid">
         <div class="row">
             <div class="col-md-4 col-md-offset-8">Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723</div>
@@ -71,7 +71,7 @@
 
 <!--menu-->
 <nav class="navbar navbar-default">
-  <div class="container-fluid" style="padding: 10px;">
+  <div class="container-fluid" style="padding: 30px 5px 30px;">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -126,7 +126,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6 bg_slide_de">  
-                <h1 style="margin: 30px;color: white; font-weight: 100; background-color: #ffffff50;padding: 10px;">Tituloo</h1>
+                <h1 style="margin: 0px;color: white; font-weight: 100; background-color: #ffffff50;padding: 10px;">Tituloo</h1>
         </div>
         <div class="col-sm-6 bg_slide_iz">
             <div class="owl-one owl-carousel owl-theme">
@@ -181,14 +181,8 @@
 </div>
 <!--search finder-->
 
-
-
-
 <!--cards-->
-
-
 <section class="seccion_bg">
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" align="center">
@@ -241,6 +235,242 @@
 </section>
 <!--cards-->
 
+<!--card_rents-->
+<section>
+<div class="container-fluid">
+    <div class="row" align="center">
+            <br><br><br><br>
+            <h3 class="rent_text">NOVEDADES PARA TI</h3>
+            <p class="rent_p">Lanzamientos Inmobiliarios</p>
+            <br>
+            <br>
+            <br>
+        <div class="col-md-3" align="left">
+            <p class="rent_p">Propiedad</p>
+            <h3 class="rent_text">ALQUILER</h3>
+            <p class="rent_p">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
+        </div>  
+
+        <div class="col-md-9" >
+   
+            <div class="owl-tree owl-carousel owl-theme">
+
+                <div class="rent_img">
+                    <div class="rent_item rent_shadow" >
+                        <div class="row" style="margin: 0px;">
+                            <img src="images/1.png" class="rent_img" alt="">
+                            <div class="botton_rent">
+                                <div class="rent_valor">$ 3000</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0px;">
+                            <p class="rent_titl">20 Apartamentos tipo A</p>
+                        <ul class="rent_list">
+                            <li><i class="fas fa-home"></i> 78 mts</li>
+                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="rent_img">
+                    <div class="rent_item rent_shadow" >
+                        <div class="row" style="margin: 0px;">
+                            <img src="images/bitmap.png" class="rent_img" alt="">
+                            <div class="botton_rent">
+                                <div class="rent_valor">$ 3000</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0px;">
+                            <p class="rent_titl">20 Apartamentos tipo A</p>
+                        <ul class="rent_list">
+                            <li><i class="fas fa-home"></i> 78 mts</li>
+                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr style="margin: 80px 0px;">
+
+<div class="container-fluid">
+    <div class="row" align="center">
+        <div class="col-md-3" align="left">
+            <p class="rent_p">Propiedad</p>
+            <h3 class="rent_text">EN VENTA</h3>
+            <p class="rent_p">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
+        </div>  
+
+        <div class="col-md-9" >
+   
+            <div class="owl-tree owl-carousel owl-theme">
+
+                <div class="rent_img">
+                    <div class="rent_item rent_shadow" >
+                        <div class="row" style="margin: 0px;">
+                            <img src="images/1.png" class="rent_img" alt="">
+                            <div class="botton_rent">
+                                <div class="rent_valor">$ 3000</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0px;">
+                            <p class="rent_titl">20 Apartamentos tipo A</p>
+                        <ul class="rent_list">
+                            <li><i class="fas fa-home"></i> 78 mts</li>
+                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="rent_img">
+                    <div class="rent_item rent_shadow" >
+                        <div class="row" style="margin: 0px;">
+                            <img src="images/bitmap.png" class="rent_img" alt="">
+                            <div class="botton_rent">
+                                <div class="rent_valor">$ 3000</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0px;">
+                            <p class="rent_titl">20 Apartamentos tipo A</p>
+                        <ul class="rent_list">
+                            <li><i class="fas fa-home"></i> 78 mts</li>
+                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!--card_sale-->
+<br>
+<br>
+<br>
+<!--empresa-->
+<section class="seccion_bg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="images/pedraza-logo-footer@2x.png" class="img-responsive abt_img">
+            </div>
+            <div class="col-md-7">
+                <h3 class="about">Nosotros</h3>
+                <p class="abt_nom">Octavio Pedraza Porras E Hijos</p>
+                <br>
+                <article class="art_abt"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor.<br>
+                Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br><br>
+                Pudes tambien<a href="#!"> Descargar nuestra App</a> y recibir notificaciones.
+                </article>
+              
+                <br><br>
+            </div>
+        </div>
+    </div>   
+</section>
+<!--empresa-->
+
+
+
+<!--Contacto-->
+
+<section class="cont_bg">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="images/img2.png" class="img-responsive">
+        </div>
+        <div class="col-md-5">
+            <div class="cont_txt">
+                <br>
+                <h3>LOREN IPSUN</h3>
+                <p>loren ipsun text da moret</p>
+                <br>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="cont_btn">
+             <button type="button" class="btn btn-default btn-lg">Contactanos</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</section>
+
+<!--Contacto-->
+
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
 
  <!-- Set up your HTML -->
            
@@ -282,8 +512,30 @@
           $('.owl-two').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:false,
+                autoplay:true,
                 autoplayTimeout:2000,
+                nav:false,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
+                    }
+                }
+            })
+        });
+    </script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('.owl-tree').owlCarousel({
+                loop:true,
+                margin:50,
+                autoplay:true,
+                autoplayTimeout:1000,
                 nav:false,
                 responsive:{
                     0:{
