@@ -48,17 +48,13 @@
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/style.css">
-   <!--  <link rel="stylesheet" href="css/bootstrap-theme.css"/> -->
-
-
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-<link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
+    <!-- <link rel="stylesheet" href="css/util.css"/> -->
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
 </head>
 <body>
-
-
-
-<!--topmenu-->
+<!--topmenu-
 <div class="top_menu hidden-xs hidden-sm">
     <div class="container_fluid">
         <div class="row">
@@ -69,10 +65,10 @@
 <!--topmenu-->
 
 
-<!--menu-->
+<!--menu-
 <nav class="navbar navbar-default">
   <div class="container-fluid" style="padding: 30px 5px 30px;">
-    <!-- Brand and toggle get grouped for better mobile display -->
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -85,7 +81,7 @@
       </a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -117,8 +113,8 @@
         <li><a href="#">Blog</a></li>
         <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 <!--menu-->
 
@@ -145,7 +141,7 @@
 </div>
 <!--slider-->
 
-<!--search finder-->
+<!--search finder--
 <div class="container">
     <div class="row">
         <div class="col-md-12" align="center">
@@ -188,8 +184,8 @@
         <div class="col-md-12" align="center">
         <br><br><br><br>
             <span class="sea_textp">NOVEDADES PARA TI</span>
-            <p>Lanzamientos Inmobiliarios</p>
-
+            <p class="card_p">Lanzamientos Inmobiliarios</p>
+            <br>
      
             <div class="owl-two owl-carousel owl-theme">
                 <div class="item slushi" style="background: url(images/bitmap.png);">
@@ -366,6 +362,7 @@
 <!--empresa-->
 <section class="seccion_bg">
     <div class="container-fluid">
+        <br><br>
         <div class="row">
             <div class="col-md-5">
                 <img src="images/pedraza-logo-footer@2x.png" class="img-responsive abt_img">
@@ -374,14 +371,14 @@
                 <h3 class="about">Nosotros</h3>
                 <p class="abt_nom">Octavio Pedraza Porras E Hijos</p>
                 <br>
-                <article class="art_abt"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                <p class="art_abt"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor.<br>
+                consequat. Duis aute irure dolor.
                 Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br><br>
-                Pudes tambien<a href="#!"> Descargar nuestra App</a> y recibir notificaciones.
-                </article>
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                </p>
+                <p style="font-size: 18px;"><span style="Color: green;">Desacarga</span>  nuestra App, para recibir notificaciones</p>
               
                 <br><br>
             </div>
@@ -389,90 +386,262 @@
     </div>   
 </section>
 <!--empresa-->
-
-
-
 <!--Contacto-->
-
 <section class="cont_bg">
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            <img src="images/img2.png" class="img-responsive">
-        </div>
-        <div class="col-md-5">
-            <div class="cont_txt">
-                <br>
-                <h3>LOREN IPSUN</h3>
-                <p>loren ipsun text da moret</p>
-                <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="images/img2.png" class="img-responsive">
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="cont_btn">
-             <button type="button" class="btn btn-default btn-lg">Contactanos</button>
+            <div class="col-md-5">
+                <div class="cont_txt">
+                    <br>
+                    <h3>LOREN IPSUN</h3>
+                    <p>loren ipsun text da moret</p>
+                    <br>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cont_btn">
+                 <button type="button" class="btn btn-default btn-lg">Contactanos</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    
 </section>
-
 <!--Contacto-->
+<!--formulario-->
+<section class="for_bg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <img src="images/agent-image-1.png" class="img-responsive for_img">
+            </div>
+            <div class="col-md-6 col-xs-12">
+            
+                <div class="wrap-contact2">
+                    <div align="center">
+                    <h3 class="for_text">CONTÁCTANOS</h3>
+                    <p class="for_p">Ayudamos a vender tu inmuble</p>
+                    <br>
+                    </div>
+                    <form class="contact2-form validate-form">
+                        <div class="wrap-input2 validate-input" data-validate="Name is required">
+                            <input class="input2" type="text" name="name">
+                            <span class="focus-input2" data-placeholder="Nombre"></span>
+                        </div>
 
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
- <br>
+                        <div class="wrap-input2 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                            <input class="input2" type="text" name="email">
+                            <span class="focus-input2" data-placeholder="Email"></span>
+                        </div>
 
- <!-- Set up your HTML -->
+                        <div class="wrap-input2 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                            <input class="input2" type="text" name="email">
+                            <span class="focus-input2" data-placeholder="Telefono"></span>
+                        </div>
+
+                        <div class="wrap-input2 validate-input" data-validate="Message is required">
+                            <textarea class="input2" name="message"></textarea>
+                            <span class="focus-input2" data-placeholder="Mensaje"></span>
+                        </div>
+
+                        <div class="container-contact2-form-btn">
+                            <div class="wrap-contact2-form-btn">
+                                <div class="contact2-form-bgbtn"></div>
+                                <button class="contact2-form-btn">
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>    
+</section>
+<!--formulario-->
+
+
+<!--mcard-->
+<section style="background-color: #f7f7f7;">
+<div class="container-fluid">
+    <div class="row mcard" align="center"><br>
+        <h3 class="rent_text">CONSEJOS Y NOTICIAS</h3>
+        <p class="rent_p">Lo que debes saber si buscas un inmueble</p>
+    </div>        
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+              <br><br>
+                <div class="card">
+                    <img class="card-img-top" src="images/bitmap.png">
+                    <div class="card-block">
+                        <h4 class="card-title mt-3">Real state life</h4>
+                        <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
+                        <div class="meta">
+                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <small class="smtext">Leer Mas...</small>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mcard_list">
+                                    <li><i class="fas fa-heart" style="color: red;"></i> 1234</li>
+                                    <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
+                                    <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 9348</li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+        </div>
+        <br>
+        <div class="col-md-6 col-xs-12">
+                <br>
+                <div class="row ncard_btn">
+                    <div class="col-md-12">
+                        <div class="ncard">
+                            <div class="col-md-5" style="padding: 0px;">
+                                <img src="http://via.placeholder.com/800x630" class="ncard_img">
+                            </div>
+                            <div class="col-md-7" style="padding: 0px;">
+                                <div class="card-block">
+                                    <h4 class="ncard-title mt-3">Real state life</h4>
+                                    <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
+                                    <div class="meta">
+                                        <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                                <div class="ncard-footer">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <small class="smtext">Leer Mas...</small>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <ul class="ncard_list">
+                                                <li><i class="fas fa-heart" style="color: red;"></i> 12</li>
+                                                <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
+                                                <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
+                                            </ul>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end card-->
+                <div class="row ncard_btn">
+                    <div class="col-md-12">
+                        <div class="ncard">
+                            <div class="col-md-5" style="padding: 0px;">
+                                <img src="http://via.placeholder.com/800x630" class="ncard_img">
+                            </div>
+                            <div class="col-md-7" style="padding: 0px;">
+                                <div class="card-block">
+                                    <h4 class="ncard-title mt-3">Real state life</h4>
+                                    <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
+                                    <div class="meta">
+                                        <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                                <div class="ncard-footer">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <small class="smtext">Leer Mas...</small>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <ul class="ncard_list">
+                                                <li><i class="fas fa-heart" style="color: red;"></i> 12</li>
+                                                <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
+                                                <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
+                                            </ul>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end card-->
+                <div class="row ncard_btn">
+                    <div class="col-md-12">
+                        <div class="ncard">
+                            <div class="col-md-5" style="padding: 0px;">
+                                <img src="http://via.placeholder.com/800x630" class="ncard_img">
+                            </div>
+                            <div class="col-md-7" style="padding: 0px;">
+                                <div class="card-block">
+                                    <h4 class="ncard-title mt-3">Real state life</h4>
+                                    <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
+                                    <div class="meta">
+                                        <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                                <div class="ncard-footer">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <small class="smtext">Leer Mas...</small>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <ul class="ncard_list">
+                                                <li><i class="fas fa-heart" style="color: red;"></i> 12</li>
+                                                <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
+                                                <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
+                                            </ul>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end card-->
+        </div>    
+    </div>
+</div>
+<br><br><br>
+</section>
+<!--mcard-->
+
+
+
+<!--footer-->
+<section style="background-color: #fff">
+<br><br><br><br><br><br><br><br>
+</section>
+<footer class="page-footer">
+          <div class="container" align="center">
+            <div class="row">
+              <div class="col-md-12">
+                <img src="images/pedraza-logo-footer@2x.png" class="img-responsive abt_img2">
+                <!-- <img src="../img/logo-update-2018.png" class="img_foo"> -->
+                <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                  <div class="row img_foo">
+                    <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
+                    <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
+                    <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
+                    <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>
+                     
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright bgfoote">
+            <div class="container" style="font-size: 10px;">
+                <div class="row">
+                    <div class="col-md-12" align="center">
+                         <p class="foo_bt">Update Global Marketing © | info@update.pe </p>   
+                    </div>
+                </div>
+            </div>
+          </div>
+</footer>
+ <!--footer-->           
+
+
+<!-- Set up your HTML -->
            
 
 
