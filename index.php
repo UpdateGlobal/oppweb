@@ -54,7 +54,7 @@
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
 </head>
 <body>
-<!--topmenu-
+<!--topmenu-->
 <div class="top_menu hidden-xs hidden-sm">
     <div class="container_fluid">
         <div class="row">
@@ -65,11 +65,11 @@
 <!--topmenu-->
 
 
-<!--menu-
+<!--menu-->
 <nav class="navbar navbar-default">
   <div class="container-fluid" style="padding: 30px 5px 30px;">
 
-    <div class="navbar-header">
+    <div class="navbar-header" style="margin-right: 0px;">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -182,7 +182,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" align="center">
-        <br><br><br><br>
+        <br>
             <span class="sea_textp">NOVEDADES PARA TI</span>
             <p class="card_p">Lanzamientos Inmobiliarios</p>
             <br>
@@ -235,7 +235,7 @@
 <section>
 <div class="container-fluid">
     <div class="row" align="center">
-            <br><br><br><br>
+            <br><br>
             <h3 class="rent_text">NOVEDADES PARA TI</h3>
             <p class="rent_p">Lanzamientos Inmobiliarios</p>
             <br>
@@ -245,6 +245,7 @@
             <p class="rent_p">Propiedad</p>
             <h3 class="rent_text">ALQUILER</h3>
             <p class="rent_p">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
+            <br>
         </div>  
 
         <div class="col-md-9" >
@@ -304,6 +305,7 @@
             <p class="rent_p">Propiedad</p>
             <h3 class="rent_text">EN VENTA</h3>
             <p class="rent_p">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
+            <br>
         </div>  
 
         <div class="col-md-9" >
@@ -356,9 +358,11 @@
 </div>
 </section>
 <!--card_sale-->
+
 <br>
 <br>
 <br>
+
 <!--empresa-->
 <section class="seccion_bg">
     <div class="container-fluid">
@@ -386,6 +390,7 @@
     </div>   
 </section>
 <!--empresa-->
+
 <!--Contacto-->
 <section class="cont_bg">
     <div class="container-fluid">
@@ -410,6 +415,7 @@
     </div>
 </section>
 <!--Contacto-->
+
 <!--formulario-->
 <section class="for_bg">
     <div class="container-fluid">
@@ -463,7 +469,6 @@
 </section>
 <!--formulario-->
 
-
 <!--mcard-->
 <section style="background-color: #f7f7f7;">
 <div class="container-fluid">
@@ -506,7 +511,7 @@
                     <div class="col-md-12">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
-                                <img src="http://via.placeholder.com/800x630" class="ncard_img">
+                                <img src="http://via.placeholder.com/290X220" class="ncard_img">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
@@ -538,7 +543,7 @@
                     <div class="col-md-12">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
-                                <img src="http://via.placeholder.com/800x630" class="ncard_img">
+                                <img src="http://via.placeholder.com/290X220" class="ncard_img">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
@@ -570,7 +575,7 @@
                     <div class="col-md-12">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
-                                <img src="http://via.placeholder.com/800x630" class="ncard_img">
+                                <img src="http://via.placeholder.com/290X220" class="ncard_img">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
@@ -605,8 +610,6 @@
 </section>
 <!--mcard-->
 
-
-
 <!--footer-->
 <section style="background-color: #fff">
 <br><br><br><br><br><br><br><br>
@@ -638,7 +641,7 @@
             </div>
           </div>
 </footer>
- <!--footer-->           
+<!--footer-->           
 
 
 <!-- Set up your HTML -->
