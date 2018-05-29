@@ -111,7 +111,7 @@
         <li class="lines"><a href="#">Quiero Vender</a></li>
         <li><a href="#">Nosotros</a></li>
         <li><a href="#">Blog</a></li>
-        <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></li>
+        <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
       </ul>
     </div>
   </div>
@@ -431,33 +431,32 @@
                     <br>
                     </div>
                     <form class="contact2-form validate-form">
-                        <div class="wrap-input2 validate-input" data-validate="Name is required">
+                        <div class="wrap-input2 validate-input" data-validate="Nombre requerido">
                             <input class="input2" type="text" name="name">
                             <span class="focus-input2" data-placeholder="Nombre"></span>
                         </div>
 
-                        <div class="wrap-input2 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="wrap-input2 validate-input" data-validate="Correo requerido">
                             <input class="input2" type="text" name="email">
                             <span class="focus-input2" data-placeholder="Email"></span>
                         </div>
 
-                        <div class="wrap-input2 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="wrap-input2 validate-input" data-validate="Telefono requerido">
                             <input class="input2" type="text" name="email">
                             <span class="focus-input2" data-placeholder="Telefono"></span>
                         </div>
 
-                        <div class="wrap-input2 validate-input" data-validate="Message is required">
+                        <div class="wrap-input2 validate-input" data-validate="Mensaje requerido">
                             <textarea class="input2" name="message"></textarea>
                             <span class="focus-input2" data-placeholder="Mensaje"></span>
                         </div>
 
                         <div class="container-contact2-form-btn">
-                            <div class="wrap-contact2-form-btn">
-                                <div class="contact2-form-bgbtn"></div>
+                          
                                 <button class="contact2-form-btn">
                                     Enviar Mensaje
                                 </button>
-                            </div>
+
                         </div>
                     </form>
                 </div>

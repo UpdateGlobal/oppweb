@@ -111,7 +111,7 @@
         <li class="lines"><a href="#">Quiero Vender</a></li>
         <li><a href="#">Nosotros</a></li>
         <li><a href="#">Blog</a></li>
-        <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></li>
+        <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
       </ul>
     </div>
   </div>
@@ -122,14 +122,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 col-xs-12">
       <p class="branch">Inicio > Ventas </p>
     
     </div>
-    <div class="col-md-2" style="float: right;">
+    <div class="col-md-2 col-xs-12" style="float: right;">
       <div class="wrap-input2 validate-input" >
           <input class="input2" type="text" name="find">
-          <span class="focus-input2" data-placeholder="Buscar"></span>
+          <span class="focus-input2" data-placeholder=""><i class="fas fa-search"></i></span>
       </div>
     </div>
   </div>
@@ -172,7 +172,7 @@
           <!--item inmueble-->
           <div class="ncard">
             <div class="col-md-5" style="padding: 0px;">
-              <img src="http://via.placeholder.com/290X220" class="ncard_img">
+              <img src="http://via.placeholder.com/290X220" class="ncard_img2">
             </div>
               <div class="col-md-7" style="padding: 0px;">
                   <div class="card-block">
@@ -203,7 +203,7 @@
           <!--item inmueble-->
           <div class="ncard">
             <div class="col-md-5" style="padding: 0px;">
-              <img src="http://via.placeholder.com/290X220" class="ncard_img">
+              <img src="http://via.placeholder.com/290X220" class="ncard_img2">
             </div>
               <div class="col-md-7" style="padding: 0px;">
                   <div class="card-block">
@@ -234,7 +234,7 @@
           <!--item inmueble-->
           <div class="ncard">
             <div class="col-md-5" style="padding: 0px;">
-              <img src="http://via.placeholder.com/290X220" class="ncard_img">
+              <img src="http://via.placeholder.com/290X220" class="ncard_img2">
             </div>
               <div class="col-md-7" style="padding: 0px;">
                   <div class="card-block">
