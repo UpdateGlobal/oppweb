@@ -98,7 +98,7 @@
 .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 5px;
-    line-height: 10px;
+    line-height: 20px;
 }
 
 
@@ -288,6 +288,7 @@
 	font-size: 46px;
 	font-weight: 900;
 	margin: 0px;
+	color: #000;
 }
 .rent_p{
 font-size: 25px;
@@ -506,6 +507,7 @@ font-size: 32px;
     font-size: 35px;
     font-weight: 500;
     line-height: 1.2857em;
+    color: #000;
 }
 
 .card-text {
@@ -624,6 +626,7 @@ font-size: 32px;
     font-size: 28px;
     font-weight: 500;
     line-height: 1.2857em;
+    color: #000;
 }
 
 .ncard_list {
@@ -631,6 +634,8 @@ font-size: 32px;
     color: grey;
     padding: 0px;
     font-size: 14px;
+    float: right;
+    margin-right: 20px;;
 }
 .ncard_list li{
     display: inline-block;
@@ -728,3 +733,39 @@ font-size: 32px;
 .abt_img2{
     margin-top: -170px;
 }
+
+
+
+
+
+/*** VIEW ***/
+
+
+.hr{
+    border: 1.2px solid;
+    color: #0191ce;
+}
+
+
+.list_inm{
+   color: #0191ce;
+   font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

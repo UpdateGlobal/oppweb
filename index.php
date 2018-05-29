@@ -192,7 +192,7 @@
                     <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
                         <div class="col-md-6 col-xs-12 card_home" align="left">Residencia Altamira</div>
                         <div class="col-md-6 col-xs-12 card_price" align="right">$ 95.000</div>
-                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i> Direccion: Av la molica calle #1234 Lima - Peru</p>
+                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i> Direccion: Av la molica calle #1234 Miraflroes</p>
                     </div>
                     <div class="row botton_title navbar-fixed-bottom" >
                         <ul class="card_list">
@@ -208,7 +208,7 @@
                     <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
                         <div class="col-md-6 col-xs-12 card_home" align="left">Residencia Altamira</div>
                         <div class="col-md-6 col-xs-12 card_price" align="right">$ 88.000</div>
-                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i> Direccion: Av la molica calle #1234 Lima - Peru</p>
+                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i> Direccion: Av la molica calle #1234 San Isidro</p>
                     </div>
                     <div class="row botton_title navbar-fixed-bottom" >
                         <ul class="card_list">
@@ -382,7 +382,6 @@
                 Excepteur sint occaecat cupidatat non
                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
                 </p>
-                <p style="font-size: 18px;"><span style="Color: green;">Desacarga</span>  nuestra App, para recibir notificaciones</p>
               
                 <br><br>
             </div>
@@ -662,7 +661,7 @@
           $('.owl-one').owlCarousel({
                 loop:true,
                 margin:0,
-                autoplay:true,
+                autoplay:false,
                 autoplayTimeout:2000,
                 nav:false,
                 responsive:{
@@ -684,7 +683,7 @@
           $('.owl-two').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:true,
+                autoplay:false,
                 autoplayTimeout:2000,
                 nav:false,
                 responsive:{
@@ -706,7 +705,7 @@
           $('.owl-tree').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:true,
+                autoplay:false,
                 autoplayTimeout:1000,
                 nav:false,
                 responsive:{
