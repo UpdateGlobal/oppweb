@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- The above 3 meta tags *must* come first in the head -->
 
-	<title>Opp - Vista</title>
+	<title>Opp - Inmuebles</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -52,6 +52,34 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
+
+<style type="text/css">
+ /*   .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+    display: block !important;
+    }*/
+    .owl-theme .owl-nav.disabled+.owl-dots {
+        margin-top: 10px !important;
+        display: block !important;
+    }
+
+    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+        background: #00519c;
+    }
+
+    .owl-theme .owl-dots .owl-dot span {
+        width: 15px;
+        height: 15px;
+        margin: 5px 7px;
+        background: #D6D6D6;
+        display: block;
+        -webkit-backface-visibility: visible;
+        transition: opacity .2s ease;
+        border-radius: 30px;
+    }
+</style>
+
+
+
 </head>
 <body>
 <!--topmenu-->
@@ -119,151 +147,85 @@
 <!--menu-->
 
 <!--finder-->
-
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-xs-12">
-      <p class="branch">Inicio > Ventas </p>
+    <div class="col-md-12">
+      <p class="branch">Inicio > Ventas > Departamentos > Miraflres > Residencia El Placer</p>
     
-    </div>
-    <div class="col-md-2 col-xs-12" style="float: right;">
-      <div class="wrap-input2 validate-input" >
-          <input class="input2" type="text" name="find">
-          <span class="focus-input2" data-placeholder=""><i class="fas fa-search"></i></span>
-      </div>
     </div>
   </div>
 </div>
 <!-- end finder-->
 
-<!--view-->
+<!--inmueble-->
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <p><b>Filtrar Busqueda</b></p>
-        <hr class="hr">
-      <p><b>Inmuebles</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p>
-      <ul>
-          <li>Departamentos<span class="list_inm"> (12)</span></li>
-          <li>Casa<span class="list_inm"> (32)</span></li>
-          <li>Terrenos<span class="list_inm"> (42)</span></li>
-          <li>Oficinas<span class="list_inm"> (21)</span></li>
-          <li>Locales Comerciales<span class="list_inm"> (22)</span></li>
-          <li>Oficinas Industriales<span class="list_inm"> (11)</span></li>
-          <li>Otros<span class="list_inm"> (24)</span></li>
-          <li>Almacen<span class="list_inm"> (1)</span></li>
-          <li>Cochera<span class="list_inm"> (2)</span></li>
-        </ul> 
-        <p><b>Lugar</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p>
-        <ul>
-           <li>Lima <span class="list_inm"> (123)</span></li>
-           <li>Cusco <span class="list_inm"> (65)</span></li>
-           <li>Arequipa <span class="list_inm"> (24)</span></li>
-         </ul> 
-        <p><b>Distrito</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p>
-        <ul>
-           <li>Miraflroes <span class="list_inm"> (12)</span></li>
-           <li>San Isidro <span class="list_inm"> (14)</span></li>
-           <li>San Miguel <span class="list_inm"> (9)</span></li>
-         </ul> 
-    </div>
-    <div class="col-md-8">
+    <div class="col-md-8 col-xs-12">
 
-          <!--item inmueble-->
-          <div class="ncard">
-            <div class="col-md-5" style="padding: 0px;">
-              <img src="http://via.placeholder.com/290X220" class="ncard_img2">
-            </div>
-              <div class="col-md-7" style="padding: 0px;">
-                  <div class="card-block">
-                    <h4 class="ncard-title mt-3">Real state life</h4>
-                      <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                    <div class="meta">
-                      <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of.</p>
-                    </div>
-                  </div>
-                    <div class="ncard-footer">
-                      <div class="row">
-                        <div class="col-md-5">
-                          <small class="smtext">Leer Mas...</small>
-                        </div>
-                            <div class="col-md-7">
-                                <ul class="ncard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
-                                </ul>
-                            </div>
-                      </div> 
-                    </div>
-              </div>
-          </div>
-          <!--item inmueble-->
-          <br>
-          <!--item inmueble-->
-          <div class="ncard">
-            <div class="col-md-5" style="padding: 0px;">
-              <img src="http://via.placeholder.com/290X220" class="ncard_img2">
-            </div>
-              <div class="col-md-7" style="padding: 0px;">
-                  <div class="card-block">
-                    <h4 class="ncard-title mt-3">Real state life</h4>
-                      <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                    <div class="meta">
-                      <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of.</p>
-                    </div>
-                  </div>
-                    <div class="ncard-footer">
-                      <div class="row">
-                        <div class="col-md-5">
-                          <small class="smtext">Leer Mas...</small>
-                        </div>
-                            <div class="col-md-7">
-                                <ul class="ncard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
-                                </ul>
-                            </div>
-                      </div> 
-                    </div>
-              </div>
-          </div>
-          <!--item inmueble-->
-          <br>
-          <!--item inmueble-->
-          <div class="ncard">
-            <div class="col-md-5" style="padding: 0px;">
-              <img src="http://via.placeholder.com/290X220" class="ncard_img2">
-            </div>
-              <div class="col-md-7" style="padding: 0px;">
-                  <div class="card-block">
-                    <h4 class="ncard-title mt-3">Real state life</h4>
-                      <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                    <div class="meta">
-                      <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of.</p>
-                    </div>
-                  </div>
-                    <div class="ncard-footer">
-                      <div class="row">
-                        <div class="col-md-5">
-                          <small class="smtext">Leer Mas...</small>
-                        </div>
-                            <div class="col-md-7">
-                                <ul class="ncard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
-                                </ul>
-                            </div>
-                      </div> 
-                    </div>
-              </div>
-          </div>
-          <!--item inmueble-->
+        <div class="owl-for owl-carousel owl-theme">
+            <div class="item"><img src="images/1.png" class="owl_img"></div>
+            <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
+            <div class="item"><img src="images/1.png" class="owl_img"></div>
+            <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
+            <div class="item"><img src="images/1.png" class="owl_img"></div>
+            <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
+        </div> 
+
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <h4 class="title_inm mt-3">Residencia El Placer</h4>
+      <p class="date_inm"> Mayo 22 / 2018 - by Luis bernal</p>
+      <hr class="hr">
+      <small class="serch">Caracteristicas</small>
+      <ul class="card_list2">
+        <li>Precio:<span class="span">$79.000</span></li>
+        <li>Tipo:<span class="span">Departamento</span></li>
+        <li>ubicación:<span class="span">Miraflores</span></li>
+        <li>Area:<span class="span">75 mt2</span></li>
+        <li>Baños:<span class="span">1</span></li>
+        <li>Cuartos:<span class="span">4 Habitaciones</span></li>
+      </ul>
+          <a href="index.php#formulario" class="btn btn-default" >Informarme</a>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+       <h3 class="title_inm">Descripcion</h3>
+       <hr class="hr">
+       <p class="text_inm"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+       <br>
+       <h3 class="title_inm">Comodidades</h3>
+       <hr class="hr">
+       <ul class="card_list3">
+             <li><i class="fas fa-check"></i> Parque Infantil</li>
+             <li><i class="fas fa-check"></i> Canchas Deportivas</li>
+             <li><i class="fas fa-check"></i> Sala de cine</li>
+             <li><i class="fas fa-check"></i> Sala de Reuniones</li>
+             <li><i class="fas fa-check"></i> Mesa de Billar</li>
+       </ul>    
+       <br><br>
+       <h3 class="title_inm">Ubicaciuón</h3>
+      <hr class="hr">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1858607638546!2d-77.02135198470702!3d-12.099425246177809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c871a9a55fe1%3A0xb50c2424234e93b5!2sPiso+7-Of.702%2C+Av.+Rep%C3%BAblica+de+Panam%C3%A1+3563%2C+San+Isidro+15036!5e0!3m2!1ses-419!2spe!4v1527714310873" height="450" frameborder="0" style="border:0; width: 100%; margin: 40px 0px;" allowfullscreen></iframe>
+
 
     </div>
   </div>
 </div>
 
-<!--end view-->
+<!--inmueble-->
+
 
 
 
@@ -307,8 +269,31 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/npm.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('.owl-for').owlCarousel({
+                loop:true,
+                margin:0,
+                autoplay:true,
+                autoplayTimeout:2000,
+                nav:false,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                }
+            })
+        });
+    </script>
+
+
  
 
 </body>
 </html>
-

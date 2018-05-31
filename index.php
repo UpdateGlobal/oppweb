@@ -52,6 +52,9 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
+
+
+
 </head>
 <body>
 <!--topmenu-->
@@ -417,7 +420,7 @@
 
 <!--formulario-->
 <section class="for_bg">
-    <div class="container-fluid">
+    <div class="container-fluid" id="formulario">
         <div class="row">
             <div class="col-md-6 col-xs-12">
                 <img src="images/agent-image-1.png" class="img-responsive for_img">
@@ -452,12 +455,14 @@
                         </div>
 
                         <div class="container-contact2-form-btn">
-                          
+                            <div class="wrap-contact2-form-btn">
+                                <div class="contact2-form-bgbtn"></div>
                                 <button class="contact2-form-btn">
                                     Enviar Mensaje
                                 </button>
-
+                            </div>
                         </div>
+                    
                     </form>
                 </div>
 
@@ -493,7 +498,6 @@
                             </div>
                             <div class="col-md-6">
                                 <ul class="mcard_list">
-                                    <li><i class="fas fa-heart" style="color: red;"></i> 1234</li>
                                     <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
                                     <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 9348</li>
                                 </ul>
@@ -526,7 +530,6 @@
                                         </div>
                                         <div class="col-md-7">
                                             <ul class="ncard_list">
-                                                <li><i class="fas fa-heart" style="color: red;"></i> 12</li>
                                                 <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
                                                 <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
                                             </ul>
@@ -558,7 +561,6 @@
                                         </div>
                                         <div class="col-md-7">
                                             <ul class="ncard_list">
-                                                <li><i class="fas fa-heart" style="color: red;"></i> 12</li>
                                                 <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
                                                 <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
                                             </ul>
@@ -590,7 +592,6 @@
                                         </div>
                                         <div class="col-md-7">
                                             <ul class="ncard_list">
-                                                <li><i class="fas fa-heart" style="color: red;"></i> 12</li>
                                                 <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
                                                 <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
                                             </ul>
@@ -660,7 +661,7 @@
           $('.owl-one').owlCarousel({
                 loop:true,
                 margin:0,
-                autoplay:false,
+                autoplay:true,
                 autoplayTimeout:2000,
                 nav:false,
                 responsive:{
@@ -682,7 +683,7 @@
           $('.owl-two').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:false,
+                autoplay:true,
                 autoplayTimeout:2000,
                 nav:false,
                 responsive:{
@@ -704,7 +705,7 @@
           $('.owl-tree').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:false,
+                autoplay:true,
                 autoplayTimeout:1000,
                 nav:false,
                 responsive:{
