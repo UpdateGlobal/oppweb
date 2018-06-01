@@ -116,144 +116,61 @@
     </nav>
     <!--menu-->
 
-    <!--finder-->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-xs-12">
-          <p class="branch">Inicio > Blog </p>
-        </div>
-        <div class="col-md-2 col-xs-12" style="float: right;">
-          <div class="wrap-input2 validate-input" >
-              <input class="input2" type="text" name="find">
-              <span class="focus-input2" data-placeholder=""><i class="fas fa-search"></i></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end finder-->
-
-    <!--bodyBlog-->
-    <div class="container">
-      <div class="row">
-          <div class="col-md-2">
-            <p><b>Categorias</b></p>
-            <hr class="hr">
-              <p><b>Categoria #1</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p>
-              <p><b>Categoria #2</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p>
-              <p><b>Categoria #3</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p> 
-              <p><b>Categoria #4</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p> 
-              <p><b>Categoria #5</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p> 
-              <p><b>Categoria #6</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p> 
-            <hr class="hr">
-            <p><b>Tags</b></p>
-            <ul class="tags">
-              <li><a href="#" class="tag">Departamentos</a></li>
-              <li><a href="#" class="tag">Casa</a></li>
-              <li><a href="#" class="tag">Oficinas</a></li>
-              <li><a href="#" class="tag">Almacenes</a></li>
-            </ul>
-          </div>
-          <div class="col-md-10">
-
-                <div class="row">
-
-                  <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card" style="margin-bottom: 30px;">
-                        <img class="card-img-top" src="images/bitmap.png">
-                        <div class="card-block">
-                            <h4 class="card-title mt-3">Real state life</h4>
-                            <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                          <div class="meta">
-                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="row">
-                            <div class="col-md-6">
-                                <small class="smtext"><a href="inmueble.php"> Leer Mas...</a></small>
-                            </div>
-                              <div class="col-md-6">
-                                <ul class="mcard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 111</li>
-                                </ul>
-                              </div>
-                          </div> 
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card">
-                        <img class="card-img-top" src="images/bitmap.png">
-                        <div class="card-block">
-                            <h4 class="card-title mt-3">Real state life</h4>
-                            <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                          <div class="meta">
-                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="row">
-                            <div class="col-md-6">
-                                <small class="smtext"><a href="inmueble.php"> Leer Mas...</a></small>
-                            </div>
-                              <div class="col-md-6">
-                                <ul class="mcard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 222</li>
-                                </ul>
-                              </div>
-                          </div> 
-                        </div>
-                    </div>
-                  </div>
-
-                </div>  <!--item row blog-->
-                <br><br>
-                <div class="row">
-
-                  <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card">
-                        <img class="card-img-top" src="images/bitmap.png">
-                        <div class="card-block">
-                            <h4 class="card-title mt-3">Real state life</h4>
-                            <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                          <div class="meta">
-                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="row">
-                            <div class="col-md-6">
-                                <small class="smtext"><a href="inmueble.php"> Leer Mas...</a></small>
-                            </div>
-                              <div class="col-md-6">
-                                <ul class="mcard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 333</li>
-                                </ul>
-                              </div>
-                          </div> 
-                        </div>
-                    </div>
-                  </div>
-
-                </div>  <!--item row blog-->    
-          </div>
-      </div>
-                <div class="row" align="center">
-                  <ul class="pagination">
-                      <li><a href="#">&laquo;</a></li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">&raquo;</a></li>
-                  </ul>
+    <!--formulario-->
+    <section class="for_bg">
+        <div class="container-fluid" id="formulario">
+            <div class="row">
+                <div class="col-md-6 col-xs-12">
+                    <img src="images/agent-image-1.png" class="img-responsive for_img">
                 </div>
-    </div> 
-    <!--bodyBlog-->
+                <div class="col-md-6 col-xs-12">
+                
+                    <div class="wrap-contact2">
+                        <div align="center">
+                        <h3 class="for_text">CONTÁCTANOS</h3>
+                        <p class="for_p">Ayudamos a vender tu inmuble</p>
+                        <br>
+                        </div>
+                        <form class="contact2-form validate-form">
+                            <div class="wrap-input2 validate-input" data-validate="Nombre requerido">
+                                <input class="input2" type="text" name="name">
+                                <span class="focus-input2" data-placeholder="Nombre"></span>
+                            </div>
+
+                            <div class="wrap-input2 validate-input" data-validate="Correo requerido">
+                                <input class="input2" type="text" name="email">
+                                <span class="focus-input2" data-placeholder="Email"></span>
+                            </div>
+
+                            <div class="wrap-input2 validate-input" data-validate="Telefono requerido">
+                                <input class="input2" type="text" name="email">
+                                <span class="focus-input2" data-placeholder="Telefono"></span>
+                            </div>
+
+                            <div class="wrap-input2 validate-input" data-validate="Mensaje requerido">
+                                <textarea class="input2" name="message"></textarea>
+                                <span class="focus-input2" data-placeholder="Mensaje"></span>
+                            </div>
+
+                            <div class="container-contact2-form-btn">
+                                <div class="wrap-contact2-form-btn">
+                                    <div class="contact2-form-bgbtn"></div>
+                                    <button class="contact2-form-btn">
+                                        Enviar Mensaje
+                                    </button>
+                                </div>
+                            </div>
+                        
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>    
+    </section>
+    <!--formulario-->
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.184647155321!2d-77.02152004930426!3d-12.099508391390115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c871aeb024b9%3A0x858d2d926451337!2sAv.+Rep%C3%BAblica+de+Panam%C3%A1+3564%2C+San+Isidro+15036!5e0!3m2!1ses-419!2spe!4v1527892951935"  height="620" frameborder="0" style="border:0; width: 100%" allowfullscreen></iframe>
 
     <!--footer-->
     <section style="background-color: #fff">
@@ -296,4 +213,5 @@
     <script src="js/owl.carousel.min.js"></script>
 </body>
 </html>
+
 
