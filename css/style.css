@@ -18,7 +18,7 @@
     	}	
 }
 .caret {
-    display: none;
+   /* display: none;*/
     width: 0;
     height: 0;
     margin-left: 2px;
@@ -47,6 +47,12 @@
     margin-bottom: 0px !important;
     border: 1px solid transparent;
 }
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 5px;
+}
+
 .navbar-default {
     background-color: #ffffff;
 }
@@ -104,7 +110,7 @@
 
 /** seccion slider  derecho **/
 .bg_slide_de{
-	background: url(../images/1.png);
+	background: url(../images/bitmap.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 400px;
@@ -227,9 +233,10 @@
 	color: white;
 }
 .card_home{
-	color: white;
-	font-weight: 500;
-	line-height: 30px;
+    color: white;
+    font-weight: 500;
+    line-height: 30px;
+    font-size: 22px;
 }
 .card_price{
 	font-size: 22px;
@@ -406,7 +413,7 @@ font-size: 32px;
 
 
 .cont_btn{
-	margin: 30px;
+	/*margin: 30px;*/
     float: right;
 }
 
@@ -466,7 +473,7 @@ font-size: 32px;
     font-weight: 500;
     margin: 10px 0px;
     color: grey;
-    line-height: 20px;
+    line-height: 26px;
 }
 
 .mcard_p2{
@@ -614,6 +621,7 @@ font-size: 32px;
     width: 100%;
     height: auto;
 }
+
 
 .ncard_p{
     font-size: 16px;
@@ -849,7 +857,7 @@ font-size: 32px;
 }
 .fas{
     color: #0191ce !important;
-    padding-left: 10px;
+    padding-right: 5px;
 }
 
 .fa_check{
@@ -857,10 +865,10 @@ font-size: 32px;
 }
 
 .btn-default {
-    color: #00519c;
+    color: #ffffff;
     background-color: #fff0;
-    border-color: #00519c;
-    margin: 30px 0px;
+    border-color: #ffffff;
+    margin: 20px 0px 0px;
     font-size: 19px;
 }
 
@@ -929,5 +937,60 @@ font-size: 32px;
 .tag:hover::after {
    border-left-color: crimson; 
 }
+
+
+.bg_con{
+    background-color: #0191cf;
+    padding: 50px 0px;
+}
+
+.for_w {
+    font-size: 27px;
+    font-weight: 300;
+    margin: 0px;
+    color: white;
+    line-height: 24px;
+}
+
+.img_post{
+    height: auto;  
+    width: 100%;
+}
+
+.branch_blog {
+    padding-top: 5px;
+    font-size: 38px;
+    font-weight: 300;
+    margin: 100px 40px;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .branch_blog {
+    padding-top: 5px;
+    font-size: 38px;
+    font-weight: 300;
+    margin: 100px 0px;
+    color: white;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

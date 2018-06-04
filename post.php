@@ -121,24 +121,16 @@
     </nav>
     <!--menu-->
 
-    <!--finder-->
-    <div class="container">
+    <div class="container-fluid" style="background: url(images/bitmap.png); background-size: cover; margin-bottom: 50px;">
       <div class="row">
-        <div class="col-md-8 col-xs-12">
-          <p class="branch">Inicio > Blog </p>
-        </div>
-        <div class="col-md-2 col-xs-12" style="float: right;">
-          <div class="wrap-input2 validate-input" >
-              <input class="input2" type="text" name="find">
-              <span class="focus-input2" data-placeholder=""><i class="fas fa-search"></i></span>
-          </div>
+        <div class="col-md-12">
+            <p class="branch_blog">Inicio > Blog > Titulo del Post </p>
         </div>
       </div>
     </div>
-    <!-- end finder-->
 
-    <!--bodyBlog-->
-    <div class="container-fluid">
+    <!--posted-->
+      <div class="container-fluid">
       <div class="row">
           <div class="col-md-2">
             <p><b>Categorias</b></p>
@@ -150,115 +142,28 @@
               <p><b>Categoria #5</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p> 
               <p><b>Categoria #6</b><i class="fas fa-arrow-circle-up" style="float: right;"></i></p> 
             <hr class="hr">
-            <p><b>Tags</b></p>
-            <ul class="tags">
-              <li><a href="#" class="tag">Departamentos</a></li>
-              <li><a href="#" class="tag">Casa</a></li>
-              <li><a href="#" class="tag">Oficinas</a></li>
-              <li><a href="#" class="tag">Almacenes</a></li>
-            </ul>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-10" >
+                        
+            <!--conten_posted-->
+            <!-- <img src="images/bitmap.png" class="img_post"> -->
+            <p class="card-title">Residencia Real state life</p>
+            <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
+            <p class="mcard_p">
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+            <br><br>
+            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+            <br>
+           
+            </p>
 
-                <div class="row">
+            <!--conten_posted-->
 
-                  <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card" style="margin-bottom: 30px;">
-                        <img class="card-img-top" src="images/bitmap.png">
-                        <div class="card-block">
-                            <h4 class="card-title mt-3">Real state life</h4>
-                            <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                          <div class="meta">
-                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="row">
-                            <div class="col-md-6">
-                                <small class="smtext"><a href="post.php" target="new"> Leer Mas...</a></small>
-                            </div>
-                              <div class="col-md-6">
-                                <ul class="mcard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 111</li>
-                                </ul>
-                              </div>
-                          </div> 
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card">
-                        <img class="card-img-top" src="images/bitmap.png">
-                        <div class="card-block">
-                            <h4 class="card-title mt-3">Real state life</h4>
-                            <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                          <div class="meta">
-                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="row">
-                            <div class="col-md-6">
-                                <small class="smtext"><a href="post.php" target="new"> Leer Mas...</a></small>
-                            </div>
-                              <div class="col-md-6">
-                                <ul class="mcard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 222</li>
-                                </ul>
-                              </div>
-                          </div> 
-                        </div>
-                    </div>
-                  </div>
-
-                </div>  <!--item row blog-->
-                <br><br>
-                <div class="row">
-
-                  <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card">
-                        <img class="card-img-top" src="images/bitmap.png">
-                        <div class="card-block">
-                            <h4 class="card-title mt-3">Real state life</h4>
-                            <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                          <div class="meta">
-                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="row">
-                            <div class="col-md-6">
-                                <small class="smtext"><a href="post.php" target="new"> Leer Mas...</a></small>
-                            </div>
-                              <div class="col-md-6">
-                                <ul class="mcard_list">
-                                  <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
-                                  <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 333</li>
-                                </ul>
-                              </div>
-                          </div> 
-                        </div>
-                    </div>
-                  </div>
-
-                </div>  <!--item row blog-->    
           </div>
       </div>
-                <div class="row" align="center">
-                  <ul class="pagination">
-                      <li><a href="#">&laquo;</a></li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">&raquo;</a></li>
-                  </ul>
-                </div>
-    </div> 
-    <!--bodyBlog-->
+      </div>  
+    <!--posted-->
+
 
     <!--footer-->
     <section style="background-color: #fff">
@@ -301,4 +206,6 @@
     <script src="js/owl.carousel.min.js"></script>
 </body>
 </html>
+
+
 

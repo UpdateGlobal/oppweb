@@ -77,190 +77,179 @@
         border-radius: 30px;
     }
 </style>
-
-
-
 </head>
 <body>
-<!--topmenu-->
-<div class="top_menu hidden-xs hidden-sm">
-    <div class="container_fluid">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-8">Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723</div>
+    <!--topmenu-->
+    <div class="top_menu hidden-xs hidden-sm">
+        <div class="container_fluid">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-8">Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723</div>
+            </div>
         </div>
     </div>
-</div>
-<!--topmenu-->
+    <!--topmenu-->
+    <!--menu-->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid" style="padding: 30px 5px 30px;">
+
+        <div class="navbar-header" style="margin-right: 0px;">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+           <a class="navbar-brand" href="index.php">
+            <img alt="Brand" class="logo" src="images/pedraza-logo-footer.png" width="220">
+          </a>
+        </div>
 
 
-<!--menu-->
-<nav class="navbar navbar-default">
-  <div class="container-fluid" style="padding: 30px 5px 30px;">
-
-    <div class="navbar-header" style="margin-right: 0px;">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-       <a class="navbar-brand" href="#">
-        <img alt="Brand" class="logo" src="images/pedraza-logo-footer.png" width="220">
-      </a>
-    </div>
-
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Something 1</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated 1</a></li>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Departamentos</a></li>
+                <li><a href="#">Oficinas</a></li>
+                <li><a href="#">Casa</a></li>
+                <li><a href="#">Locales</a></li>
+                <li><a href="">Terrenos</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Departamentos</a></li>
+                <li><a href="#">Oficinas</a></li>
+                <li><a href="#">Casa</a></li>
+                <li><a href="#">Locales</a></li>
+                <li><a href="">Terrenos</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Proyecto 1</a></li>
+                <li><a href="#">Proyecto 2</a></li>
+              </ul>
+            </li>
+            <li class="lines"><a href="#">Quiero Vender</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
+            <li><a href="blog.php">Blog</a></li>
+            <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
           </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Something 2</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated 3</a></li>
+        </div>
+      </div>
+    </nav>
+    <!--menu-->
+    <!--finder-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="branch">Inicio > Ventas > Departamentos > Miraflres > Residencia El Placer</p>
+        
+        </div>
+      </div>
+    </div>
+    <!-- end finder-->
+    <!--inmueble-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-xs-12">
+
+            <div class="owl-for owl-carousel owl-theme">
+                <div class="item"><img src="images/1.png" class="owl_img"></div>
+                <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
+                <div class="item"><img src="images/1.png" class="owl_img"></div>
+                <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
+                <div class="item"><img src="images/1.png" class="owl_img"></div>
+                <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
+            </div> 
+
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <h4 class="title_inm mt-3">Residencia El Placer</h4>
+          <p class="date_inm"> Mayo 22 / 2018 - by Luis bernal</p>
+          <hr class="hr">
+          <small class="serch">Caracteristicas</small>
+          <ul class="card_list2">
+            <li>Precio:<span class="span">$79.000</span></li>
+            <li>Tipo:<span class="span">Departamento</span></li>
+            <li>ubicación:<span class="span">Miraflores</span></li>
+            <li>Area:<span class="span">75 mt2</span></li>
+            <li>Baños:<span class="span">1</span></li>
+            <li>Cuartos:<span class="span">4 Habitaciones</span></li>
           </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Something 3</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated 3</a></li>
-          </ul>
-        </li>
-        <li class="lines"><a href="#">Quiero Vender</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
-      </ul>
+              <a href="index.php#formulario" class="btn btn-default" >Informarme</a>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
-<!--menu-->
+    <br>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+           <h3 class="title_inm">Descripcion</h3>
+           <hr class="hr">
+           <p class="text_inm"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+           <br>
+           <h3 class="title_inm">Comodidades</h3>
+           <hr class="hr">
+           <ul class="card_list3">
+                 <li><i class="fas fa-check"></i> Parque Infantil</li>
+                 <li><i class="fas fa-check"></i> Canchas Deportivas</li>
+                 <li><i class="fas fa-check"></i> Sala de cine</li>
+                 <li><i class="fas fa-check"></i> Sala de Reuniones</li>
+                 <li><i class="fas fa-check"></i> Mesa de Billar</li>
+           </ul>    
+           <br><br>
+           <h3 class="title_inm">Ubicación</h3>
+          <hr class="hr">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1858607638546!2d-77.02135198470702!3d-12.099425246177809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c871a9a55fe1%3A0xb50c2424234e93b5!2sPiso+7-Of.702%2C+Av.+Rep%C3%BAblica+de+Panam%C3%A1+3563%2C+San+Isidro+15036!5e0!3m2!1ses-419!2spe!4v1527714310873" height="450" frameborder="0" style="border:0; width: 100%; margin: 40px 0px;" allowfullscreen></iframe>
 
-<!--finder-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <p class="branch">Inicio > Ventas > Departamentos > Miraflres > Residencia El Placer</p>
-    
+
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<!-- end finder-->
-
-<!--inmueble-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-xs-12">
-
-        <div class="owl-for owl-carousel owl-theme">
-            <div class="item"><img src="images/1.png" class="owl_img"></div>
-            <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
-            <div class="item"><img src="images/1.png" class="owl_img"></div>
-            <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
-            <div class="item"><img src="images/1.png" class="owl_img"></div>
-            <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
-        </div> 
-
-    </div>
-    <div class="col-md-4 col-xs-12">
-      <h4 class="title_inm mt-3">Residencia El Placer</h4>
-      <p class="date_inm"> Mayo 22 / 2018 - by Luis bernal</p>
-      <hr class="hr">
-      <small class="serch">Caracteristicas</small>
-      <ul class="card_list2">
-        <li>Precio:<span class="span">$79.000</span></li>
-        <li>Tipo:<span class="span">Departamento</span></li>
-        <li>ubicación:<span class="span">Miraflores</span></li>
-        <li>Area:<span class="span">75 mt2</span></li>
-        <li>Baños:<span class="span">1</span></li>
-        <li>Cuartos:<span class="span">4 Habitaciones</span></li>
-      </ul>
-          <a href="index.php#formulario" class="btn btn-default" >Informarme</a>
-    </div>
-  </div>
-</div>
-
-<br>
-<br>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-       <h3 class="title_inm">Descripcion</h3>
-       <hr class="hr">
-       <p class="text_inm"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-       <br>
-       <h3 class="title_inm">Comodidades</h3>
-       <hr class="hr">
-       <ul class="card_list3">
-             <li><i class="fas fa-check"></i> Parque Infantil</li>
-             <li><i class="fas fa-check"></i> Canchas Deportivas</li>
-             <li><i class="fas fa-check"></i> Sala de cine</li>
-             <li><i class="fas fa-check"></i> Sala de Reuniones</li>
-             <li><i class="fas fa-check"></i> Mesa de Billar</li>
-       </ul>    
-       <br><br>
-       <h3 class="title_inm">Ubicaciuón</h3>
-      <hr class="hr">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1858607638546!2d-77.02135198470702!3d-12.099425246177809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c871a9a55fe1%3A0xb50c2424234e93b5!2sPiso+7-Of.702%2C+Av.+Rep%C3%BAblica+de+Panam%C3%A1+3563%2C+San+Isidro+15036!5e0!3m2!1ses-419!2spe!4v1527714310873" height="450" frameborder="0" style="border:0; width: 100%; margin: 40px 0px;" allowfullscreen></iframe>
-
-
-    </div>
-  </div>
-</div>
-
-<!--inmueble-->
-
-
-
-
-<!--footer-->
-<section style="background-color: #fff">
-<br><br><br><br><br><br><br><br>
-</section>
-<footer class="page-footer">
-          <div class="container" align="center">
-            <div class="row">
-              <div class="col-md-12">
-                <img src="images/pedraza-logo-footer@2x.png" class="img-responsive abt_img2">
-                <!-- <img src="../img/logo-update-2018.png" class="img_foo"> -->
-                <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                  <div class="row img_foo">
-                    <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
-                    <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
-                    <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
-                    <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>
-                     
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright bgfoote">
-            <div class="container" style="font-size: 10px;">
+    <!--inmueble-->
+    <!--footer-->
+    <section style="background-color: #fff">
+    <br><br><br><br><br><br><br><br>
+    </section>
+    <footer class="page-footer">
+              <div class="container" align="center">
                 <div class="row">
-                    <div class="col-md-12" align="center">
-                         <p class="foo_bt">Update Global Marketing © | info@update.pe </p>   
+                  <div class="col-md-12">
+                    <img src="images/pedraza-logo-footer@2x.png" class="img-responsive abt_img2">
+                    <!-- <img src="../img/logo-update-2018.png" class="img_foo"> -->
+                    <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                      <div class="row img_foo">
+                        <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
+                        <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
+                        <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
+                        <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>
+                         
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-copyright bgfoote">
+                <div class="container" style="font-size: 10px;">
+                    <div class="row">
+                        <div class="col-md-12" align="center">
+                             <p class="foo_bt">Update Global Marketing © | info@update.pe </p>   
+                        </div>
                     </div>
                 </div>
-            </div>
-          </div>
-</footer>
-<!--footer-->    
+              </div>
+    </footer>
+    <!--footer-->    
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

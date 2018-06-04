@@ -76,39 +76,44 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-           <a class="navbar-brand" href="#">
+           <a class="navbar-brand" href="index.php">
             <img alt="Brand" class="logo" src="images/pedraza-logo-footer.png" width="220">
           </a>
         </div>
+
+
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Something 1</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated 1</a></li>
+                <li><a href="#">Departamentos</a></li>
+                <li><a href="#">Oficinas</a></li>
+                <li><a href="#">Casa</a></li>
+                <li><a href="#">Locales</a></li>
+                <li><a href="">Terrenos</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Something 2</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated 3</a></li>
+                <li><a href="#">Departamentos</a></li>
+                <li><a href="#">Oficinas</a></li>
+                <li><a href="#">Casa</a></li>
+                <li><a href="#">Locales</a></li>
+                <li><a href="">Terrenos</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Something 3</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated 3</a></li>
+                <li><a href="#">Proyecto 1</a></li>
+                <li><a href="#">Proyecto 2</a></li>
               </ul>
             </li>
             <li class="lines"><a href="#">Quiero Vender</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
+            <li><a href="blog.php">Blog</a></li>
             <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
           </ul>
         </div>
@@ -128,7 +133,7 @@
                     <div class="wrap-contact2">
                         <div align="center">
                         <h3 class="for_text">CONTÁCTANOS</h3>
-                        <p class="for_p">Ayudamos a vender tu inmuble</p>
+                        <p class="for_p">Ayudamos a vender tu inmueble</p>
                         <br>
                         </div>
                         <form class="contact2-form validate-form">
@@ -169,6 +174,18 @@
         </div>    
     </section>
     <!--formulario-->
+
+    <!--cintillo-->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 bg_con" align="center">
+
+            <h3 class="for_w">Dirrección: Calle Aldabas Nº.559 oficina 403 Surco - Lima, Peru</h3>
+            
+          </div>
+        </div>
+      </div>
+    <!--cintillo-->
 
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.184647155321!2d-77.02152004930426!3d-12.099508391390115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c871aeb024b9%3A0x858d2d926451337!2sAv.+Rep%C3%BAblica+de+Panam%C3%A1+3564%2C+San+Isidro+15036!5e0!3m2!1ses-419!2spe!4v1527892951935"  height="620" frameborder="0" style="border:0; width: 100%" allowfullscreen></iframe>
 

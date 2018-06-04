@@ -52,9 +52,6 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
-
-
-
 </head>
 <body>
 <!--topmenu-->
@@ -79,7 +76,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="#">
+       <a class="navbar-brand" href="index.php">
         <img alt="Brand" class="logo" src="images/pedraza-logo-footer.png" width="220">
       </a>
     </div>
@@ -90,30 +87,33 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Something 1</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated 1</a></li>
+            <li><a href="#">Departamentos</a></li>
+            <li><a href="#">Oficinas</a></li>
+            <li><a href="#">Casa</a></li>
+            <li><a href="#">Locales</a></li>
+            <li><a href="">Terrenos</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Something 2</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated 3</a></li>
+            <li><a href="#">Departamentos</a></li>
+            <li><a href="#">Oficinas</a></li>
+            <li><a href="#">Casa</a></li>
+            <li><a href="#">Locales</a></li>
+            <li><a href="">Terrenos</a></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Something 3</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated 3</a></li>
+            <li><a href="#">Proyecto 1</a></li>
+            <li><a href="#">Proyecto 2</a></li>
           </ul>
         </li>
         <li class="lines"><a href="#">Quiero Vender</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Blog</a></li>
+        <li><a href="contacto.php">Contacto</a></li>
+        <li><a href="blog.php">Blog</a></li>
         <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
       </ul>
     </div>
@@ -129,56 +129,17 @@
         </div>
         <div class="col-sm-6 bg_slide_iz">
             <div class="owl-one owl-carousel owl-theme">
-                <div class="item items" style="background: url(images/bitmap.png);">
+                <div class="item items" style="background: url(images/slide1.png);">
                     <p class="textowl">loren ipsum #1<br><span>LOREN IPSUM</span></p>
                 </div>
-                 <div class="item items" style="background: url(images/bitmap.png);">
+                 <div class="item items" style="background: url(images/slide2.png);">
                     <p class="textowl">loren ipsum #2<br><span>LOREN IPSUM</span></p>
-                </div>
-                 <div class="item items" style="background: url(images/bitmap.png);">
-                    <p class="textowl">loren ipsum #3<br><span>LOREN IPSUM</span></p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!--slider-->
-
-<!--search finder--
-<div class="container">
-    <div class="row">
-        <div class="col-md-12" align="center">
-            <br><br><br><br>
-            <span class="sea_textp">ENCUENTRA UN LUGAR PARA TI</span>
-            <p>Porque invertir en Plexus</p>
-                <form action="#" method="post">
-                    <div class="form-fields">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <select class="form-controls" style="border-radius: 0px;">
-                                <option>Venta</option>
-                                <option>Aquiler</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <select class="form-controls" style="border-radius: 0px;">
-                                <option>Casa</option>
-                                <option>Departamento</option>
-                                <option>Terreno</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12">
-                            <input type="text" class="form-controls" placeholder="Busco por Distrito, Codigo o Descripcion">
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-12">
-                            <a class="btnt btn-defaulte" href="#" role="button">Buscar</a>
-                        </div>
-                    </div>
-                </form>
-                <br><br><br><br><br><br>
-        </div>
-    </div>
-</div>
-<!--search finder-->
 
 <!--cards-->
 <section class="seccion_bg">
@@ -191,27 +152,28 @@
             <br>
      
             <div class="owl-two owl-carousel owl-theme">
-                <div class="item slushi" style="background: url(images/bitmap.png);">
+                <a href="inmueble.php">
+                <div class="item slushi" style="background: url(imgweb/magdalena.jpg); background-size: cover;">  
                     <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
-                        <div class="col-md-6 col-xs-12 card_home" align="left">Residencia Altamira</div>
-                        <div class="col-md-6 col-xs-12 card_price" align="right">$ 95.000</div>
-                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i> Direccion: Av la molica calle #1234 Miraflroes</p>
+                        <div class="col-md-6 col-xs-12 card_home" align="left">MAGDALENA</div>
+                        <div class="col-md-6 col-xs-12 card_price" align="right">$ 377,280</div>
+                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i>Prisma Tower - Lima, Peru</p>
                     </div>
                     <div class="row botton_title navbar-fixed-bottom" >
                         <ul class="card_list">
                             <li><i class="fas fa-home"></i> 78 mts</li>
                             <li><i class="fas fa-bed"></i> 4 Cuartos</li>
-                            <li><i class="fas fa-shower"></i>2 Baños</li>
                             <li><i class="fas fa-car"></i> 1 Estacionamiento</li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="item slushi" style="background: url(images/1.png);">
+                </a>  
+                <a href="inmueble.php">
+                <div class="item slushi" style="background: url(imgweb/miraflores.jpg);  background-size: cover;"">
                     <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
-                        <div class="col-md-6 col-xs-12 card_home" align="left">Residencia Altamira</div>
-                        <div class="col-md-6 col-xs-12 card_price" align="right">$ 88.000</div>
-                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i> Direccion: Av la molica calle #1234 San Isidro</p>
+                        <div class="col-md-6 col-xs-12 card_home" align="left">MIRAFLORES</div>
+                        <div class="col-md-6 col-xs-12 card_price" align="right">$ 269,220</div>
+                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i>Ramirez Gaston - Lima, Peru</p>
                     </div>
                     <div class="row botton_title navbar-fixed-bottom" >
                         <ul class="card_list">
@@ -222,11 +184,25 @@
                         </ul>
                     </div>
                 </div>
-
-
+                </a>
+                <a href="inmueble.php">
+                <div class="item slushi" style="background: url(imgweb/pueblolibre.jpg);  background-size: cover;"">
+                    <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
+                        <div class="col-md-6 col-xs-12 card_home" align="left">PUEBLO LIBRE</div>
+                        <div class="col-md-6 col-xs-12 card_price" align="right">$ 133,901</div>
+                        <p class="card_adres"> <i class="fas fa-map-marker-alt"></i>Parque Colmenares - Lima, Peru</p>
+                    </div>
+                    <div class="row botton_title navbar-fixed-bottom" >
+                        <ul class="card_list">
+                            <li><i class="fas fa-home"></i> 78 mts</li>
+                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                            <li><i class="fas fa-car"></i> 1 Parking</li>
+                        </ul>
+                    </div>
+                </div>
+                </a>
             </div>
-
-
         <br><br><br><br>
         </div>
     </div>
@@ -254,46 +230,70 @@
         <div class="col-md-9" >
    
             <div class="owl-tree owl-carousel owl-theme">
-
+                <a href="inmueble.php">
                 <div class="rent_img">
                     <div class="rent_item rent_shadow" >
                         <div class="row" style="margin: 0px;">
-                            <img src="images/1.png" class="rent_img" alt="">
+                            <img src="imgweb/miraflores2.jpg" class="rent_img" alt="">
                             <div class="botton_rent">
-                                <div class="rent_valor">$ 3000</div>
+                                <div class="rent_valor">MIRAFLORES</div>
                             </div>
                         </div>
                         <div class="row" style="margin: 0px;">
-                            <p class="rent_titl">20 Apartamentos tipo A</p>
+                            <p class="rent_titl">Oficina alquiler <BR> Precio: $ 1600</p>
                         <ul class="rent_list">
-                            <li><i class="fas fa-home"></i> 78 mts</li>
-                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-home"></i> 300 mts</li>
+                            <li><i class="fas fa-bed"></i> 4 cubiculos</li>
                             <li><i class="fas fa-shower"></i>2 Baños</li>
                         </ul>
                         </div>
                     </div>
                 </div>
+                </a>
 
-
-
+                <a href="inmueble.php">
                 <div class="rent_img">
                     <div class="rent_item rent_shadow" >
                         <div class="row" style="margin: 0px;">
-                            <img src="images/bitmap.png" class="rent_img" alt="">
+                            <img src="imgweb/santiagodesurco.jpg" class="rent_img" alt="">
                             <div class="botton_rent">
-                                <div class="rent_valor">$ 3000</div>
+                                <div class="rent_valor">ST. SURCO</div>
                             </div>
                         </div>
                         <div class="row" style="margin: 0px;">
-                            <p class="rent_titl">20 Apartamentos tipo A</p>
+                            <p class="rent_titl">oficina alquiler <br> Precio: $ 1100</p>
                         <ul class="rent_list">
-                            <li><i class="fas fa-home"></i> 78 mts</li>
-                            <li><i class="fas fa-bed"></i> 4 Cuartos</li>
+                            <li><i class="fas fa-home"></i> 298 mts</li>
+                            <li><i class="fas fa-bed"></i> 3 Cubiculos</li>
                             <li><i class="fas fa-shower"></i>2 Baños</li>
                         </ul>
                         </div>
                     </div>
                 </div>
+                </a>
+                <a href="inmueble.php">
+                <div class="rent_img">
+                    <div class="rent_item rent_shadow" >
+                        <div class="row" style="margin: 0px;">
+                            <img src="imgweb/santiagodesurco2.jpg" class="rent_img" alt="">
+                            <div class="botton_rent">
+                                <div class="rent_valor">ST. SURCO</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0px;">
+                            <p class="rent_titl">Departamento alquiler <br> Precio: $ 1500</p>
+                        <ul class="rent_list">
+                            <li><i class="fas fa-home"></i> 80 mts</li>
+                            <li><i class="fas fa-bed"></i> 3 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                </a>
+
+
+
 
             </div>
         </div>
@@ -314,17 +314,17 @@
         <div class="col-md-9" >
    
             <div class="owl-tree owl-carousel owl-theme">
-
+                <a href="inmueble.php">
                 <div class="rent_img">
                     <div class="rent_item rent_shadow" >
                         <div class="row" style="margin: 0px;">
-                            <img src="images/1.png" class="rent_img" alt="">
+                            <img src="imgweb/santihagodesurco3.jpg" class="rent_img" alt="">
                             <div class="botton_rent">
-                                <div class="rent_valor">$ 3000</div>
+                                <div class="rent_valor">ST. SURCO</div>
                             </div>
                         </div>
                         <div class="row" style="margin: 0px;">
-                            <p class="rent_titl">20 Apartamentos tipo A</p>
+                            <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 130,000</p>
                         <ul class="rent_list">
                             <li><i class="fas fa-home"></i> 78 mts</li>
                             <li><i class="fas fa-bed"></i> 4 Cuartos</li>
@@ -333,19 +333,19 @@
                         </div>
                     </div>
                 </div>
+                </a>
 
-
-
+                <a href="inmueble.php">
                 <div class="rent_img">
                     <div class="rent_item rent_shadow" >
                         <div class="row" style="margin: 0px;">
-                            <img src="images/bitmap.png" class="rent_img" alt="">
+                            <img src="imgweb/miraflores.jpg" class="rent_img" alt="">
                             <div class="botton_rent">
-                                <div class="rent_valor">$ 3000</div>
+                                <div class="rent_valor">MIRAFLORES  </div>
                             </div>
                         </div>
                         <div class="row" style="margin: 0px;">
-                            <p class="rent_titl">20 Apartamentos tipo A</p>
+                            <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 278,000</p>
                         <ul class="rent_list">
                             <li><i class="fas fa-home"></i> 78 mts</li>
                             <li><i class="fas fa-bed"></i> 4 Cuartos</li>
@@ -354,6 +354,27 @@
                         </div>
                     </div>
                 </div>
+                </a>
+                <a href="inmueble.php">
+                <div class="rent_img">
+                    <div class="rent_item rent_shadow" >
+                        <div class="row" style="margin: 0px;">
+                            <img src="imgweb/miraflores2.jpg" class="rent_img" alt="">
+                            <div class="botton_rent">
+                                <div class="rent_valor">MIRAFLORES</div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 0px;">
+                            <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 238,000</p>
+                        <ul class="rent_list">
+                            <li><i class="fas fa-home"></i> 83 mts</li>
+                            <li><i class="fas fa-bed"></i> 3 Cuartos</li>
+                            <li><i class="fas fa-shower"></i>2 Baños</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                </a>
 
             </div>
         </div>
@@ -395,7 +416,7 @@
 
 <!--Contacto-->
 <section class="cont_bg">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <img src="images/img2.png" class="img-responsive">
@@ -430,7 +451,7 @@
                 <div class="wrap-contact2">
                     <div align="center">
                     <h3 class="for_text">CONTÁCTANOS</h3>
-                    <p class="for_p">Ayudamos a vender tu inmuble</p>
+                    <p class="for_p">Ayudamos a vender tu inmueble</p>
                     <br>
                     </div>
                     <form class="contact2-form validate-form">
@@ -483,9 +504,9 @@
         <div class="col-md-6 col-xs-12">
               <br><br>
                 <div class="card">
-                    <img class="card-img-top" src="images/bitmap.png">
+                    <img class="card-img-top" src="imgweb/santiagodesurco2.jpg">
                     <div class="card-block">
-                        <h4 class="card-title mt-3">Real state life</h4>
+                        <h4 class="card-title mt-3">ALQUILER OFICINA EN CHACARILLA DEL ESTANQUE -SURCO</h4>
                         <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                         <div class="meta">
                             <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
@@ -513,11 +534,11 @@
                     <div class="col-md-12">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
-                                <img src="http://via.placeholder.com/290X220" class="ncard_img">
+                                <img src="imgweb/santiagodesurco.jpg"  class="ncard_img ">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
-                                    <h4 class="ncard-title mt-3">Real state life</h4>
+                                    <h4 class="ncard-title mt-3">EDIFICIO GALEANO – SURCO</h4>
                                     <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                                     <div class="meta">
                                         <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -544,11 +565,11 @@
                     <div class="col-md-12">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
-                                <img src="http://via.placeholder.com/290X220" class="ncard_img">
+                                <img src="imgweb/santiagodesurco2.jpg" class="ncard_img">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
-                                    <h4 class="ncard-title mt-3">Real state life</h4>
+                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA EN CHACARILLA DEL ESTANQUE -SURCO</h4>
                                     <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                                     <div class="meta">
                                         <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -575,11 +596,11 @@
                     <div class="col-md-12">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
-                                <img src="http://via.placeholder.com/290X220" class="ncard_img">
+                                <img src="imgweb/santihagodesurco3.jpg" class="ncard_img">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
-                                    <h4 class="ncard-title mt-3">Real state life</h4>
+                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA ALDABAS- SURCO</h4>
                                     <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                                     <div class="meta">
                                         <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -661,8 +682,8 @@
           $('.owl-one').owlCarousel({
                 loop:true,
                 margin:0,
-                autoplay:true,
-                autoplayTimeout:2000,
+                autoplay:false,
+                autoplayTimeout:3000,
                 nav:false,
                 responsive:{
                     0:{
@@ -683,8 +704,8 @@
           $('.owl-two').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:true,
-                autoplayTimeout:2000,
+                autoplay:false,
+                autoplayTimeout:3000,
                 nav:false,
                 responsive:{
                     0:{
@@ -705,8 +726,8 @@
           $('.owl-tree').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:true,
-                autoplayTimeout:1000,
+                autoplay:false,
+                autoplayTimeout:3000,
                 nav:false,
                 responsive:{
                     0:{
