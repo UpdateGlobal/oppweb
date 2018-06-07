@@ -58,7 +58,7 @@
     <div class="top_menu hidden-xs hidden-sm">
         <div class="container_fluid">
             <div class="row">
-                <div class="col-md-4 col-md-offset-8">Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723</div>
+                <div class="col-md-4 col-md-offset-8 topbares oppmtext">Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723</div>
             </div>
         </div>
     </div>
@@ -112,7 +112,7 @@
             <li class="lines"><a href="#">Quiero Vender</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="blog.php">Blog</a></li>
-            <li><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
+            <li style="margin-top: -6px;"><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
           </ul>
         </div>
       </div>
