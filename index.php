@@ -55,7 +55,8 @@
 </head>
 <body>
 
-  <div class="container-fluid">
+    <!--newMenu-->
+    <div class="container-fluid">
       <div class="row">
           <div class="col-md-6" align="left">
               
@@ -65,7 +66,7 @@
                             <div class="header_box1_menu"> 
                                 <span style="font-size:30px;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
                             </div>
-                            <div class="header_box1_logo"><a href="/">
+                            <div class="header_box1_logo"><a href="index.php">
                                 <img src="imgweb/LOGOvert.svg" width="220" class="logo" ></a>
                             </div>
                         </div>
@@ -109,24 +110,22 @@
                             </ul>
                                 <div class="row">
                                     <div class="redes">
-                                        rede
+                                        <ul class="redes">
+                                            <li><i class="fab fa-facebook-square"></i></li>
+                                        </ul>
                                     </div>
                                 </div>
                         </div>
-
                     </nav>
-                  
-
           </div>
-          <div class="col-md-6 hidden-xs hidden-sm" align="right">
-            <div class="topbares">
-                 Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723
-            </div>
-         
-          </div>
+                  <div class="col-md-6 hidden-xs hidden-sm" align="right">
+                    <div class="topbares">
+                         Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723
+                    </div>
+                  </div>
       </div>
-  </div>
-
+    </div>
+    <!--newMenu-->
 
     <!--slider-->
     <div class="container-fluid">
@@ -155,6 +154,45 @@
         </div>
     </div>
     <!--slider-->
+
+    <!--fidner2-->
+    <div class="container">
+        <div class="row">
+            <div class="conten_finder" align="center">
+                <br>
+                <span class="sea_textp">ENCUENTRA UN LUGAR PARA TI</span>
+                <p class="card_p">Porqué Invertir En Plexus</p>
+                <br>
+            <ul class="finder">
+                <li class="inpute">
+                    <select class="form-control">
+                        <option>Seleccionar..</option>
+                      <option>Ventas</option>
+                      <option>Alquileres</option>
+                      <option>Hipotecas</option>
+                    </select>
+                </li>
+                <li class="inpute">
+                    <select class="form-control">
+                        <option>Seleccionar..</option>
+                      <option>Departamentos</option>
+                      <option>Casa</option>
+                      <option>Oficinas</option>
+                      <option>Almacenes</option>
+                    </select>
+                </li>
+                <li class="inpute">
+                     <input type="text" class="form-control" placeholder="Buscar por Distrito" >
+                </li>
+                <li class="inpute">
+                    <a type="submit" class="btn btnfin">Buscar</a>
+                </li>
+            </ul>
+            <br><br><br>
+            </div>
+        </div>
+    </div>
+    <!--fidner2-->
 
     <!--cards-->
     <section class="seccion_bg">
@@ -257,9 +295,9 @@
                             <div class="row" style="margin: 0px;">
                                 <p class="rent_titl">Oficina alquiler</p>
                             <ul class="rent_list">
-                                <li><i class="fas fa-home"></i> 300 mts</li>
-                                <li><i class="fas fa-bed"></i> 4 cubiculos</li>
-                                <li><i class="fas fa-shower"></i> 2 Baños</li>
+                                <li class="itemc"><i class="fas fa-home"></i> 300 mts</li>
+                                <li class="itemc"><i class="fas fa-bed"></i> 4 cubiculos</li>
+                                <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
                             </ul>
                             </div>
                         </div>
@@ -278,9 +316,9 @@
                             <div class="row" style="margin: 0px;">
                                 <p class="rent_titl">oficina alquiler </p>
                             <ul class="rent_list">
-                                <li><i class="fas fa-home"></i> 298 mts</li>
-                                <li><i class="fas fa-bed"></i> 3 Cubiculos</li>
-                                <li><i class="fas fa-shower"></i> 2 Baños</li>
+                                <li class="itemc"><i class="fas fa-home"></i> 298 mts</li>
+                                <li class="itemc"><i class="fas fa-bed"></i> 3 Cubiculos</li>
+                                <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
                             </ul>
                             </div>
                         </div>
@@ -298,9 +336,9 @@
                             <div class="row" style="margin: 0px;">
                                 <p class="rent_titl">Departamento alquiler</p>
                             <ul class="rent_list">
-                                <li><i class="fas fa-home"></i> 80 mts</li>
-                                <li><i class="fas fa-bed"></i> 3 Cuartos</li>
-                                <li><i class="fas fa-shower"></i> 2 Baños</li>
+                                <li class="itemc"><i class="fas fa-home"></i> 80 mts</li>
+                                <li class="itemc"><i class="fas fa-bed"></i> 3 Cuartos</li>
+                                <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
                             </ul>
                             </div>
                         </div>
@@ -339,9 +377,9 @@
                             <div class="row" style="margin: 0px;">
                                 <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 130,000</p>
                             <ul class="rent_list">
-                                <li><i class="fas fa-home"></i> 78 mts</li>
-                                <li><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                <li><i class="fas fa-shower"></i>2 Baños</li>
+                                <li class="itemc"><i class="fas fa-home"></i> 78 mts</li>
+                                <li class="itemc"><i class="fas fa-bed"></i> 4 Cuartos</li>
+                                <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
                             </ul>
                             </div>
                         </div>
@@ -360,9 +398,9 @@
                             <div class="row" style="margin: 0px;">
                                 <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 278,000</p>
                             <ul class="rent_list">
-                                <li><i class="fas fa-home"></i> 78 mts</li>
-                                <li><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                <li><i class="fas fa-shower"></i>2 Baños</li>
+                                <li class="itemc"><i class="fas fa-home"></i> 78 mts</li>
+                                <li class="itemc"><i class="fas fa-bed"></i> 4 Cuartos</li>
+                                <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
                             </ul>
                             </div>
                         </div>
@@ -380,9 +418,9 @@
                             <div class="row" style="margin: 0px;">
                                 <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 238,000</p>
                             <ul class="rent_list">
-                                <li><i class="fas fa-home"></i> 83 mts</li>
-                                <li><i class="fas fa-bed"></i> 3 Cuartos</li>
-                                <li><i class="fas fa-shower"></i>2 Baños</li>
+                                <li class="itemc"><i class="fas fa-home"></i> 83 mts</li>
+                                <li class="itemc"><i class="fas fa-bed"></i> 3 Cuartos</li>
+                                <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
                             </ul>
                             </div>
                         </div>
@@ -436,7 +474,7 @@
                         <i class="fas fa-home fa-5x" style="color: white !important;"></i>
                         <br>
                         <h3 class="opptitle">LOREN IPSUN</h3>
-                        <p class="oppmtext">loren ipsun text da moret</p>
+                        <p class="oppmtext">loren ipsun text da</p>
                         <br>
                     </div>
                 </div>
@@ -538,7 +576,6 @@
                                 </div>
                                 <div class="col-md-6">
                                     <ul class="mcard_list">
-                                        <li><i class="fas fa-comment-dots" style="color: green;"></i> 123</li>
                                         <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 9348</li>
                                     </ul>
                                 </div>
@@ -570,7 +607,6 @@
                                             </div>
                                             <div class="col-md-7">
                                                 <ul class="ncard_list">
-                                                    <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
                                                     <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
                                                 </ul>
                                             </div>
@@ -601,7 +637,6 @@
                                             </div>
                                             <div class="col-md-7">
                                                 <ul class="ncard_list">
-                                                    <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
                                                     <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
                                                 </ul>
                                             </div>
@@ -632,7 +667,6 @@
                                             </div>
                                             <div class="col-md-7">
                                                 <ul class="ncard_list">
-                                                    <li><i class="fas fa-comment-dots" style="color: green;"></i> 12</li>
                                                     <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
                                                 </ul>
                                             </div>
@@ -657,9 +691,8 @@
               <div class="container" align="center">
                 <div class="row">
                   <div class="col-md-12">
-                    <img src="imgweb/logosvgwhite.svg" class="img-responsive abt_img2 hidden-xs hidden-sm">
-                    <img src="imgweb/logo_svg.svg" class="img-responsive abt_img2 hidden-md hidden-lg">
-                    <!-- <img src="../img/logo-update-2018.png" class="img_foo"> -->
+                       <img src="imgweb/logosvgwhite.svg" class="img-responsive abt_img2 hidden-xs ">
+                    <img src="imgweb/logo_svg.svg" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
                     <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
                       <div class="row img_foo">
                         <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
@@ -696,7 +729,7 @@
           $('.owl-one').owlCarousel({
                 loop:true,
                 margin:0,
-                autoplay:false,
+                autoplay:true,
                 autoplayTimeout:3000,
                 nav:false,
                 responsive:{
@@ -718,7 +751,7 @@
           $('.owl-two').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:false,
+                autoplay:true,
                 autoplayTimeout:3000,
                 nav:false,
                 responsive:{
@@ -740,7 +773,7 @@
           $('.owl-tree').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:false,
+                autoplay:true,
                 autoplayTimeout:3000,
                 nav:false,
                 responsive:{

@@ -55,71 +55,77 @@
 </head>
 <body>
 
-    <!--topmenu-->
-    <div class="top_menu hidden-xs hidden-sm">
-        <div class="container_fluid">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-8 topbares oppmtext">Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723</div>
-            </div>
-        </div>
-    </div>
-    <!--topmenu-->
+    <!--newMenu-->
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-6" align="left">
+              
+                    <nav class="navbar navbar-default">
+                      <div class="container-fluid" style="padding: 10px 5px 10px;">
+                        <div class="header_box1">
+                            <div class="header_box1_menu"> 
+                                <span style="font-size:30px;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
+                            </div>
+                            <div class="header_box1_logo"><a href="index.php">
+                                <img src="imgweb/LOGOvert.svg" width="220" class="logo" ></a>
+                            </div>
+                        </div>
 
-    <!--menu-->
-    <nav class="navbar navbar-default">
-      <div class="container-fluid"  style="padding: 10px 5px 10px;">
-
-        <div class="navbar-header" style="margin-right: 0px;">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-           <a class="navbar-brand" href="index.php">
-            <img alt="Brand" class="logo" src="images/pedraza-logo-footer.png" width="220">
-          </a>
-        </div>
-
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Departamentos</a></li>
-                <li><a href="#">Oficinas</a></li>
-                <li><a href="#">Casa</a></li>
-                <li><a href="#">Locales</a></li>
-                <li><a href="">Terrenos</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Departamentos</a></li>
-                <li><a href="#">Oficinas</a></li>
-                <li><a href="#">Casa</a></li>
-                <li><a href="#">Locales</a></li>
-                <li><a href="">Terrenos</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Proyecto 1</a></li>
-                <li><a href="#">Proyecto 2</a></li>
-              </ul>
-            </li>
-            <li class="lines"><a href="#">Quiero Vender</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
-            <li><a href="blog.php">Blog</a></li>
-            <li style="margin-top: -6px;"><a href=""><i class="fab fa-whatsapp fa-2x"></i></a></li>
-          </ul>
-        </div>
+                        <div id="mySidenav" class="sidenav">
+                            <div class="row" style="background-color: white;">
+                                <img src="imgweb/LOGOvert.svg" width="220" class="logoside" ></a>
+                            </div>
+                            <ul>
+                                <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas</a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">Departamentos</a></li>
+                                    <li><a href="#">Oficinas</a></li>
+                                    <li><a href="#">Casa</a></li>
+                                    <li><a href="#">Locales</a></li>
+                                    <li><a href="">Terrenos</a></li>
+                                  </ul>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler</a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">Departamentos</a></li>
+                                    <li><a href="#">Oficinas</a></li>
+                                    <li><a href="#">Casa</a></li>
+                                    <li><a href="#">Locales</a></li>
+                                    <li><a href="">Terrenos</a></li>
+                                  </ul>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">Proyecto 1</a></li>
+                                    <li><a href="#">Proyecto 2</a></li>
+                                  </ul>
+                                </li>
+                                <li><a href="#">Quiero Vender</a></li>
+                                <li><a href="contacto.php">Contacto</a></li>
+                                <li><a href="blog.php">Blog</a></li>
+                            </ul>
+                                <div class="row">
+                                    <div class="redes">
+                                        <ul class="redes">
+                                            <li><i class="fab fa-facebook-square"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </nav>
+          </div>
+                  <div class="col-md-6 hidden-xs hidden-sm" align="right">
+                    <div class="topbares">
+                         Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723
+                    </div>
+                  </div>
       </div>
-    </nav>
-    <!--menu-->
+    </div>
+    <!--newMenu-->
 
     <div class="container-fluid" style="background: url(images/bitmap.png); background-size: cover; margin-bottom: 50px;">
       <div class="row">
@@ -173,8 +179,8 @@
               <div class="container" align="center">
                 <div class="row">
                   <div class="col-md-12">
-                    <img src="imgweb/logosvgwhite.svg" class="img-responsive abt_img2">
-                    <!-- <img src="../img/logo-update-2018.png" class="img_foo"> -->
+                    <img src="imgweb/logosvgwhite.svg" class="img-responsive abt_img2 hidden-xs ">
+                    <img src="imgweb/logo_svg.svg" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
                     <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
                       <div class="row img_foo">
                         <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
@@ -204,6 +210,15 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/npm.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "300px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
 </body>
 </html>
 
