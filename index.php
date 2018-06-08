@@ -52,10 +52,15 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
+
+
+
+
+
 </head>
 <body>
 
-    <!--newMenu-->
+<!--newMenu-->
     <div class="container-fluid">
       <div class="row">
           <div class="col-md-6" align="left">
@@ -717,6 +722,29 @@
     <!--footer-->           
 
     <!-- Set up your HTML -->
+
+<!--     <script type="text/javascript">
+        
+    (function () {
+     var preload = document.getElementById("preload");
+     var loading = 0;
+     var id = setInterval(frame, 64);
+
+     function frame(){
+      if(loading == 100) {
+       clearInterval(id);
+       window.open("index.php", "_self");
+      }
+      else {
+       loading = loading + 1;
+       if(loading == 90) {
+        preload.style.animation = "fadeout 1s ease";
+       }
+      }
+     }
+    })();
+
+    </script> -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
