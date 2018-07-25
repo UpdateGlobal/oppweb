@@ -277,7 +277,6 @@
                     <img src="imgweb/logo_svg.svg" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
                     <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
                       <div class="row img_foo">
-                        <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
                         <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
                         <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
                         <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>

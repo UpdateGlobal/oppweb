@@ -80,77 +80,7 @@
 </head>
 <body>
 
-    <!--newMenu-->
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-6" align="left">
-              
-                    <nav class="navbar navbar-default">
-                      <div class="container-fluid" style="padding: 10px 5px 10px;">
-                        <div class="header_box1">
-                            <div class="header_box1_menu"> 
-                                <span style="font-size:30px;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
-                            </div>
-                            <div class="header_box1_logo"><a href="index.php">
-                                <img src="imgweb/LOGOvert.svg" width="220" class="logo" ></a>
-                            </div>
-                        </div>
-
-                        <div id="mySidenav" class="sidenav">
-                            <div class="row" style="background-color: white;">
-                                <img src="imgweb/LOGOvert.svg" width="220" class="logoside" ></a>
-                            </div>
-                            <ul>
-                                <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Departamentos</a></li>
-                                    <li><a href="#">Oficinas</a></li>
-                                    <li><a href="#">Casa</a></li>
-                                    <li><a href="#">Locales</a></li>
-                                    <li><a href="">Terrenos</a></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Departamentos</a></li>
-                                    <li><a href="#">Oficinas</a></li>
-                                    <li><a href="#">Casa</a></li>
-                                    <li><a href="#">Locales</a></li>
-                                    <li><a href="">Terrenos</a></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Proyecto 1</a></li>
-                                    <li><a href="#">Proyecto 2</a></li>
-                                  </ul>
-                                </li>
-                                <li><a href="#">Quiero Vender</a></li>
-                                <li><a href="contacto.php">Contacto</a></li>
-                                <li><a href="blog.php">Blog</a></li>
-                            </ul>
-                                <div class="row">
-                                    <div class="redes">
-                                        <ul class="redes">
-                                            <li><i class="fab fa-facebook-square"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                        </div>
-                    </nav>
-          </div>
-                  <div class="col-md-6 hidden-xs hidden-sm" align="right">
-                    <div class="topbares">
-                         Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723
-                    </div>
-                  </div>
-      </div>
-    </div>
-    <!--newMenu-->
+ <?php include('modulos/nav.php'); ?>
     
     <!--finder-->
     <div class="container">
@@ -168,12 +98,12 @@
         <div class="col-md-8 col-xs-12">
 
             <div class="owl-for owl-carousel owl-theme">
-                <div class="item"><img src="images/1.png" class="owl_img"></div>
-                <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
-                <div class="item"><img src="images/1.png" class="owl_img"></div>
-                <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
-                <div class="item"><img src="images/1.png" class="owl_img"></div>
-                <div class="item"><img src="images/bitmap.png" class="owl_img"></div>
+                <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
+                <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
+                <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
+                <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
+                <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
+                <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
             </div> 
 
         </div>
@@ -190,7 +120,7 @@
             <li>Baños:<span class="span">1</span></li>
             <li>Cuartos:<span class="span">4 Habitaciones</span></li>
           </ul>
-              <a href="index.php#formulario" class="btn btn-default" >Informarme</a>
+              <a href="contacto.php" class="btn btn-default" >Cotizar</a>
         </div>
       </div>
     </div>
@@ -239,7 +169,6 @@
                     <img src="imgweb/logo_svg.svg" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
                     <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
                       <div class="row img_foo">
-                        <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
                         <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
                         <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
                         <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>
@@ -272,7 +201,7 @@
           $('.owl-for').owlCarousel({
                 loop:true,
                 margin:0,
-                autoplay:true,
+                autoplay:false,
                 autoplayTimeout:2000,
                 nav:false,
                 responsive:{

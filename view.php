@@ -55,77 +55,7 @@
 </head>
 <body>
 
-    <!--newMenu-->
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-6" align="left">
-              
-                    <nav class="navbar navbar-default">
-                      <div class="container-fluid" style="padding: 10px 5px 10px;">
-                        <div class="header_box1">
-                            <div class="header_box1_menu"> 
-                                <span style="font-size:30px;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
-                            </div>
-                            <div class="header_box1_logo"><a href="index.php">
-                                <img src="imgweb/LOGOvert.svg" width="220" class="logo" ></a>
-                            </div>
-                        </div>
-
-                        <div id="mySidenav" class="sidenav">
-                            <div class="row" style="background-color: white;">
-                                <img src="imgweb/LOGOvert.svg" width="220" class="logoside" ></a>
-                            </div>
-                            <ul>
-                                <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Departamentos</a></li>
-                                    <li><a href="#">Oficinas</a></li>
-                                    <li><a href="#">Casa</a></li>
-                                    <li><a href="#">Locales</a></li>
-                                    <li><a href="">Terrenos</a></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Departamentos</a></li>
-                                    <li><a href="#">Oficinas</a></li>
-                                    <li><a href="#">Casa</a></li>
-                                    <li><a href="#">Locales</a></li>
-                                    <li><a href="">Terrenos</a></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Proyecto 1</a></li>
-                                    <li><a href="#">Proyecto 2</a></li>
-                                  </ul>
-                                </li>
-                                <li><a href="#">Quiero Vender</a></li>
-                                <li><a href="contacto.php">Contacto</a></li>
-                                <li><a href="blog.php">Blog</a></li>
-                            </ul>
-                                <div class="row">
-                                    <div class="redes">
-                                        <ul class="redes">
-                                            <li><i class="fab fa-facebook-square"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                        </div>
-                    </nav>
-          </div>
-                  <div class="col-md-6 hidden-xs hidden-sm" align="right">
-                    <div class="topbares">
-                         Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723
-                    </div>
-                  </div>
-      </div>
-    </div>
-    <!--newMenu-->
+<?php include('modulos/nav.php'); ?>
     
     <!--finder-->
     <div class="container">
@@ -179,11 +109,11 @@
               <!--item inmueble-->
               <div class="ncard">
                 <div class="col-md-5" style="padding: 0px;">
-                  <img src="http://via.placeholder.com/290X220" class="ncard_img2">
+                  <img src="images/edificio234.jpg" class="ncard_img2">
                 </div>
                   <div class="col-md-7" style="padding: 0px;">
                       <div class="card-block">
-                        <h4 class="ncard-title mt-3">Real state life</h4>
+                        <h4 class="ncard-title mt-3">Edificio en Lima Perú.</h4>
                           <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                         <div class="meta">
                           <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of.</p>
@@ -192,7 +122,7 @@
                         <div class="ncard-footer">
                           <div class="row">
                             <div class="col-md-5">
-                              <small class="smtext">Leer Mas...</small>
+                              <small class="smtext"><a href="inmueble.php">Ver Inmueble</a></small>
                             </div>
                                 <div class="col-md-7">
                                     <ul class="ncard_list">
@@ -209,11 +139,11 @@
               <!--item inmueble-->
               <div class="ncard">
                 <div class="col-md-5" style="padding: 0px;">
-                  <img src="http://via.placeholder.com/290X220" class="ncard_img2">
+                  <img src="images/edificio234.jpg" class="ncard_img2">
                 </div>
                   <div class="col-md-7" style="padding: 0px;">
                       <div class="card-block">
-                        <h4 class="ncard-title mt-3">Real state life</h4>
+                        <h4 class="ncard-title mt-3">Edificio en Lima Perú.</h4>
                           <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                         <div class="meta">
                           <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of.</p>
@@ -222,7 +152,7 @@
                         <div class="ncard-footer">
                           <div class="row">
                             <div class="col-md-5">
-                              <small class="smtext">Leer Mas...</small>
+                              <small class="smtext"><a href="inmueble.php">Ver Inmueble</a></small>
                             </div>
                                 <div class="col-md-7">
                                     <ul class="ncard_list">
@@ -239,11 +169,11 @@
               <!--item inmueble-->
               <div class="ncard">
                 <div class="col-md-5" style="padding: 0px;">
-                  <img src="http://via.placeholder.com/290X220" class="ncard_img2">
+                  <img src="images/edificio234.jpg" class="ncard_img2">
                 </div>
                   <div class="col-md-7" style="padding: 0px;">
                       <div class="card-block">
-                        <h4 class="ncard-title mt-3">Real state life</h4>
+                        <h4 class="ncard-title mt-3">Edificio en Lima Perú.</h4>
                           <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                         <div class="meta">
                           <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of.</p>
@@ -252,7 +182,7 @@
                         <div class="ncard-footer">
                           <div class="row">
                             <div class="col-md-5">
-                              <small class="smtext">Leer Mas...</small>
+                              <small class="smtext"><a href="inmueble.php">Ver Inmueble</a></small>
                             </div>
                                 <div class="col-md-7">
                                     <ul class="ncard_list">
@@ -282,7 +212,6 @@
                     <img src="imgweb/logo_svg.svg" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
                     <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
                       <div class="row img_foo">
-                        <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
                         <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
                         <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
                         <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>

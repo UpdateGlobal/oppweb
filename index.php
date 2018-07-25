@@ -14,7 +14,7 @@
     <link rel=”canonical” href=””/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->   
-	<link href="img/favicon.ico" rel="shortcut icon"/>
+	<link href="imgweb/favicon.png" rel="shortcut icon"/>
 
     <!-- twitter card starts from here, if you don't need remove this section -->
     <meta name="twitter:card" content="summary" />
@@ -60,77 +60,7 @@
 </head>
 <body>
 
-<!--newMenu-->
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-6" align="left">
-              
-                    <nav class="navbar navbar-default">
-                      <div class="container-fluid" style="padding: 10px 5px 10px;">
-                        <div class="header_box1">
-                            <div class="header_box1_menu"> 
-                                <span style="font-size:30px;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
-                            </div>
-                            <div class="header_box1_logo"><a href="index.php">
-                                <img src="imgweb/LOGOvert.svg" width="220" class="logo" ></a>
-                            </div>
-                        </div>
-
-                        <div id="mySidenav" class="sidenav">
-                            <div class="row" style="background-color: white;">
-                                <img src="imgweb/LOGOvert.svg" width="220" class="logoside" ></a>
-                            </div>
-                            <ul>
-                                <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Departamentos</a></li>
-                                    <li><a href="#">Oficinas</a></li>
-                                    <li><a href="#">Casa</a></li>
-                                    <li><a href="#">Locales</a></li>
-                                    <li><a href="">Terrenos</a></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Departamentos</a></li>
-                                    <li><a href="#">Oficinas</a></li>
-                                    <li><a href="#">Casa</a></li>
-                                    <li><a href="#">Locales</a></li>
-                                    <li><a href="">Terrenos</a></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a href="#">Proyecto 1</a></li>
-                                    <li><a href="#">Proyecto 2</a></li>
-                                  </ul>
-                                </li>
-                                <li><a href="#">Quiero Vender</a></li>
-                                <li><a href="contacto.php">Contacto</a></li>
-                                <li><a href="blog.php">Blog</a></li>
-                            </ul>
-                                <div class="row">
-                                    <div class="redes">
-                                        <ul class="redes">
-                                            <li><i class="fab fa-facebook-square"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                        </div>
-                    </nav>
-          </div>
-                  <div class="col-md-6 hidden-xs hidden-sm" align="right">
-                    <div class="topbares">
-                         Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723
-                    </div>
-                  </div>
-      </div>
-    </div>
-    <!--newMenu-->
+<?php include('modulos/nav.php'); ?>
 
     <!--slider-->
     <div class="container-fluid">
@@ -190,7 +120,7 @@
                      <input type="text" class="form-control" placeholder="Buscar por Distrito" >
                 </li>
                 <li class="inpute">
-                    <a type="submit" class="btn btnfin">Buscar</a>
+                    <a type="submit" class="btn btnfin" href="view.php">Buscar</a>
                 </li>
             </ul>
             <br><br><br>
@@ -204,7 +134,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12" align="center">
-            <br>
+            <br><br>
                 <span class="sea_textp">PROYECTOS  </span>
                 <p class="card_p">Lanzamientos Inmobiliarios</p>
                 <br>
@@ -272,7 +202,7 @@
     <section>
     <div class="container-fluid">
         <div class="row" align="center">
-                <br><br>
+                <br><br><br>
                 <h3 class="rent_text opptitle">NOVEDADES PARA TI</h3>
                 <p class="rent_sub oppsubtitle">Lanzamientos Inmobiliarios</p>
                 <br>
@@ -474,7 +404,7 @@
     <section class="cont_bg">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4" align="center">
                     <div class="cont_txt2">
                         <i class="fas fa-home fa-5x" style="color: white !important;"></i>
                         <br>
@@ -483,19 +413,16 @@
                         <br>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4    " align="center">
                     <div class="cont_txt">
                         <br>
-                        <h3 class="opptitle">LOREN IPSUN</h3>
-                        <p class="oppmtext">loren ipsun text da moret</p>
+                        <h3 class="opptitle" align="left">LOREN IPSUN</h3>
+                        <p class="oppmtext" align="left">loren ipsun text da moret</p>
                         <br>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="cont_btn">
+                <div class="col-md-4" align="center">
                      <button type="button" class="btn btn-defaults btn-lg">Contactanos</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -506,7 +433,7 @@
         <div class="container-fluid" id="formulario">
             <div class="row">
                 <div class="col-md-6 col-xs-12">
-                    <img src="images/agent-image-1.png" class="img-responsive for_img">
+                    <img src="images/agent-image-1.png" class="img-responsive for_img hidden-xs">
                 </div>
                 <div class="col-md-6 col-xs-12">
                 
@@ -700,7 +627,6 @@
                     <img src="imgweb/logo_svg.svg" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
                     <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
                       <div class="row img_foo">
-                        <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
                         <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
                         <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
                         <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>
@@ -757,7 +683,7 @@
           $('.owl-one').owlCarousel({
                 loop:true,
                 margin:0,
-                autoplay:true,
+                autoplay:false,
                 autoplayTimeout:3000,
                 nav:false,
                 responsive:{
@@ -779,7 +705,7 @@
           $('.owl-two').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:true,
+                autoplay:false,
                 autoplayTimeout:3000,
                 nav:false,
                 responsive:{
@@ -801,7 +727,7 @@
           $('.owl-tree').owlCarousel({
                 loop:true,
                 margin:50,
-                autoplay:true,
+                autoplay:false,
                 autoplayTimeout:3000,
                 nav:false,
                 responsive:{
