@@ -55,17 +55,13 @@
                     <?php echo $xPhone; ?>
                   </li>
                   <li class="list-group-item">
-                    <strong>Celular:</strong><br>
-                    <?php echo $xMobile; ?>
-                  </li>
-                  <li class="list-group-item">
                     <strong>Emails:</strong><br>
                     <?php echo $xEmail; ?>
                   </li>
                   <?php if($xMap!=""){ ?>
                   <li class="list-group-item">
                     <strong>Mapa:</strong>
-                    <iframe src="<?php echo $xMap; ?>" width="100%" frameborder="1" height="250"></iframe>
+                    <?php echo $xMap; ?>
                   </li>
                   <?php }else{ ?>
                   <?php } ?>

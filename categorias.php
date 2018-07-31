@@ -1,4 +1,5 @@
 <?php include("cms/module/conexion.php"); ?>
+<?php $cod_categoria=$_REQUEST['cod_categoria']; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +11,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-xs-12">
-        <p class="branch">Inicio > Blog</p>
+        <?php 
+          $consultarCategorias = "SELECT * FROM noticias_categorias WHERE estado='1' AND cod_categoria='$cod_categoria'";
+          $resultadoCategorias = mysqli_query($enlaces,$consultarCategorias) or die('Consulta fallida: ' . mysqli_error($enlaces));
+          $filaCat = mysqli_fetch_array($resultadoCategorias);
+            $xCategoria = $filaCat['categoria'];
+        ?>
+        <p class="branch">Inicio > Blog > <?php echo $xCategoria; ?></p>
+        <?php
+          mysqli_free_result($resultadoCategorias);
+        ?>
       </div>
       <div class="col-md-2 col-xs-12" style="float: right;">
         <div class="wrap-input2 validate-input">
@@ -30,7 +40,7 @@
       <div class="col-md-10">
         <div class="row">
           <?php
-              $consultarNoticias = "SELECT * FROM noticias WHERE estado='1'";
+              $consultarNoticias = "SELECT * FROM noticias WHERE estado='1' AND cod_categoria='$cod_categoria'";
               $resultadoNoticias = mysqli_query($enlaces, $consultarNoticias);
               $total_registros = mysqli_num_rows($resultadoNoticias);
               if($total_registros==0){ 
@@ -48,7 +58,7 @@
                 $posicion = ($pagina-1)*$registros_por_paginas;
                 $limite = "LIMIT $posicion, $registros_por_paginas";
 
-                $consultarNoticias = "SELECT * FROM noticias WHERE estado='1' ORDER BY fecha ASC $limite";
+                $consultarNoticias = "SELECT * FROM noticias WHERE estado='1' AND cod_categoria='$cod_categoria' ORDER BY fecha ASC $limite";
                 $resultadoNoticias = mysqli_query($enlaces,$consultarNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
                 while($filaNot = mysqli_fetch_array($resultadoNoticias)){
                   $xCodigo        = $filaNot['cod_noticia'];
@@ -61,11 +71,9 @@
           ?>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="card" style="margin-bottom: 30px;">
-              <a href="post.php?cod_noticia=<?php echo $xCodigo; ?>">
-                <img class="card-img-top" src="cms/assets/img/noticias/<?php echo $xImagen; ?>">
-              </a>
+              <img class="card-img-top" src="cms/assets/img/noticias/<?php echo $xImagen; ?>">
               <div class="card-block">
-                <h4 class="card-title mt-3 titulo-noticia"><a href="post.php?cod_noticia=<?php echo $xCodigo; ?>"><?php echo $xTitulo; ?></a></h4>
+                <h4 class="card-title mt-3 titulo-noticia"><?php echo $xTitulo; ?></h4>
                 <?php
                   $mydate = strtotime($xFecha);
                   $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
@@ -85,14 +93,14 @@
               <div class="card-footer">
                 <div class="row">
                   <div class="col-md-6">
-                    <small class="smtext"><a href="post.php?cod_noticia=<?php echo $xCodigo; ?>">Leer M&aacute;s...</a></small>
+                    <small class="smtext"><a href="post.php?cod_noticia=<?php echo $xCodigo; ?>" target="new">Leer M&aacute;s...</a></small>
                   </div>
                   <div class="col-md-6">
                     <!-- <ul class="mcard_list">
                       <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 111</li>
                     </ul> -->
                   </div>
-                </div> 
+                </div>
               </div>
             </div>
           </div>
@@ -111,22 +119,22 @@
                   <div class='col-lg-12'>
                     <ul class='pagination'>";
                   if($pagina>1){
-                    echo "<li><a href='?p=".($pagina-1)."'>&laquo;</a></li>";
+                    echo "<li><a href='?cod_categoria=".$cod_categoria."&p=".($pagina-1)."'>&laquo;</a></li>";
                   }
                   for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                     if($i==$pagina){
                       echo "<li class='active'><a><strong>$i</strong></a></li>";
                     }else{
-                      echo "<li><a href='?p=$i'>$i</a></li>";
+                      echo "<li><a href='?cod_categoria=".$cod_categoria."&p=$i'>$i</a></li>";
                     }
                   }
                   if(($pagina+$paginas_mostrar)<$total_paginas){
                     echo "<li>...</li>";
                   }
                   if($pagina<$total_paginas){
-                    echo "  <li><a href='?p=".($pagina+1)."'>&raquo;</a></li>";
+                    echo "  <li><a href='?cod_categoria=".$cod_categoria."&p=".($pagina+1)."'>&raquo;</a></li>";
                   }
-        echo "  </ul>
+          echo "</ul>
               </div>
             </div>";
           }

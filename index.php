@@ -3,38 +3,6 @@
 <html lang="es">
 <head>
     <?php include("modulos/head.php"); ?>
-    <?php
-        $consultarMet = 'SELECT * FROM metatags';
-        $resultadoMet = mysqli_query($enlaces,$consultarMet) or die('Consulta fallida: ' . mysqli_error($enlaces));
-        $filaMet = mysqli_fetch_array($resultadoMet);
-            $xTitulo    = $filaMet['titulo'];
-            $xSlogan    = $filaMet['slogan'];
-            $xDes       = $filaMet['description'];
-            $xUrl       = $filaMet['url'];
-            $xFace1     = $filaMet['face1'];
-            $xFace2     = $filaMet['face2'];
-            $xIco       = $filaMet['ico'];
-    ?>
-    <!-- twitter card starts from here, if you don't need remove this section -->
-    <meta name="twitter:url" content="<?php echo $xUrl; ?>" />
-    <meta name="twitter:title" content="<?php echo $xTitulo; ?> <?php if($xSlogan==""){ echo $xSlogan; } ?>" /> <!-- maximum 140 char -->
-    <meta name="twitter:description" content="<?php echo $xDes ?>" /> <!-- maximum 140 char -->
-    <meta name="twitter:image" content="cms/assets/img/meta/<?php echo $xFace1; ?>" />
-    <!-- twitter card ends from here -->
-
-    <!-- facebook open graph starts from here, if you don't need then delete open graph related  -->
-    <meta property="og:title" content="<?php echo $xTitulo; ?> <?php if($xSlogan==""){ echo $xSlogan; } ?>" />
-    <meta property="og:url" content="<?php echo $xUrl; ?>" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="<?php echo $xTitulo; ?>" />
-    <meta property="og:description" content="<?php echo $xDes; ?>" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="cms/assets/img/meta/<?php echo $xFace1; ?>" />
-    <meta property="og:image" content="cms/assets/img/meta/<?php echo $xFace2; ?>" />
-    <!-- facebook open graph ends from here -->
-    <?php
-        mysqli_free_result($resultadoMet);
-    ?>
 </head>
 <body>
     <?php include('modulos/nav.php'); ?>
@@ -333,6 +301,7 @@
     <section class="seccion_bg">
         <div class="container-fluid">
             <br><br>
+
             <div class="row">
                 <div class="col-md-5">
                     <img src="imgweb/logo_svg.svg" class="img-responsive abt_img">
@@ -341,16 +310,11 @@
                     <h3 class="about">Nosotros</h3>
                     <p class="abt_nom">Octavio Pedraza Porras E Hijos</p>
                     <br>
-                    <p class="art_abt"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor.
-                    Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                    </p>
+                    <p class="art_abt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <br><br>
                 </div>
             </div>
+
         </div>
     </section>
     <!--empresa-->
@@ -392,7 +356,7 @@
                 <div class="col-md-6 col-xs-12">
                     <div class="wrap-contact2">
                         <div align="center">
-                            <h3 class="for_text">CONTÁCTANOS</h3>
+                            <h3 class="for_text">CONT&Aacute;CTANOS</h3>
                             <p class="for_p">Ayudamos a vender tu inmueble</p>
                             <br>
                         </div>
@@ -415,10 +379,10 @@
                             </div>
                             <div class="container-contact2-form-btn">
                                 <div class="wrap-contact2-form-btn">
+
                                     <div class="contact2-form-bgbtn"></div>
-                                    <button class="contact2-form-btn">
-                                        Enviar Mensaje
-                                    </button>
+                                    <button class="contact2-form-btn">Enviar Mensaje</button>
+                                
                                 </div>
                             </div>
                         </form>

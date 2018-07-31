@@ -15,12 +15,14 @@
             $xKey       = $filaMet['keywords'];
             $xIco       = $filaMet['ico'];
     ?>
-    <title><?php echo $xTitulo; ?> <?php if($xSlogan==""){ echo $xSlogan; } ?></title>
+    <title><?php echo $xTitulo; ?><?php if($xSlogan==""){ echo " | ".$xSlogan; } ?></title>
 	<meta name="description" content="<?php echo $xDes; ?>" />
     <meta name="keywords" content="<?php echo $xKey; ?>" />
     <!-- Favicon -->
 	<link href="cms/assets/img/meta/<?php echo $xIco; ?>" rel="shortcut icon"/>
-
+    <?php
+        mysqli_free_result($resultadoMet);
+    ?>
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet">
 
@@ -37,6 +39,4 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
-    <?php
-        mysqli_free_result($resultadoMet);
-    ?>
+    <link rel="stylesheet" type="text/css" href="css/custom.css"/>

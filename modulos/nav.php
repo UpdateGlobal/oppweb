@@ -19,7 +19,7 @@
                 <img src="cms/assets/img/meta/<?php echo $xLogo; ?>" width="220" class="logo" />
               </a>
               <?php
-
+                mysqli_free_result($resultadoMet);
               ?>
             </div>
           </div>
@@ -31,7 +31,9 @@
                 $filaMet = mysqli_fetch_array($resultadoMet);
                   $xLogo      = $filaMet['logo'];
               ?>
-              <img src="cms/assets/img/meta/<?php echo $xLogo ?>" width="220" class="logoside" /></a>
+              <a href="index.php">
+                <img src="cms/assets/img/meta/<?php echo $xLogo ?>" width="220" class="logoside" />
+              </a>
               <?php
                 mysqli_free_result($resultadoMet);
               ?>
@@ -45,7 +47,7 @@
                   <li><a href="#">Oficinas</a></li>
                   <li><a href="#">Casa</a></li>
                   <li><a href="#">Locales</a></li>
-                  <li><a href="">Terrenos</a></li>
+                  <li><a href="#">Terrenos</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -72,7 +74,30 @@
             <div class="row">
               <div class="redes">
                 <ul class="redes">
-                  <li><i class="fab fa-facebook-square"></i></li>
+                  <?php
+                    $consultarSol = "SELECT * FROM social WHERE estado='1' ORDER BY orden";
+                    $resultadoSol = mysqli_query($enlaces,$consultarSol) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                    while($filaSol = mysqli_fetch_array($resultadoSol)){
+                      $xLinks     = $filaSol['links'];
+                      $xType      = $filaSol['type'];
+                      if($xType=="fa-facebook-square"){ $xValor = "fa-facebook-f"; }
+                      if($xType=="fa-twitter-square"){ $xValor = "fa-twitter"; }
+                      if($xType=="fa-google-plus-official"){ $xValor = "fa-google-plus-g"; }
+                      if($xType=="fa-linkedin"){ $xValor = "fa-linkedin-in"; }
+                      if($xType=="fa-behance"){ $xValor = "fa-behance"; }
+                      if($xType=="fa-youtube-play"){ $xValor = "fa-youtube"; }
+                      if($xType=="fa-vimeo"){ $xValor = "fa-vimeo-v"; }
+                      if($xType=="fa-wordpress"){ $xValor = "fa-wordpress"; }
+                      if($xType=="fa-tumblr-square"){ $xValor = "fa-tumblr"; }
+                      if($xType=="fa-pinterest"){ $xValor = "fa-pinterest-p"; }
+                      if($xType=="fa-instagram"){ $xValor = "fa-instagram"; }
+                      if($xType=="fa-flickr"){ $xValor = "fa-flickr"; }
+                  ?>
+                  <li><a href="<?php echo $xLinks; ?>" target="_blank"><i class="fab <?php echo $xValor; ?>"></i></span></a></li>
+                  <?php
+                    }
+                    mysqli_free_result($resultadoSol);
+                  ?>
                 </ul>
               </div>
             </div>
@@ -81,7 +106,14 @@
       </nav>
     </div>
     <div class="col-md-6 hidden-xs hidden-sm" align="right">
-      <div class="topbares">Calle Aldabas Nº.559 of.403 - Surco |  2751241/ 2751254/ 6237723</div>
+      <?php
+        $consultarCot = 'SELECT * FROM contacto';
+        $resultadoCot = mysqli_query($enlaces,$consultarCot) or die('Consulta fallida: ' . mysqli_error($enlaces));
+        $filaCot  = mysqli_fetch_array($resultadoCot);
+          $xDirection = $filaCot['direction'];
+          $xTelefono  = $filaCot['phone'];
+      ?>
+      <div class="topbares"><?php echo $xDirection; ?><?php if($xTelefono!=""){ echo " | ".$xTelefono; } ?></div>
     </div>
   </div>
 </div>
