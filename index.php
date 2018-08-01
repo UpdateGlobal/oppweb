@@ -20,20 +20,21 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@yourtwitterusername" />
     <meta name="twitter:creator" content="@yourtwitterusername" />
-    <meta name="twitter:url" content="http://yourdomain.com" />
-    <meta name="twitter:title" content="Your home page title, max 140 char" /> <!-- maximum 140 char -->
-    <meta name="twitter:description" content="Your site description, maximum 140 char " /> <!-- maximum 140 char -->
-    <meta name="twitter:image" content="assets/img/twittercardimg/twittercard-280-150.jpg" />  <!-- when you post this page url in twitter , this image will be shown -->
+    <meta name="twitter:url" content="http://opp.grupo-update.com" />
+    <meta name="twitter:title" content="Proyectos Inmobiliarios al alcanze de todos" /> <!-- maximum 140 char -->
+    <meta name="twitter:description" content="Octavio Pedraza e hijos " /> <!-- maximum 140 char -->
+    <meta name="twitter:image" content="images/1.png" />  <!-- when you post this page url in twitter , this image will be shown -->
     <!-- twitter card ends from here -->
 
     <!-- facebook open graph starts from here, if you don't need then delete open graph related  -->
-    <meta property="og:title" content="Your home page title" />
-    <meta property="og:url" content="http://your domain here.com" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Your site name here" />
+    <meta property="og:title" content="ENCUENTRA UN LUGAR PARA TI" />
+    <meta property="og:url" content="http://opp.grupo-update.com" />
+    <meta property="og:locale" content="en_ES" />
+    <meta property="og:site_name" content="Proyectos Inmobiliarios al alcanze de todos" />
+    <meta property="og:description" content="Octavio Pedraza e hijos" /> <!-- maximum 140 char -->
     <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/img/opengraph/fbphoto.jpg" /> <!-- when you post this page url in facebook , this image will be shown -->
+    <meta property="og:image" content="images/pedraza-logo-footer.png" /> <!-- when you post this page url in facebook , this image will be shown -->
     <!-- facebook open graph ends from here -->
 
 	<!-- Google Fonts -->
@@ -52,6 +53,26 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
+
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '261767897755680'); 
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=261767897755680&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
 
 
 
@@ -422,7 +443,8 @@
                     </div>
                 </div>
                 <div class="col-md-4" align="center">
-                     <button type="button" class="btn btn-defaults btn-lg">Contactanos</button>
+                    <a href="contacto.php" class="btn btn-defaults btn-lg">Contactanos</a>
+                     
             </div>
         </div>
     </section>
