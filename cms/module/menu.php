@@ -36,12 +36,12 @@
                 </a>
               </li>
 
-              <li class="menu-item">
+              <!-- <li class="menu-item">
                 <a class="menu-link" href="carrusel.php">
                   <span class="dot"></span>
                   <span class="title">Carrusel</span>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 
@@ -52,14 +52,14 @@
             </a>
           </li>
 
-          <li class="menu-item <?php echo ($menu == "servicios" ? "active" : "")?>">
-            <a class="menu-link <?php echo ($menu == "servicios" ? "open" : "")?>" href="#">
+          <!-- <li class="menu-item < ?php echo ($menu == "servicios" ? "active" : "")?>">
+            <a class="menu-link < ?php echo ($menu == "servicios" ? "open" : "")?>" href="#">
               <span class="icon fa fa-bars"></span>
               <span class="title">Servicios</span>
               <span class="arrow"></span>
             </a>
 
-            <ul class="menu-submenu" <?php echo ($menu == "servicios" ? "style='display:block;'" : "")?> >
+            <ul class="menu-submenu" < ?php echo ($menu == "servicios" ? "style='display:block;'" : "")?> >
               <li class="menu-item">
                 <a class="menu-link" href="servicios.php">
                   <span class="dot"></span>
@@ -75,7 +75,7 @@
               </li>
 
             </ul>
-          </li>
+          </li> -->
 
           <li class="menu-item <?php echo ($menu == "noticias" ? "active" : "")?>">
             <a class="menu-link <?php echo ($menu == "noticias" ? "open" : "")?>" href="#">
@@ -102,14 +102,14 @@
             </ul>
           </li>
 
-          <li class="menu-item <?php echo ($menu == "portafolio" ? "active" : "")?>">
-            <a class="menu-link <?php echo ($menu == "portafolio" ? "open" : "") ?>"  href="#">
+          <!-- <li class="menu-item < ?php echo ($menu == "portafolio" ? "active" : "")?>">
+            <a class="menu-link < ?php echo ($menu == "portafolio" ? "open" : "") ?>"  href="#">
               <span class="icon fa fa-folder-open"></span>
               <span class="title">Portafolio</span>
               <span class="arrow"></span>
             </a>
 
-            <ul class="menu-submenu" <?php echo ($menu == "portafolio" ? "style='display:block;'" : "")?> >
+            <ul class="menu-submenu" < ?php echo ($menu == "portafolio" ? "style='display:block;'" : "")?> >
               <li class="menu-item">
                 <a class="menu-link" href="portafolio-categorias.php">
                   <span class="dot"></span>
@@ -132,16 +132,16 @@
               </li>
 
             </ul>
-          </li>
+          </li>-->
 
-          <li class="menu-item <?php echo ($menu == "galeria" ? "active" : "")?>">
-            <a class="menu-link <?php echo ($menu == "galeria" ? "open" : "") ?>" href="#" >
+          <!-- <li class="menu-item < ?php echo ($menu == "galeria" ? "active" : "")?>">
+            <a class="menu-link < ?php echo ($menu == "galeria" ? "open" : "") ?>" href="#" >
               <span class="icon fa fa-picture-o"></span>
               <span class="title">Galer&iacute;a</span>
               <span class="arrow"></span>
             </a>
 
-            <ul class="menu-submenu" <?php echo ($menu == "galeria" ? "style='display:block;'" : "")?>>
+            <ul class="menu-submenu" < ?php echo ($menu == "galeria" ? "style='display:block;'" : "")?>>
               <li class="menu-item">
                 <a class="menu-link" href="galeria.php">
                   <span class="dot"></span>
@@ -164,18 +164,18 @@
               </li>
 
             </ul>
-          </li>
-
+          </li>-->
+<!-- 
           <li class="menu-category">Tienda</li>
 
-          <li class="menu-item <?php echo ($menu == "productos" ? "active" : "")?>">
-            <a class="menu-link <?php echo ($menu == "productos" ? "open" : "") ?>" href="#">
+          <li class="menu-item < ?php echo ($menu == "productos" ? "active" : "")?>">
+            <a class="menu-link < ?php echo ($menu == "productos" ? "open" : "") ?>" href="#">
               <span class="icon fa fa-cube"></span>
               <span class="title">Productos</span>
               <span class="arrow"></span>
             </a>
 
-            <ul class="menu-submenu" <?php echo ($menu == "productos" ? "style='display:block;'" : "")?>>
+            <ul class="menu-submenu" < ?php echo ($menu == "productos" ? "style='display:block;'" : "")?>>
               <li class="menu-item">
                 <a class="menu-link" href="productos-categorias.php">
                   <span class="dot"></span>
@@ -213,12 +213,12 @@
             </ul>
           </li>
 
-          <li class="menu-item <?php echo ($menu == "clientes" ? "active" : "")?>">
+          <li class="menu-item < ?php echo ($menu == "clientes" ? "active" : "")?>">
             <a class="menu-link" href="clientes.php">
               <span class="icon fa fa-users"></span>
               <span class="title">Clientes</span>
             </a>
-          </li>
+          </li> -->
 
           <li class="menu-category">Contacto</li>
 

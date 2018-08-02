@@ -62,7 +62,7 @@
   <div class="container-fluid" style="background: url(cms/assets/img/noticias/<?php echo $imagen; ?>); background-size: cover; margin-bottom: 50px;">
     <div class="row">
       <div class="col-md-12">
-        <p class="branch_blog">Inicio > Blog > <?php echo $titulo; ?> </p>
+        <p class="branch_blog">Inicio > Blog > <?php echo $titulo; ?></p>
       </div>
     </div>
   </div>

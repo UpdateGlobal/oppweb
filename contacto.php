@@ -20,7 +20,7 @@
                 <p class="for_p">Ayudamos a vender tu inmueble</p>
                 <br>
               </div>
-              <form class="contact2-form validate-form">
+              <div class="contact2-form validate-form">
                 <div class="wrap-input2 validate-input" data-validate="Nombre requerido">
                   <input class="input2" type="text" id="nombres" name="nombres">
                   <span class="focus-input2" data-placeholder="Nombres"></span>
@@ -43,52 +43,10 @@
                   <input type="hidden" id="fecha_ingreso" name="fecha_ingreso" value="<?php echo $fecha ?>" />
                   <div class="wrap-contact2-form-btn">
                     <div class="contact2-form-bgbtn"></div>
-                    <button class="contact2-form-btn" onClick="sendContact();">Enviar Mensaje</button>
+                    <button class="contact2-form-btn" name="submit" onClick="sendContact();">Enviar Mensaje</button>
                   </div>
                 </div>
-              </form>
-              <script>
-                function sendContact(){
-                  var valid;
-                  valid = validateContact();
-                  if(valid) {
-                    jQuery.ajax({
-                      url: "/contact_form.php",
-                      data:'nombres='+$("#nombres").val()+'&email='+$("#email").val()+'&telefono='+$("#telefono").val()+'&mensaje='+$("#mensaje").val()+'&fecha_ingreso='+$("#fecha_ingreso").val(),
-                      type: "POST",
-                      success:function(data){
-                        $("#mail-status").html(data);
-                        $("#send").html("");
-                      },
-                      error:function (){}
-                    });
-                  }
-                }
-                function validateContact() {
-                  var valid = true;
-                  if(!$("#nombres").val()) {
-                    $("#nombres").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  if(!$("#email").val()) {
-                    $("#email").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  if(!$("#email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-                    $("#email").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  if(!$("#telefono").val()) {
-                    $("#telefono").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  if(!$("#mensaje").val()) {
-                    $("#mensaje").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  return valid;
-                }
-              </script>
+              </div>
             </div>
           </div>
         </div>
@@ -124,5 +82,47 @@
         document.getElementById("mySidenav").style.width = "0";
       }
     </script>
+    <script>
+                function sendContact(){
+                  var valid;
+                  valid = validateContact();
+                  if(valid) {
+                    jQuery.ajax({
+                      url: "contact_form.php",
+                      data:'nombres='+$("#nombres").val()+'&email='+$("#email").val()+'&telefono='+$("#telefono").val()+'&mensaje='+$("#mensaje").val()+'&fecha_ingreso='+$("#fecha_ingreso").val(),
+                      type: "POST",
+                      success:function(data){
+                        $("#mail-status").html(data);
+                        $("#send").html("");
+                      },
+                      error:function (){}
+                    });
+                  }
+                }
+                function validateContact() {
+                  var valid = true;
+                  if(!$("#nombres").val()) {
+                    $("#nombres").css('background-color','#f28282');
+                    valid = false;
+                  }
+                  if(!$("#email").val()) {
+                    $("#email").css('background-color','#f28282');
+                    valid = false;
+                  }
+                  if(!$("#email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                    $("#email").css('background-color','#f28282');
+                    valid = false;
+                  }
+                  if(!$("#telefono").val()) {
+                    $("#telefono").css('background-color','#f28282');
+                    valid = false;
+                  }
+                  if(!$("#mensaje").val()) {
+                    $("#mensaje").css('background-color','#f28282');
+                    valid = false;
+                  }
+                  return valid;
+                }
+              </script>
   </body>
 </html>

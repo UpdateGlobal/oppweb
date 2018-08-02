@@ -2,9 +2,14 @@
         <div class="container" align="center">
             <div class="row">
                 <div class="col-md-12">
-                    
-                    <img src="imgweb/logosvgwhite.svg" class="img-responsive abt_img2 hidden-xs ">
-                    
+                    <?php
+                        $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='2'";
+                        $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        $filaCon = mysqli_fetch_array($resultadoCon);
+                            $xImagen      = $filaCon['img_contenido'];
+                            $xContenido   = $filaCon['contenido'];
+                    ?>
+                    <img src="cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive abt_img2 hidden-xs" />
                     <?php
                         $consultarMet = 'SELECT * FROM metatags';
                         $resultadoMet = mysqli_query($enlaces,$consultarMet) or die('Consulta fallida: ' . mysqli_error($enlaces));
@@ -13,9 +18,12 @@
                     ?>
                     <img src="cms/assets/img/meta/<?php echo $xLogo; ?>" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
                     <?php
-                         mysqli_free_result($resultadoMet);
+                        mysqli_free_result($resultadoMet);
                     ?>
-                    <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                    <p class="grey-text text-lighten-4 text_foot img_foo foo_bt"><?php echo $xContenido; ?></p>
+                    <?php
+                        mysqli_free_result($resultadoCon);
+                    ?>
                     <div class="row img_foo">
                         <?php
                             $consultarSol = "SELECT * FROM social WHERE estado='1' ORDER BY orden";

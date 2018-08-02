@@ -136,162 +136,162 @@
             </div>
         </div>
     </section>
-<!--cards-->
-<!--card_rents-->
-<section>
-    <div class="container-fluid">
-        <div class="row" align="center">
-            <br><br><br>
-            <h3 class="rent_text opptitle">NOVEDADES PARA TI</h3>
-            <p class="rent_sub oppsubtitle">Lanzamientos Inmobiliarios</p>
-            <br><br><br>
-            <div class="col-md-3" align="left">
-                <p class="rent_p">Propiedad</p>
-                <h3 class="rent_text">ALQUILER</h3>
-                <p class="rent_p oppmtext">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
-                <br>
-            </div>  
-            <div class="col-md-9">
-                <div class="owl-tree owl-carousel owl-theme">
-                    <a href="inmueble.php">
-                        <div class="rent_img">
-                            <div class="rent_item rent_shadow" >
-                                <div class="row" style="margin: 0px;">
-                                    <img src="imgweb/miraflores2.jpg" class="rent_img" alt="">
-                                    <div class="botton_rent">
-                                        <div class="rent_valor">MIRAFLORES</div>
+    <!--cards-->
+    <!--card_rents-->
+    <section>
+        <div class="container-fluid">
+            <div class="row" align="center">
+                <br><br><br>
+                <h3 class="rent_text opptitle">NOVEDADES PARA TI</h3>
+                <p class="rent_sub oppsubtitle">Lanzamientos Inmobiliarios</p>
+                <br><br><br>
+                <div class="col-md-3" align="left">
+                    <p class="rent_p">Propiedad</p>
+                    <h3 class="rent_text">ALQUILER</h3>
+                    <p class="rent_p oppmtext">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
+                    <br>
+                </div>  
+                <div class="col-md-9">
+                    <div class="owl-tree owl-carousel owl-theme">
+                        <a href="inmueble.php">
+                            <div class="rent_img">
+                                <div class="rent_item rent_shadow" >
+                                    <div class="row" style="margin: 0px;">
+                                        <img src="imgweb/miraflores2.jpg" class="rent_img" alt="">
+                                        <div class="botton_rent">
+                                            <div class="rent_valor">MIRAFLORES</div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin: 0px;">
+                                        <p class="rent_titl">Oficina alquiler</p>
+                                        <ul class="rent_list">
+                                            <li class="itemc"><i class="fas fa-home"></i> 300 mts</li>
+                                            <li class="itemc"><i class="fas fa-bed"></i> 4 cubiculos</li>
+                                            <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="row" style="margin: 0px;">
-                                    <p class="rent_titl">Oficina alquiler</p>
-                                    <ul class="rent_list">
-                                        <li class="itemc"><i class="fas fa-home"></i> 300 mts</li>
-                                        <li class="itemc"><i class="fas fa-bed"></i> 4 cubiculos</li>
-                                        <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="inmueble.php">
-                        <div class="rent_img">
-                            <div class="rent_item rent_shadow" >
-                                <div class="row" style="margin: 0px;">
-                                    <img src="imgweb/santiagodesurco.jpg" class="rent_img" alt="">
-                                    <div class="botton_rent">
-                                        <div class="rent_valor">ST. SURCO</div> 
+                        </a>
+                        <a href="inmueble.php">
+                            <div class="rent_img">
+                                <div class="rent_item rent_shadow" >
+                                    <div class="row" style="margin: 0px;">
+                                        <img src="imgweb/santiagodesurco.jpg" class="rent_img" alt="">
+                                        <div class="botton_rent">
+                                            <div class="rent_valor">ST. SURCO</div> 
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin: 0px;">
+                                        <p class="rent_titl">oficina alquiler </p>
+                                        <ul class="rent_list">
+                                            <li class="itemc"><i class="fas fa-home"></i> 298 mts</li>
+                                            <li class="itemc"><i class="fas fa-bed"></i> 3 Cubiculos</li>
+                                            <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="row" style="margin: 0px;">
-                                    <p class="rent_titl">oficina alquiler </p>
-                                    <ul class="rent_list">
-                                        <li class="itemc"><i class="fas fa-home"></i> 298 mts</li>
-                                        <li class="itemc"><i class="fas fa-bed"></i> 3 Cubiculos</li>
-                                        <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="inmueble.php">
-                        <div class="rent_img">
-                            <div class="rent_item rent_shadow" >
-                                <div class="row" style="margin: 0px;">
-                                    <img src="imgweb/santiagodesurco2.jpg" class="rent_img" alt="">
-                                    <div class="botton_rent">
-                                        <div class="rent_valor">ST. SURCO</div> 
+                        </a>
+                        <a href="inmueble.php">
+                            <div class="rent_img">
+                                <div class="rent_item rent_shadow" >
+                                    <div class="row" style="margin: 0px;">
+                                        <img src="imgweb/santiagodesurco2.jpg" class="rent_img" alt="">
+                                        <div class="botton_rent">
+                                            <div class="rent_valor">ST. SURCO</div> 
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin: 0px;">
+                                        <p class="rent_titl">Departamento alquiler</p>
+                                        <ul class="rent_list">
+                                            <li class="itemc"><i class="fas fa-home"></i> 80 mts</li>
+                                            <li class="itemc"><i class="fas fa-bed"></i> 3 Cuartos</li>
+                                            <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="row" style="margin: 0px;">
-                                    <p class="rent_titl">Departamento alquiler</p>
-                                    <ul class="rent_list">
-                                        <li class="itemc"><i class="fas fa-home"></i> 80 mts</li>
-                                        <li class="itemc"><i class="fas fa-bed"></i> 3 Cuartos</li>
-                                        <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr style="margin: 80px 20px;">
-    <div class="container-fluid">
-        <div class="row" align="center">
-            <div class="col-md-3" align="left">
-                <p class="rent_p">Propiedad</p>
-                <h3 class="rent_text">EN VENTA</h3>
-                <p class="rent_p">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
-                <br>
-            </div>  
-            <div class="col-md-9" >
-                <div class="owl-tree owl-carousel owl-theme">
-                    <a href="inmueble.php">
-                        <div class="rent_img">
-                            <div class="rent_item rent_shadow" >
-                                <div class="row" style="margin: 0px;">
-                                    <img src="imgweb/santihagodesurco3.jpg" class="rent_img" alt="">
-                                    <div class="botton_rent">
-                                        <div class="rent_valor">ST. SURCO</div>
+        <hr style="margin: 80px 20px;">
+        <div class="container-fluid">
+            <div class="row" align="center">
+                <div class="col-md-3" align="left">
+                    <p class="rent_p">Propiedad</p>
+                    <h3 class="rent_text">EN VENTA</h3>
+                    <p class="rent_p">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
+                    <br>
+                </div>  
+                <div class="col-md-9" >
+                    <div class="owl-tree owl-carousel owl-theme">
+                        <a href="inmueble.php">
+                            <div class="rent_img">
+                                <div class="rent_item rent_shadow" >
+                                    <div class="row" style="margin: 0px;">
+                                        <img src="imgweb/santihagodesurco3.jpg" class="rent_img" alt="">
+                                        <div class="botton_rent">
+                                            <div class="rent_valor">ST. SURCO</div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin: 0px;">
+                                        <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 130,000</p>
+                                        <ul class="rent_list">
+                                            <li class="itemc"><i class="fas fa-home"></i> 78 mts</li>
+                                            <li class="itemc"><i class="fas fa-bed"></i> 4 Cuartos</li>
+                                            <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="row" style="margin: 0px;">
-                                    <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 130,000</p>
-                                    <ul class="rent_list">
-                                        <li class="itemc"><i class="fas fa-home"></i> 78 mts</li>
-                                        <li class="itemc"><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                        <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="inmueble.php">
-                        <div class="rent_img">
-                            <div class="rent_item rent_shadow" >
-                                <div class="row" style="margin: 0px;">
-                                    <img src="imgweb/miraflores.jpg" class="rent_img" alt="">
-                                    <div class="botton_rent">
-                                        <div class="rent_valor">MIRAFLORES  </div>
+                        </a>
+                        <a href="inmueble.php">
+                            <div class="rent_img">
+                                <div class="rent_item rent_shadow" >
+                                    <div class="row" style="margin: 0px;">
+                                        <img src="imgweb/miraflores.jpg" class="rent_img" alt="">
+                                        <div class="botton_rent">
+                                            <div class="rent_valor">MIRAFLORES  </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin: 0px;">
+                                        <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 278,000</p>
+                                        <ul class="rent_list">
+                                            <li class="itemc"><i class="fas fa-home"></i> 78 mts</li>
+                                            <li class="itemc"><i class="fas fa-bed"></i> 4 Cuartos</li>
+                                            <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="row" style="margin: 0px;">
-                                    <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 278,000</p>
-                                    <ul class="rent_list">
-                                        <li class="itemc"><i class="fas fa-home"></i> 78 mts</li>
-                                        <li class="itemc"><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                        <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="inmueble.php">
-                        <div class="rent_img">
-                            <div class="rent_item rent_shadow" >
-                                <div class="row" style="margin: 0px;">
-                                    <img src="imgweb/miraflores2.jpg" class="rent_img" alt="">
-                                    <div class="botton_rent">
-                                        <div class="rent_valor">MIRAFLORES</div>
+                        </a>
+                        <a href="inmueble.php">
+                            <div class="rent_img">
+                                <div class="rent_item rent_shadow" >
+                                    <div class="row" style="margin: 0px;">
+                                        <img src="imgweb/miraflores2.jpg" class="rent_img" alt="">
+                                        <div class="botton_rent">
+                                            <div class="rent_valor">MIRAFLORES</div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin: 0px;">
+                                        <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 238,000</p>
+                                        <ul class="rent_list">
+                                            <li class="itemc"><i class="fas fa-home"></i> 83 mts</li>
+                                            <li class="itemc"><i class="fas fa-bed"></i> 3 Cuartos</li>
+                                            <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="row" style="margin: 0px;">
-                                    <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 238,000</p>
-                                    <ul class="rent_list">
-                                        <li class="itemc"><i class="fas fa-home"></i> 83 mts</li>
-                                        <li class="itemc"><i class="fas fa-bed"></i> 3 Cuartos</li>
-                                        <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </section>
     <!--card_sale-->
     <br>
@@ -301,20 +301,33 @@
     <section class="seccion_bg">
         <div class="container-fluid">
             <br><br>
-
+            <?php
+                $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='1'";
+                $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                $filaCon = mysqli_fetch_array($resultadoCon);
+                    $xCodigo      = $filaCon['cod_contenido'];
+                    $xTitulo      = $filaCon['titulo_contenido'];
+                    $xImagen      = $filaCon['img_contenido'];
+                    $xContenido   = $filaCon['contenido'];
+                    $xEstado      = $filaCon['estado'];
+            ?>
             <div class="row">
                 <div class="col-md-5">
-                    <img src="imgweb/logo_svg.svg" class="img-responsive abt_img">
+                    <img src="cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive abt_img">
                 </div>
                 <div class="col-md-7">
                     <h3 class="about">Nosotros</h3>
-                    <p class="abt_nom">Octavio Pedraza Porras E Hijos</p>
+                    <p class="abt_nom"><?php echo $xTitulo; ?></p>
                     <br>
-                    <p class="art_abt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="art_abt">
+                        <?php echo $xContenido; ?>
+                    </div>
                     <br><br>
                 </div>
             </div>
-
+            <?php
+                mysqli_free_result($resultadoCon);
+            ?>
         </div>
     </section>
     <!--empresa-->

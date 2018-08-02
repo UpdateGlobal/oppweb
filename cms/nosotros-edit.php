@@ -37,11 +37,14 @@ if($proceso == "Actualizar"){
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
     function Validar(){
+      <?php if($cod_contenido=="2"){ ?>
+      <?php }else{ ?>
       if(document.fcms.titulo_contenido.value==""){
         alert("Debe escribir un título");
         document.fcms.titulo_contenido.focus();
         return; 
       }
+    <?php } ?>
       
       document.fcms.action = "nosotros-edit.php";
       document.fcms.proceso.value="Actualizar";
@@ -80,7 +83,7 @@ if($proceso == "Actualizar"){
           <h4 class="card-title"><strong>Editar Contenidos</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
-
+              <?php if($cod_contenido=="2"){ }else{ ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label require" for="titulo_contenido">T&iacute;tulo:</label>
@@ -91,6 +94,7 @@ if($proceso == "Actualizar"){
                   <div class="invalid-feedback"></div>
                 </div>
               </div>
+              <?php } ?>
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
@@ -105,7 +109,7 @@ if($proceso == "Actualizar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="logo">Imagen:</label><br>
-                  <small>(-px x -px)</small>
+                  <small><?php if($cod_contenido=="1"){?>(451px x 280px)<?php } ?><?php if($cod_contenido=="2"){?>(440px x 247px)<?php } ?></small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <?php if($xVisitante=="1"){ ?><p><?php echo $img_contenido; ?></p><?php } ?>
