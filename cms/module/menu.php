@@ -167,52 +167,46 @@
           </li>-->
 <!-- 
           <li class="menu-category">Tienda</li>
-
-          <li class="menu-item < ?php echo ($menu == "productos" ? "active" : "")?>">
-            <a class="menu-link < ?php echo ($menu == "productos" ? "open" : "") ?>" href="#">
+-->
+          <li class="menu-item <?php echo ($menu == "productos" ? "active" : "")?>">
+            <a class="menu-link <?php echo ($menu == "productos" ? "open" : "") ?>" href="#">
               <span class="icon fa fa-cube"></span>
-              <span class="title">Productos</span>
+              <span class="title">Inmuebles</span>
               <span class="arrow"></span>
             </a>
 
-            <ul class="menu-submenu" < ?php echo ($menu == "productos" ? "style='display:block;'" : "")?>>
+            <ul class="menu-submenu" <?php echo ($menu == "productos" ? "style='display:block;'" : "")?>>
               <li class="menu-item">
-                <a class="menu-link" href="productos-categorias.php">
+                <a class="menu-link" href="inmuebles-categorias.php">
                   <span class="dot"></span>
                   <span class="title">Categor&iacute;as</span>
                 </a>
               </li>
 
               <li class="menu-item">
-                <a class="menu-link" href="productos-subcategorias.php">
+                <a class="menu-link" href="inmuebles-lugares.php">
                   <span class="dot"></span>
-                  <span class="title">Sub-categor&iacute;a</span>
+                  <span class="title">Lugares</span>
                 </a>
               </li>
 
               <li class="menu-item">
-                <a class="menu-link" href="productos.php">
+                <a class="menu-link" href="inmuebles-distritos.php">
                   <span class="dot"></span>
-                  <span class="title">Productos</span>
+                  <span class="title">Distritos</span>
                 </a>
               </li>
 
               <li class="menu-item">
-                <a class="menu-link" href="productos-fotos.php">
+                <a class="menu-link" href="inmuebles.php">
                   <span class="dot"></span>
-                  <span class="title">Fotos</span>
+                  <span class="title">Inmuebles</span>
                 </a>
               </li>
 
-              <li class="menu-item">
-                <a class="menu-link" href="productos-pedidos.php">
-                  <span class="dot"></span>
-                  <span class="title">Pedidos</span>
-                </a>
-              </li>
             </ul>
           </li>
-
+<!--
           <li class="menu-item < ?php echo ($menu == "clientes" ? "active" : "")?>">
             <a class="menu-link" href="clientes.php">
               <span class="icon fa fa-users"></span>
