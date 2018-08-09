@@ -412,44 +412,47 @@
             <h3 class="rent_text">CONSEJOS Y NOTICIAS</h3>
             <p class="rent_p">Lo que debes saber si buscas un inmueble</p>
         </div>        
-        <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <br><br>
-                <div class="card">
-                    <img class="card-img-top" src="imgweb/santiagodesurco2.jpg">
-                    <div class="card-block">
-                        <h4 class="card-title mt-3">ALQUILER OFICINA EN CHACARILLA DEL ESTANQUE -SURCO</h4>
-                        <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                        <div class="meta">
-                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <small class="smtext">Leer Mas...</small>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="mcard_list">
-                                    <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 9348</li>
-                                </ul>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-            </div>
             <br>
-            <div class="col-md-6 col-xs-12">
+            <div class="col-md-12">
                 <br>
                 <div class="row ncard_btn">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
                                 <img src="imgweb/santiagodesurco.jpg"  class="ncard_img ">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
-                                    <h4 class="ncard-title mt-3">EDIFICIO GALEANO – SURCO</h4>
+                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA EN CHACARILLA DEL ESTANQUE -SURCO</h4>
+                                    <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
+                                    <div class="meta">
+                                        <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                                <div class="ncard-footer">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <small class="smtext">Leer Mas...</small>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <ul class="ncard_list">
+                                                <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
+                                            </ul>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="ncard">
+                            <div class="col-md-5" style="padding: 0px;">
+                                <img src="imgweb/santiagodesurco2.jpg"  class="ncard_img ">
+                            </div>
+                            <div class="col-md-7" style="padding: 0px;">
+                                <div class="card-block">
+                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA EN CHACARILLA DEL ESTANQUE -SURCO</h4>
                                     <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                                     <div class="meta">
                                         <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -471,69 +474,41 @@
                         </div>
                     </div>
                 </div><!--end card-->
-                
+                <br>
                 <div class="row ncard_btn">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
-                                <img src="imgweb/santiagodesurco2.jpg" class="ncard_img">
+                                <img src="imgweb/santiagodesurco.jpg"  class="ncard_img ">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
-                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA EN CHACARILLA DEL ESTANQUE -SURCO</h4>
+                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA ALDABAS- SURCO</h4>
                                     <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
                                     <div class="meta">
                                         <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                     </div>
                                 </div>
                                 <div class="ncard-footer">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <small class="smtext">Leer Mas...</small>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <ul class="ncard_list">
-                                                    <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
-                                                </ul>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--end card-->
-                    <div class="row ncard_btn">
-                        <div class="col-md-12">
-                            <div class="ncard">
-                                <div class="col-md-5" style="padding: 0px;">
-                                    <img src="imgweb/santihagodesurco3.jpg" class="ncard_img">
-                                </div>
-                                <div class="col-md-7" style="padding: 0px;">
-                                    <div class="card-block">
-                                        <h4 class="ncard-title mt-3">ALQUILER OFICINA ALDABAS- SURCO</h4>
-                                        <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                                        <div class="meta">
-                                            <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <small class="smtext">Leer Mas...</small>
                                         </div>
-                                    </div>
-                                    <div class="ncard-footer">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <small class="smtext">Leer Mas...</small>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <ul class="ncard_list">
-                                                    <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
-                                                </ul>
-                                            </div>
-                                        </div> 
-                                    </div>
+                                        <div class="col-md-7">
+                                            <ul class="ncard_list">
+                                                <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
+                                            </ul>
+                                        </div>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
-                    </div><!--end card-->
+                    </div>
+                </div><!--end card-->
+                <br>
+                
             </div>    
-        </div>
+        
     </div>
     <br><br><br>
     </section>
