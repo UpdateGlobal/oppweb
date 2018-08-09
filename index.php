@@ -475,37 +475,7 @@
                     </div>
                 </div><!--end card-->
                 <br>
-                <div class="row ncard_btn">
-                    <div class="col-md-6">
-                        <div class="ncard">
-                            <div class="col-md-5" style="padding: 0px;">
-                                <img src="imgweb/santiagodesurco.jpg"  class="ncard_img ">
-                            </div>
-                            <div class="col-md-7" style="padding: 0px;">
-                                <div class="card-block">
-                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA ALDABAS- SURCO</h4>
-                                    <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                                    <div class="meta">
-                                        <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </div>
-                                <div class="ncard-footer">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <small class="smtext">Leer Mas...</small>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <ul class="ncard_list">
-                                                <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
-                                            </ul>
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--end card-->
-                <br>
+
                 
             </div>    
         
