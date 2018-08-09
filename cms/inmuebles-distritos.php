@@ -7,25 +7,25 @@ if (isset($_REQUEST['eliminar'])) {
   $eliminar = "";
 }
 if ($eliminar == "true") {
-  $sqlEliminar = "SELECT cod_categoria FROM inmuebles_categorias ORDER BY orden";
+  $sqlEliminar = "SELECT cod_distrito FROM inmuebles_distritos ORDER BY orden";
   $sqlResultado = mysqli_query($enlaces,$sqlEliminar);
   $x = 0;
   while($filaElim = mysqli_fetch_array($sqlResultado)){
-    $id_categoria = $filaElim["cod_categoria"];
-    if ($_REQUEST["chk" . $id_categoria] == "on") {
+    $id_distrito = $filaElim["cod_distrito"];
+    if ($_REQUEST["chk" . $id_distrito] == "on") {
       $x++;
       if ($x == 1) {
-          $sql = "DELETE FROM inmuebles_categorias WHERE cod_categoria=$id_categoria";
+          $sql = "DELETE FROM inmuebles_distritos WHERE cod_distrito=$id_distrito";
         } else {
-          $sql = $sql . " OR cod_categoria=$id_categoria";
+          $sql = $sql . " OR cod_distrito=$id_distrito";
         }
     }
   }
   mysqli_free_result($sqlResultado);
-  if ($x > 0) { 
+  if ($x > 0) {
     $rs = mysqli_query($enlaces,$sql);
   }
-  header ("Location:inmuebles-categorias.php");
+  header ("Location:inmuebles-distritos.php");
 }
 ?>
 <!DOCTYPE html>
@@ -34,12 +34,13 @@ if ($eliminar == "true") {
     <?php include("module/head.php"); ?>
     <style>
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
-        td:nth-of-type(1):before { content: "Categoría"; }
-        td:nth-of-type(2):before { content: "Orden"; }
-        td:nth-of-type(3):before { content: "Estado"; }
-        td:nth-of-type(4):before { content: ""; }
+        td:nth-of-type(1):before { content: "Distritos"; }
+        td:nth-of-type(2):before { content: "Lugar"; }
+        td:nth-of-type(3):before { content: "Orden"; }
+        td:nth-of-type(4):before { content: "Estado"; }
         td:nth-of-type(5):before { content: ""; }
         td:nth-of-type(6):before { content: ""; }
+        td:nth-of-type(7):before { content: ""; }
       }
     </style>
     <script>
@@ -55,7 +56,7 @@ if ($eliminar == "true") {
         }
         if (estado == 0) {
           if (seccion == "N"){
-            alert("Debes de seleccionar un categoria.")
+            alert("Debes de seleccionar un lugar.")
           }
           return
         }
@@ -86,24 +87,25 @@ if ($eliminar == "true") {
             <small></small>
           </h1>
         </div>
-        <?php $page="inmueblescategorias"; include("module/menu-inmuebles.php"); ?>
+        <?php $page="inmueblesdistritos"; include("module/menu-inmuebles.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">
-              <h4 class="card-title"><strong>Lista de Categor&iacute;as</strong></h4>
+              <h4 class="card-title"><strong>Lista de Distritos</strong></h4>
               <div class="card-body">
-                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>inmuebles-categorias-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
+                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>inmuebles-distritos-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="60%" scope="col">Categor&iacute;a
+                        <th width="30%" scope="col">Distritos
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
+                        <th width="30%" scope="col">Lugar</th>
                         <th width="20%" scope="col">Orden</th>
                         <th width="5%" scope="col">Estado</th>
                         <th width="5%" scope="col">&nbsp;</th>
@@ -113,24 +115,26 @@ if ($eliminar == "true") {
                     </thead>
                     <tbody>
                       <?php
-                        $consultarCategoria = "SELECT * FROM inmuebles_categorias ORDER BY orden";
-                        $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
-                        while($filaCat = mysqli_fetch_array($resultadoCategoria)){
-                          $xCodigo    = $filaCat['cod_categoria'];
-                          $xCategoria = $filaCat['categoria'];
-                          $xOrden     = $filaCat['orden'];
-                          $xEstado    = $filaCat['estado'];
+                        $consultarDistrito = "SELECT li.cod_lugar, li.lugar, di.* FROM inmuebles_lugares as li, inmuebles_distritos as di WHERE di.cod_lugar=li.cod_lugar ORDER BY orden ASC";
+                        $resultadoDistrito = mysqli_query($enlaces,$consultarDistrito) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        while($filaDis = mysqli_fetch_array($resultadoDistrito)){
+                          $xCodigo    = $filaDis['cod_distrito'];
+                          $xDistrito  = $filaDis['distrito'];
+                          $xLugar     = $filaDis['lugar'];
+                          $xOrden     = $filaDis['orden'];
+                          $xEstado    = $filaDis['estado'];
                       ?>
                       <tr>
-                        <td><?php echo $xCategoria; ?></td>
+                        <td><?php echo $xDistrito; ?></td>
+                        <td><?php echo $xLugar; ?></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><?php if($xCodigo!="0"){?>
                           <strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong>
                         <?php }?></td>
                         <td><?php if($xCodigo!="0"){?>
-                          <?php if($xVisitante=="0"){ ?><a class="boton-eliminar" href="inmuebles-categorias-delete.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-trash"></i></a><?php }else{ ?><a class="boton-eliminar boton-eliminar-bloqueado" href="javascript:visitante();"><i class="fa fa-trash"></i></a><?php } ?><?php }?>
+                          <?php if($xVisitante=="0"){ ?><a class="boton-eliminar" href="inmuebles-distritos-delete.php?cod_distrito=<?php echo $xCodigo; ?>"><i class="fa fa-trash"></i></a><?php }else{ ?><a class="boton-eliminar boton-eliminar-bloqueado" href="javascript:visitante();"><i class="fa fa-trash"></i></a><?php } ?><?php }?>
                         </td>
-                        <td><?php if($xCodigo!="0"){?><a class="boton-editar" href="inmuebles-categorias-edit.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square"></i></a><?php }?></td>
+                        <td><?php if($xCodigo!="0"){?><a class="boton-editar" href="inmuebles-distritos-edit.php?cod_distrito=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square"></i></a><?php }?></td>
                         <td><?php if($xVisitante=="0"){?>
                           <?php if($xCodigo!="0"){?>
                           <div class="hidden">
@@ -144,7 +148,7 @@ if ($eliminar == "true") {
                       </tr>
                       <?php
                         }
-                        mysqli_free_result($resultadoCategoria);
+                        mysqli_free_result($resultadoDistrito);
                       ?>
                     </tbody>
                   </table>

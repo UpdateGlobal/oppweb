@@ -43,21 +43,21 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Departamentos</a></li>
-                  <li><a href="#">Oficinas</a></li>
-                  <li><a href="#">Casa</a></li>
-                  <li><a href="#">Locales</a></li>
-                  <li><a href="#">Terrenos</a></li>
+                  <li><a href="view.php">Departamentos</a></li>
+                  <li><a href="view.php">Oficinas</a></li>
+                  <li><a href="view.php">Casa</a></li>
+                  <li><a href="view.php">Locales</a></li>
+                  <li><a href="view.php">Terrenos</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Departamentos</a></li>
-                  <li><a href="#">Oficinas</a></li>
-                  <li><a href="#">Casa</a></li>
-                  <li><a href="#">Locales</a></li>
-                  <li><a href="#">Terrenos</a></li>
+                  <li><a href="view.php">Departamentos</a></li>
+                  <li><a href="view.php">Oficinas</a></li>
+                  <li><a href="view.php">Casa</a></li>
+                  <li><a href="view.php">Locales</a></li>
+                  <li><a href="view.php">Terrenos</a></li>
                 </ul>
               </li>
               <li class="dropdown">

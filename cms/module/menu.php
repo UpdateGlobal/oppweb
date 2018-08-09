@@ -168,14 +168,14 @@
 <!-- 
           <li class="menu-category">Tienda</li>
 -->
-          <li class="menu-item <?php echo ($menu == "productos" ? "active" : "")?>">
-            <a class="menu-link <?php echo ($menu == "productos" ? "open" : "") ?>" href="#">
+          <li class="menu-item <?php echo ($menu == "inmuebles" ? "active" : "")?>">
+            <a class="menu-link <?php echo ($menu == "inmuebles" ? "open" : "") ?>" href="#">
               <span class="icon fa fa-cube"></span>
               <span class="title">Inmuebles</span>
               <span class="arrow"></span>
             </a>
 
-            <ul class="menu-submenu" <?php echo ($menu == "productos" ? "style='display:block;'" : "")?>>
+            <ul class="menu-submenu" <?php echo ($menu == "inmuebles" ? "style='display:block;'" : "")?>>
               <li class="menu-item">
                 <a class="menu-link" href="inmuebles-categorias.php">
                   <span class="dot"></span>

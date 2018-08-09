@@ -5,7 +5,7 @@
     <?php include("modulos/head.php"); ?>
 </head>
 <body>
-    <?php include('modulos/nav.php'); ?>
+    <?php include("modulos/nav.php"); ?>
     <!--slider-->
     <div class="container-fluid">
         <div class="row">

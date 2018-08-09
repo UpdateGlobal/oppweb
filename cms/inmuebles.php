@@ -7,17 +7,17 @@
     $eliminar = "";
   }
   if ($eliminar == "true") {
-    $sqlEliminar = "SELECT cod_producto FROM productos ORDER BY cod_producto";
+    $sqlEliminar = "SELECT cod_inmueble FROM inmuebles ORDER BY cod_inmueble";
     $sqlResultado = mysqli_query($enlaces, $sqlEliminar);
     $x = 0;
     while($filaElim = mysqli_fetch_array($sqlResultado)){
-      $id_producto = $filaElim["cod_producto"];
-      if ($_REQUEST["chk" . $id_producto] == "on") {
+      $id_inmuebles = $filaElim["cod_inmueble"];
+      if ($_REQUEST["chk" . $id_inmuebles] == "on"){
         $x++;
         if ($x == 1) {
-            $sql = "DELETE FROM productos WHERE cod_producto=$id_producto";
+            $sql = "DELETE FROM inmuebles WHERE cod_inmueble=$id_inmuebles";
           } else {
-            $sql = $sql . " OR cod_producto=$id_producto";
+            $sql = $sql . " OR cod_inmueble=$id_inmuebles";
           }
       }
     }
@@ -25,20 +25,20 @@
     if ($x > 0) { 
       $rs = mysqli_query($enlaces, $sql);
     }
-    header ("Location: productos.php");
+    header ("Location: inmuebles.php");
   }
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <?php header ('Content-type: text/html; charset=utf-8'); include("module/head.php"); ?>
+    <?php include("module/head.php"); ?>
     <style>
-      @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
+      @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
         td:nth-of-type(1):before { content: "Categoria"; }
-        td:nth-of-type(2):before { content: "Sub-categoria"; }
-        td:nth-of-type(3):before { content: "Producto"; }
-        td:nth-of-type(4):before { content: "Imagen"; }
-        td:nth-of-type(5):before { content: "Adjuntos"; }
+        td:nth-of-type(2):before { content: "Lugares"; }
+        td:nth-of-type(3):before { content: "Distritos"; }
+        td:nth-of-type(4):before { content: "Inmuebles"; }
+        td:nth-of-type(5):before { content: "Imagen"; }
         td:nth-of-type(6):before { content: "Estado"; }
         td:nth-of-type(7):before { content: ""; }
         td:nth-of-type(8):before { content: ""; }
@@ -78,39 +78,39 @@
         <span class="dot3"></span>
       </div>
     </div>
-    <?php $menu="productos"; include("module/menu.php"); ?>
+    <?php $menu="inmuebles"; include("module/menu.php"); ?>
     <?php include("module/header.php"); ?>
     <!-- Main container -->
     <main>
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Productos</strong>
+            <strong>Inmuebles</strong>
             <small></small>
           </h1>
         </div>
-        <?php $page="productos"; include("module/menu-productos.php"); ?>
+        <?php $page="inmuebles"; include("module/menu-inmuebles.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">
-              <h4 class="card-title"><strong>Lista de Productos</strong></h4>
+              <h4 class="card-title"><strong>Lista de inmuebles</strong></h4>
               <div class="card-body">
-                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>productos-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
+                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>inmuebles-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="15%" scope="col">Categoria</th>
-                        <th width="15%" scope="col">Sub Categoria</th>
-                        <th width="20%" scope="col">Producto</th>
-                        <th width="20%" scope="col">Imagen
+                        <th width="15%" scope="col">Categor&iacute;a</th>
+                        <th width="15%" scope="col">Lugares</th>
+                        <th width="15%" scope="col">Distritos</th>
+                        <th width="20%" scope="col">Inmuebles</th>
+                        <th width="15%" scope="col">Imagen
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
-                        <th width="10%" scope="col">Adjuntos</th>
                         <th width="5%" scope="col">Estado</th>
                         <th width="5%" scope="col">&nbsp;</th>
                         <th width="5%" scope="col">&nbsp;</th>
@@ -119,29 +119,28 @@
                     </thead>
                     <tbody>
                       <?php
-                        $consultarPro = "SELECT cp.cod_categoria, cp.categoria, scp.cod_sub_categoria, scp.subcategoria, p.* FROM productos_categorias as cp, productos_sub_categorias as scp, productos as p WHERE p.cod_categoria=cp.cod_categoria AND p.cod_sub_categoria=scp.cod_sub_categoria ORDER BY categoria ASC";
-                        $resultadoPro = mysqli_query($enlaces, $consultarPro);
-                        while($filaPro = mysqli_fetch_array($resultadoPro)){
-                          $xCodigo    = $filaPro['cod_producto'];
-                          $xCategoria   = utf8_encode($filaPro['categoria']);
-                          $xSCategoria  = utf8_encode($filaPro['subcategoria']);
-                          $xProducto    = $filaPro['nom_producto'];
-                          $xImagen    = $filaPro['imagen'];
-                          $xFicha     = $filaPro['ficha_tecnica'];
-                          $xVideo     = $filaPro['video'];
-                          $xEstado     = $filaPro['estado'];
+                        $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito ORDER BY orden ASC";
+                        $resultadoInm = mysqli_query($enlaces, $consultarInm);
+                        while($filaInm = mysqli_fetch_array($resultadoInm)){
+                          $xCodigo      = $filaInm['cod_inmueble'];
+                          $xCategoria   = $filaInm['categoria'];
+                          $xLugar       = $filaInm['lugar'];
+                          $xInmuebles   = $filaInm['titulo'];
+                          $xImagen      = $filaInm['imagen'];
+                          $xOrden       = $filaInm['orden'];
+                          $xEstado      = $filaInm['estado'];
                       ?>
                       <tr>
                         <td><?php echo $xCategoria; ?></td>
-                        <td><?php echo $xSCategoria; ?></td>
-                        <td><?php echo $xProducto; ?></td>
-                        <td><img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/productos/<?php echo $xImagen; ?>" /></td>
-                        <td><strong><?php if($xVideo!=""){echo "<i class='fa fa-video-camera'></i> ";} if($xFicha!=""){echo "<i class='fa fa-file-pdf-o'></i> ";} ?></strong></td>
+                        <td><?php echo $xLugar; ?></td>
+                        <td><?php echo $xInmuebles; ?></td>
+                        <td><img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/inmuebles/<?php echo $xImagen; ?>" /></td>
+                        <td><?php echo $xOrden; ?></td>
                         <td><strong>
                           <?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]"; } ?>
                           </strong></td>
-                        <td><a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>productos-delete.php?cod_producto=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-trash"></i></a></td>
-                        <td><a class="boton-editar" href="productos-edit.php?cod_producto=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square"></i></a></td>
+                        <td><a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>inmuebles-delete.php?cod_inmueble=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-trash"></i></a></td>
+                        <td><a class="boton-editar" href="inmuebles-edit.php?cod_inmueble=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square"></i></a></td>
                         <td>
                           <?php if($xVisitante=="0"){ ?>
                           <div class="hidden">
@@ -155,7 +154,7 @@
                       </tr>
                       <?php
                         }
-                        mysqli_free_result($resultadoPro);
+                        mysqli_free_result($resultadoInm);
                       ?>
                     </tbody>
                   </table>
