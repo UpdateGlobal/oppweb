@@ -3,6 +3,17 @@
 <html lang="es">
 <head>
     <?php include("modulos/head.php"); ?>
+    <script>
+        function ValidarBus(){
+            if(document.bus.distrito.value==""){
+                alert("Debes ingresar un distrito para la búsqueda");
+                document.bus.distrito.focus();
+                return;
+            }
+            document.bus.action="busqueda.php";
+            document.bus.submit();
+        }
+    </script>
 </head>
 <body>
     <?php include("modulos/nav.php"); ?>
@@ -11,7 +22,7 @@
         <div class="row">
             <div class="col-sm-6 bg_slide_de">
                 <div class="depa_desta">
-                    <p class="textowless"> San Miguel</p>
+                    <p class="textowless">San Miguel</p>
                 </div>
                 <div class="depa_title">
                     <p class="textowless2">Condominios Las Brisas</p>
@@ -38,33 +49,44 @@
             <div class="conten_finder" align="center">
                 <br>
                 <span class="sea_textp">ENCUENTRA UN LUGAR PARA TI</span>
-                <p class="card_p">Porqué Invertir En Plexus</p>
+                <p class="card_p">Porqu&eacute; Invertir En Plexus</p>
                 <br>
-                <ul class="finder">
-                    <li class="inpute">
-                        <select class="form-control">
-                            <option>Seleccionar...</option>
-                            <option>Ventas</option>
-                            <option>Alquileres</option>
-                            <option>Hipotecas</option>
-                        </select>
-                    </li>
-                    <li class="inpute">
-                        <select class="form-control">
-                            <option>Seleccionar...</option>
-                            <option>Departamentos</option>
-                            <option>Casa</option>
-                            <option>Oficinas</option>
-                            <option>Almacenes</option>
-                        </select>
-                    </li>
-                    <li class="inpute">
-                        <input type="text" class="form-control" placeholder="Buscar por Distrito" >
-                    </li>
-                    <li class="inpute">
-                        <a type="submit" class="btn btnfin" href="view.php">Buscar</a>
-                    </li>
-                </ul>
+                <form name="bus" id="bus">
+                    <ul class="finder">
+                        <li class="inpute">
+                            <select class="form-control" name="menu">
+                                <option value="default">Seleccionar...</option>
+                                <option value="1">Ventas</option>
+                                <option value="2">Alquileres</option>
+                                <option value="3">Proyectos</option>
+                            </select>
+                        </li>
+                        <li class="inpute">
+                            <select class="form-control" name="cod_categoria">
+                                <option value="default">Seleccionar...</option>
+                                <?php
+                                    $consultarCategoria = "SELECT * FROM inmuebles_categorias ORDER BY orden";
+                                    $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                                    while($filaCat = mysqli_fetch_array($resultadoCategoria)){
+                                      $xCodigo    = $filaCat['cod_categoria'];
+                                      $xCategoria = $filaCat['categoria'];
+                                ?>
+                                <option value="<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></option>
+                                <?php
+                                    }
+                                    mysqli_free_result($resultadoCategoria);
+                                ?>
+                            </select>
+                        </li>
+                        <li class="inpute">
+                            <input type="text" class="form-control" name="distrito" placeholder="Buscar por Distrito" onkeypress="if(event.keyCode==13){ValidarBus();}" />
+                        </li>
+                        <li class="inpute">
+                            <input type="button" class="btn btnfin" value="Buscar" onclick="javascript:ValidarBus();" />
+                            <input type="hidden" name="tipo" id="tipo" value="1" />
+                        </li>
+                    </ul>
+                </form>
                 <br><br><br>
             </div>
         </div>
@@ -80,56 +102,39 @@
                     <p class="card_p">Lanzamientos Inmobiliarios</p>
                     <br>
                     <div class="owl-two owl-carousel owl-theme">
-                        <a href="inmueble.php">
-                            <div class="item slushi rent_shadow" style="background: url(imgweb/magdalena.jpg); background-size: cover;">  
+                        <?php 
+                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito ORDER BY orden ASC";
+                            $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                            while($filaInm = mysqli_fetch_array($resultadoInm)){
+                                $xCodigo      = $filaInm['cod_inmueble'];
+                                $xDistrito    = $filaInm['distrito'];
+                                $xLugar       = $filaInm['lugar'];
+                                $xTitulo      = $filaInm['titulo'];
+                                $xImagen      = $filaInm['imagen'];
+                                $xArea        = $filaInm['area'];
+                                $xCuartos     = $filaInm['cuartos'];
+                                $xPrecio      = $filaInm['precio'];
+                                $xParking     = $filaInm['parking'];
+                        ?>
+                        <a href="inmueble.php?cod_inmueble=<?php echo $cod_inmueble; ?>">
+                            <div class="item slushi rent_shadow" style="background: url(cms/assets/img/inmuebles/<?php echo $xImagen; ?>); background-size: cover;">
                                 <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
-                                    <div class="col-md-6 col-xs-12 card_home" align="left">MAGDALENA</div>
-                                    <div class="col-md-6 col-xs-12 card_price" align="right">$ 377,280</div>
-                                    <p class="card_adres"> <i class="fas fa-map-marker-alt"></i>Prisma Tower - Lima, Peru</p>
+                                    <div class="col-md-6 col-xs-12 card_home" align="left"><?php echo $xDistrito; ?></div>
+                                    <div class="col-md-6 col-xs-12 card_price" align="right">$ <?php echo $xPrecio; ?></div>
+                                    <p class="card_adres"><i class="fas fa-map-marker-alt"></i> <?php echo $xTitulo; ?> - <?php echo $xLugar; ?></p>
                                 </div>
-                                <div class="row botton_title navbar-fixed-bottom" >
+                                <div class="row botton_title navbar-fixed-bottom">
                                     <ul class="card_list">
-                                        <li><i class="fas fa-home"></i> 78 mts</li>
-                                        <li><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                        <li><i class="fas fa-car"></i> 1 Estacionamiento</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </a>  
-                        <a href="inmueble.php">
-                            <div class="item slushi rent_shadow" style="background: url(imgweb/miraflores.jpg);  background-size: cover;">
-                                <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
-                                    <div class="col-md-6 col-xs-12 card_home" align="left">MIRAFLORES</div>
-                                    <div class="col-md-6 col-xs-12 card_price" align="right">$ 269,220</div>
-                                    <p class="card_adres"> <i class="fas fa-map-marker-alt"></i>Ramirez Gaston - Lima, Peru</p>
-                                </div>
-                                <div class="row botton_title navbar-fixed-bottom" >
-                                    <ul class="card_list">
-                                        <li><i class="fas fa-home"></i> 78 mts</li>
-                                        <li><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                        <li><i class="fas fa-shower"></i>2 Baños</li>
-                                        <li><i class="fas fa-car"></i> 1 Parking</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="inmueble.php">
-                            <div class="item slushi rent_shadow" style="background: url(imgweb/pueblolibre.jpg);  background-size: cover;">
-                                <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
-                                    <div class="col-md-6 col-xs-12 card_home" align="left">PUEBLO LIBRE</div>
-                                    <div class="col-md-6 col-xs-12 card_price" align="right">$ 133,901</div>
-                                    <p class="card_adres"> <i class="fas fa-map-marker-alt"></i>Parque Colmenares - Lima, Peru</p>
-                                </div>
-                                <div class="row botton_title navbar-fixed-bottom" >
-                                    <ul class="card_list">
-                                        <li><i class="fas fa-home"></i> 78 mts</li>
-                                        <li><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                        <li><i class="fas fa-shower"></i>2 Baños</li>
-                                        <li><i class="fas fa-car"></i> 1 Parking</li>
+                                        <li><i class="fas fa-home"></i> <?php echo $xArea; ?></li>
+                                        <li><i class="fas fa-bed"></i> <?php echo $xCuartos ?></li>
+                                        <li><i class="fas fa-car"></i> <?php echo $xParking; ?></li>
                                     </ul>
                                 </div>
                             </div>
                         </a>
+                        <?php 
+                            }
+                        ?>
                     </div>
                     <br><br><br><br>
                 </div>
@@ -150,69 +155,44 @@
                     <h3 class="rent_text">ALQUILER</h3>
                     <p class="rent_p oppmtext">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
                     <br>
-                </div>  
+                </div>
                 <div class="col-md-9">
                     <div class="owl-tree owl-carousel owl-theme">
-                        <a href="inmueble.php">
+                        <?php 
+                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito ORDER BY orden ASC";
+                            $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                            while($filaInm = mysqli_fetch_array($resultadoInm)){
+                                $xCodigo      = $filaInm['cod_inmueble'];
+                                $xDistrito    = $filaInm['distrito'];
+                                $xTitulo      = $filaInm['titulo'];
+                                $xImagen      = $filaInm['imagen'];
+                                $xArea        = $filaInm['area'];
+                                $xCuartos     = $filaInm['cuartos'];
+                                $xBanos       = $filaInm['banos'];
+                        ?>
+                        <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>">
                             <div class="rent_img">
-                                <div class="rent_item rent_shadow" >
+                                <div class="rent_item rent_shadow">
                                     <div class="row" style="margin: 0px;">
-                                        <img src="imgweb/miraflores2.jpg" class="rent_img" alt="">
+                                        <img src="cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="rent_img" alt="">
                                         <div class="botton_rent">
-                                            <div class="rent_valor">MIRAFLORES</div>
+                                            <div class="rent_valor"><?php echo $xDistrito; ?></div>
                                         </div>
                                     </div>
                                     <div class="row" style="margin: 0px;">
-                                        <p class="rent_titl">Oficina alquiler</p>
+                                        <p class="rent_titl"><?php echo $xTitulo; ?></p>
                                         <ul class="rent_list">
-                                            <li class="itemc"><i class="fas fa-home"></i> 300 mts</li>
-                                            <li class="itemc"><i class="fas fa-bed"></i> 4 cubiculos</li>
-                                            <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
+                                            <li class="itemc"><i class="fas fa-home"></i> <?php echo $xArea; ?></li>
+                                            <li class="itemc"><i class="fas fa-bed"></i> <?php echo $xCuartos; ?> cubiculos</li>
+                                            <li class="itemc"><i class="fas fa-shower"></i> <?php echo $xBanos; ?> Baños</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        <a href="inmueble.php">
-                            <div class="rent_img">
-                                <div class="rent_item rent_shadow" >
-                                    <div class="row" style="margin: 0px;">
-                                        <img src="imgweb/santiagodesurco.jpg" class="rent_img" alt="">
-                                        <div class="botton_rent">
-                                            <div class="rent_valor">ST. SURCO</div> 
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin: 0px;">
-                                        <p class="rent_titl">oficina alquiler </p>
-                                        <ul class="rent_list">
-                                            <li class="itemc"><i class="fas fa-home"></i> 298 mts</li>
-                                            <li class="itemc"><i class="fas fa-bed"></i> 3 Cubiculos</li>
-                                            <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="inmueble.php">
-                            <div class="rent_img">
-                                <div class="rent_item rent_shadow" >
-                                    <div class="row" style="margin: 0px;">
-                                        <img src="imgweb/santiagodesurco2.jpg" class="rent_img" alt="">
-                                        <div class="botton_rent">
-                                            <div class="rent_valor">ST. SURCO</div> 
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin: 0px;">
-                                        <p class="rent_titl">Departamento alquiler</p>
-                                        <ul class="rent_list">
-                                            <li class="itemc"><i class="fas fa-home"></i> 80 mts</li>
-                                            <li class="itemc"><i class="fas fa-bed"></i> 3 Cuartos</li>
-                                            <li class="itemc"><i class="fas fa-shower"></i> 2 Baños</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -225,78 +205,51 @@
                     <h3 class="rent_text">EN VENTA</h3>
                     <p class="rent_p">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
                     <br>
-                </div>  
-                <div class="col-md-9" >
+                </div>
+                <div class="col-md-9">
                     <div class="owl-tree owl-carousel owl-theme">
-                        <a href="inmueble.php">
+                        <?php
+                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito ORDER BY orden ASC";
+                            $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                            while($filaInm = mysqli_fetch_array($resultadoInm)){
+                                $xCodigo      = $filaInm['cod_inmueble'];
+                                $xDistrito    = $filaInm['distrito'];
+                                $xTitulo      = $filaInm['titulo'];
+                                $xImagen      = $filaInm['imagen'];
+                                $xArea        = $filaInm['area'];
+                                $xCuartos     = $filaInm['cuartos'];
+                                $xBanos       = $filaInm['banos'];
+                        ?>
+                        <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>">
                             <div class="rent_img">
-                                <div class="rent_item rent_shadow" >
+                                <div class="rent_item rent_shadow">
                                     <div class="row" style="margin: 0px;">
-                                        <img src="imgweb/santihagodesurco3.jpg" class="rent_img" alt="">
+                                        <img src="cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="rent_img" alt="">
                                         <div class="botton_rent">
-                                            <div class="rent_valor">ST. SURCO</div>
+                                            <div class="rent_valor"><?php echo $xDistrito ?></div>
                                         </div>
                                     </div>
                                     <div class="row" style="margin: 0px;">
-                                        <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 130,000</p>
+                                        <p class="rent_titl"><?php echo $xTitulo; ?> <br> Precio: $ <?php echo $xPrecio; ?></p>
                                         <ul class="rent_list">
-                                            <li class="itemc"><i class="fas fa-home"></i> 78 mts</li>
-                                            <li class="itemc"><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                            <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
+                                            <li class="itemc"><i class="fas fa-home"></i> <?php echo $xArea; ?></li>
+                                            <li class="itemc"><i class="fas fa-bed"></i> <?php echo $xCuartos; ?> Cuartos</li>
+                                            <li class="itemc"><i class="fas fa-shower"></i> <?php echo $xBanos; ?> Baños</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        <a href="inmueble.php">
-                            <div class="rent_img">
-                                <div class="rent_item rent_shadow" >
-                                    <div class="row" style="margin: 0px;">
-                                        <img src="imgweb/miraflores.jpg" class="rent_img" alt="">
-                                        <div class="botton_rent">
-                                            <div class="rent_valor">MIRAFLORES  </div>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin: 0px;">
-                                        <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 278,000</p>
-                                        <ul class="rent_list">
-                                            <li class="itemc"><i class="fas fa-home"></i> 78 mts</li>
-                                            <li class="itemc"><i class="fas fa-bed"></i> 4 Cuartos</li>
-                                            <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="inmueble.php">
-                            <div class="rent_img">
-                                <div class="rent_item rent_shadow" >
-                                    <div class="row" style="margin: 0px;">
-                                        <img src="imgweb/miraflores2.jpg" class="rent_img" alt="">
-                                        <div class="botton_rent">
-                                            <div class="rent_valor">MIRAFLORES</div>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin: 0px;">
-                                        <p class="rent_titl">20 Apartamentos tipo A <br> Precio: $ 238,000</p>
-                                        <ul class="rent_list">
-                                            <li class="itemc"><i class="fas fa-home"></i> 83 mts</li>
-                                            <li class="itemc"><i class="fas fa-bed"></i> 3 Cuartos</li>
-                                            <li class="itemc"><i class="fas fa-shower"></i>2 Baños</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--card_sale-->
-    <br>
-    <br>
-    <br>
+    <br><br><br>
     <!--empresa-->
     <section class="seccion_bg">
         <div class="container-fluid">
@@ -407,80 +360,68 @@
     <!--formulario-->
     <!--mcard-->
     <section style="background-color: #f7f7f7;">
-    <div class="container-fluid">
-        <div class="row mcard" align="center"><br>
-            <h3 class="rent_text">CONSEJOS Y NOTICIAS</h3>
-            <p class="rent_p">Lo que debes saber si buscas un inmueble</p>
-        </div>        
+        <div class="container-fluid">
+            <div class="row mcard" align="center"><br>
+                <h3 class="rent_text">CONSEJOS Y NOTICIAS</h3>
+                <p class="rent_p">Lo que debes saber si buscas un inmueble</p>
+            </div>        
             <br>
             <div class="col-md-12">
                 <br>
                 <div class="row ncard_btn">
+                    <?php
+                        $consultarNoticias = "SELECT * FROM noticias WHERE estado='1' ORDER BY fecha ASC limit 2";
+                        $resultadoNoticias = mysqli_query($enlaces,$consultarNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        while($filaNot = mysqli_fetch_array($resultadoNoticias)){
+                          $xCodigo        = $filaNot['cod_noticia'];
+                          $xSlug          = $filaNot['slug'];
+                          $xTitulo        = $filaNot['titulo'];
+                          $xImagen        = $filaNot['imagen'];
+                          $xDescripcion   = $filaNot['noticia'];
+                          $xFecha         = $filaNot['fecha'];
+                          $xAutor         = $filaNot['autor'];
+                    ?>
                     <div class="col-md-6">
                         <div class="ncard">
                             <div class="col-md-5" style="padding: 0px;">
-                                <img src="imgweb/santiagodesurco.jpg"  class="ncard_img ">
+                                <img src="cms/assets/img/noticias/<?php echo $xImagen; ?>" class="ncard_img">
                             </div>
                             <div class="col-md-7" style="padding: 0px;">
                                 <div class="card-block">
-                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA EN CHACARILLA DEL ESTANQUE -SURCO</h4>
-                                    <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
+                                    <h4 class="ncard-title mt-3"><?php echo $xTitulo; ?></h4>
+                                    <?php
+                                        $mydate = strtotime($xFecha);
+                                        $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+                                    ?>
+                                    <p class="mcard_p2"><?php echo $meses[date('n', $mydate)-1]." ".date('d', $mydate)." / ".date('Y', $mydate); ?> - por <?php echo $xAutor; ?></p>
                                     <div class="meta">
-                                        <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <p class="mcard_p"><?php 
+                                            $xDescripcion_r = strip_tags($xDescripcion);
+                                            $strCut = substr($xDescripcion_r,0,100);
+                                            $xDescripcion_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                                            echo strip_tags($xDescripcion_r);
+                                        ?></p>
                                     </div>
                                 </div>
                                 <div class="ncard-footer">
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <small class="smtext">Leer Mas...</small>
+                                            <small class="smtext">Leer M&aacute;s...</small>
                                         </div>
-                                        <div class="col-md-7">
-                                            <ul class="ncard_list">
-                                                <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
-                                            </ul>
-                                        </div>
-                                    </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="ncard">
-                            <div class="col-md-5" style="padding: 0px;">
-                                <img src="imgweb/santiagodesurco2.jpg"  class="ncard_img ">
-                            </div>
-                            <div class="col-md-7" style="padding: 0px;">
-                                <div class="card-block">
-                                    <h4 class="ncard-title mt-3">ALQUILER OFICINA EN CHACARILLA DEL ESTANQUE -SURCO</h4>
-                                    <p class="mcard_p2"> Mayo 22 / 2018 - by Luis bernal</p>
-                                    <div class="meta">
-                                        <p class="mcard_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <div class="col-md-7"></div>
                                     </div>
                                 </div>
-                                <div class="ncard-footer">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <small class="smtext">Leer Mas...</small>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <ul class="ncard_list">
-                                                <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 93</li>
-                                            </ul>
-                                        </div>
-                                    </div> 
-                                </div>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        } 
+                    ?>
                 </div><!--end card-->
-                <br>
-
-                
-            </div>    
-        
-    </div>
-    <br><br><br>
+                <br>                
+            </div>
+        </div>
+        <br><br><br>
     </section>
     <!--mcard-->
     <!--footer-->

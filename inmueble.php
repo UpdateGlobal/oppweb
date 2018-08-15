@@ -1,76 +1,101 @@
+<?php include("cms/module/conexion.php"); ?>
+<?php $cod_inmueble = $_REQUEST['cod_inmueble']; ?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
-	
-  <!-- twitter card starts from here, if you don't need remove this section -->
-  <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@yourtwitterusername" />
-    <meta name="twitter:creator" content="@yourtwitterusername" />
-    <meta name="twitter:url" content="http://yourdomain.com" />
-    <meta name="twitter:title" content="Your home page title, max 140 char" /> <!-- maximum 140 char -->
-    <meta name="twitter:description" content="Your site description, maximum 140 char " /> <!-- maximum 140 char -->
-    <meta name="twitter:image" content="assets/img/twittercardimg/twittercard-280-150.jpg" />  <!-- when you post this page url in twitter , this image will be shown -->
-  <!-- twitter card ends from here -->
+  <head>
+    <?php include("modulos/head.php"); ?>
+    <?php 
+      $consultaInm        = "SELECT * FROM inmuebles WHERE cod_inmueble='$cod_inmueble'";
+      $resultadoInm       = mysqli_query($enlaces, $consultaInm);
+      $filaInm            = mysqli_fetch_array($resultadoInm);
+        $cod_inmueble     = $filaInm['cod_inmueble'];
+        $tipo             = $filaInm['tipo'];
+        $cod_categoria    = $filaInm['cod_categoria'];
+        $cod_lugar        = $filaInm['cod_lugar'];
+        $cod_distrito     = $filaInm['cod_distrito'];
+        $titulo           = $filaInm['titulo'];
+        $imagen           = $filaInm['imagen'];
+        $precio           = substr(utf8_decode($filaInm['precio']),0,20);
+        $banos            = $filaInm['banos'];
+        $area             = $filaInm['area'];
+        $cuartos          = $filaInm['cuartos'];
+        $descripcion      = $filaInm['descripcion'];
+        $comodidades      = $filaInm['comodidades'];
+        $ubicacion        = $filaInm['ubicacion'];
+        $fecha_ing        = $filaInm['fecha_ing'];
+        $parking          = $filaInm['parking'];
+        $orden            = $filaInm['orden'];
+        $estado           = $filaInm['estado'];
+    ?>
+    <!-- twitter card starts from here, if you don't need remove this section -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="<?php echo $titulo; ?>" /> <!-- maximum 140 char -->
+    <meta name="twitter:description" content="<?php 
+        $descripcionM = strip_tags($descripcion);
+        $strCut = substr($descripcionM,0,140);
+        $descripcionM = substr($strCut,0,strrpos($strCut, ' ')).'...';
+        echo $descripcionM; ?>" /> <!-- maximum 140 char -->
+    <meta name="twitter:image" content="cms/assets/img/inmuebles/<?php echo $imagen; ?>" /> <!-- when you post this page url in twitter , this image will be shown -->
+    <!-- twitter card ends from here -->
 
-  <!-- facebook open graph starts from here, if you don't need then delete open graph related  -->
-    <meta property="og:title" content="Your home page title" />
-    <meta property="og:url" content="http://your domain here.com" />
+    <!-- facebook open graph starts from here, if you don't need then delete open graph related  -->
+    <meta property="og:title" content="<?php echo $titulo; ?>" />
+    <meta property="og:description" content="<?php 
+        $descripcionM = strip_tags($descripcion);
+        $strCut = substr($descripcionM,0,140);
+        $descripcionM = substr($strCut,0,strrpos($strCut, ' ')).'...';
+        echo $descripcionM; ?>" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Your site name here" />
-    <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/img/opengraph/fbphoto.jpg" /> <!-- when you post this page url in facebook , this image will be shown -->
-  <!-- facebook open graph ends from here -->
+    <meta property="og:image" content="cms/assets/img/inmuebles/<?php echo $imagen; ?>" /> <!-- when you post this page url in facebook , this image will be shown -->
+    <!-- facebook open graph ends from here -->
 
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet">
-
-  <!-- fontawason-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.css"/>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- <link rel="stylesheet" href="css/util.css"/> -->
-  <link rel="stylesheet" href="css/main.css"/>
-  <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
-
-  <style type="text/css">
-  /*   .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
-    display: block !important;
-    }*/
-    .owl-theme .owl-nav.disabled+.owl-dots {
-      margin-top: 10px !important;
+  	<style type="text/css">
+      /*   .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
       display: block !important;
-    }
-
-    .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-      background: #00519c;
-    }
-
-    .owl-theme .owl-dots .owl-dot span {
-      width: 15px;
-      height: 15px;
-      margin: 5px 7px;
-      background: #D6D6D6;
-      display: block;
-      -webkit-backface-visibility: visible;
-      transition: opacity .2s ease;
-      border-radius: 30px;
-    }
-  </style>
+      }*/
+      .owl-theme .owl-nav.disabled+.owl-dots {
+        margin-top: 10px !important;
+        display: block !important;
+      }
+      .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+        background: #00519c;
+      }
+      .owl-theme .owl-dots .owl-dot span {
+        width: 15px;
+        height: 15px;
+        margin: 5px 7px;
+        background: #D6D6D6;
+        display: block;
+        -webkit-backface-visibility: visible;
+        transition: opacity .2s ease;
+        border-radius: 30px;
+      }
+    </style>
 </head>
 <body>
-  <?php include('modulos/nav.php'); ?>  
+  <?php include('modulos/nav.php'); ?>
   <!--finder-->
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <p class="branch">Inicio > Ventas > Departamentos > Miraflres > Residencia El Placer</p>
+        <?php
+          $consultaCat = "SELECT * FROM inmuebles_categorias WHERE cod_categoria=$cod_categoria AND estado='1'";
+          $resultaCat = mysqli_query($enlaces, $consultaCat);
+          $filaCat = mysqli_fetch_array($resultaCat);
+            $xnomCat = $filaCat['categoria'];
+        
+          $consultaLug = "SELECT * FROM inmuebles_lugares WHERE estado='1'";
+          $resultaLug = mysqli_query($enlaces, $consultaLug);
+          $filaLug = mysqli_fetch_array($resultaLug);
+            $xnomLug = $filaLug['lugar'];
+
+          $consultaDis = "SELECT * FROM inmuebles_distritos WHERE estado='1' AND cod_distrito='$cod_distrito'";
+          $resulDis = mysqli_query($enlaces, $consultaDis);
+          $dis=mysqli_fetch_array($resulDis);
+            $xnomDis = $dis['distrito'];
+        ?>
+        <p class="branch">Inicio > <?php echo $xnomCat; ?> > <?php echo $xnomLug; ?> > <?php echo $xnomDis; ?> > <?php echo $titulo; ?></p>
       </div>
     </div>
   </div>
@@ -80,28 +105,34 @@
     <div class="row">
       <div class="col-md-8 col-xs-12">
         <div class="owl-for owl-carousel owl-theme">
-          <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
-          <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
-          <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
-          <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
-          <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
-          <div class="item"><img src="images/edificio234.jpg" class="owl_img"></div>
+          <div class="item"><img src="cms/assets/img/inmuebles/<?php echo $imagen; ?>" class="owl_img" /></div>
+          <?php
+            $galeria="SELECT * FROM inmuebles_fotos WHERE cod_inmueble='$cod_inmueble'";
+            $ejecutag=mysqli_query($enlaces, $galeria);
+            while($filagp=mysqli_fetch_array($ejecutag)){
+              $xImgG = $filagp['imagen'];
+          ?>
+          <div class="item"><img src="cms/assets/img/inmuebles/fotos/<?php echo $xImgG; ?>" class="owl_img" /></div>
+          <?php
+            }
+
+          ?>
         </div>
       </div>
       <div class="col-md-4 col-xs-12">
-        <h4 class="title_inm mt-3">Residencia El Placer</h4>
-        <p class="date_inm"> Mayo 22 / 2018 - by Luis bernal</p>
+        <h4 class="title_inm mt-3"><?php echo $titulo; ?></h4>
+        <p class="date_inm"> </p>
         <hr class="hr">
-        <small class="serch">Caracteristicas</small>
+        <small class="serch">Caracter&iacute;sticas</small>
         <ul class="card_list2">
-          <li>Precio:<span class="span">$79.000</span></li>
-          <li>Tipo:<span class="span">Departamento</span></li>
-          <li>ubicación:<span class="span">Miraflores</span></li>
-          <li>Area:<span class="span">75 mt2</span></li>
-          <li>Baños:<span class="span">1</span></li>
-          <li>Cuartos:<span class="span">4 Habitaciones</span></li>
+          <li>Precio:<span class="span">$<?php echo $precio; ?></span></li>
+          <li>Tipo:<span class="span"><?php echo $xnomCat; ?></span></li>
+          <li>Ubicaci&oacute;n:<span class="span"><?php echo $xnomDis; ?></span></li>
+          <li>Area:<span class="span"><?php echo $area; ?></span></li>
+          <li>Baños:<span class="span"><?php echo $banos; ?></span></li>
+          <li>Cuartos:<span class="span"><?php echo $cuartos; ?></span></li>
         </ul>
-        <a href="contacto.php" class="btn btn-default" >Cotizar</a>
+        <a href="contacto.php" class="btn btn-default">Cotizar</a>      
       </div>
     </div>
   </div>
@@ -109,9 +140,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="title_inm">Descripcion</h3>
+        <h3 class="title_inm">Descripci&oacute;n</h3>
         <hr class="hr">
-        <p class="text_inm"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <?php echo $descripcion; ?>       
         <br>
         <h3 class="title_inm">Comodidades</h3>
         <hr class="hr">
@@ -123,50 +154,18 @@
           <li><i class="fas fa-check"></i> Mesa de Billar</li>
         </ul>    
         <br><br>
-        <h3 class="title_inm">Ubicación</h3>
+        <h3 class="title_inm">Ubicaci&oacute;n</h3>
         <hr class="hr">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.1858607638546!2d-77.02135198470702!3d-12.099425246177809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c871a9a55fe1%3A0xb50c2424234e93b5!2sPiso+7-Of.702%2C+Av.+Rep%C3%BAblica+de+Panam%C3%A1+3563%2C+San+Isidro+15036!5e0!3m2!1ses-419!2spe!4v1527714310873" height="450" frameborder="0" style="border:0; width: 100%; margin: 40px 0px;" allowfullscreen></iframe>
-        </div>  
-      </div>
+        <?php echo $ubicacion; ?>
+      </div>  
     </div>
-    <!--inmueble-->
-    <!--footer-->
-    <section style="background-color: #fff">
-    <br><br><br><br><br><br><br><br>
-    </section>
-    <footer class="page-footer">
-              <div class="container" align="center">
-                <div class="row">
-                  <div class="col-md-12">
-                    <img src="imgweb/logosvgwhite.svg" class="img-responsive abt_img2 hidden-xs ">
-                    <img src="imgweb/logo_svg.svg" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
-                    <p class="grey-text text-lighten-4 text_foot img_foo foo_bt">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                      <div class="row img_foo">
-                        <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
-                        <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
-                        <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>
-                         
-                      </div>
-                  </div>
-                </div>
-              </div>
-              <div class="footer-copyright bgfoote">
-                <div class="container" style="font-size: 10px;">
-                    <div class="row">
-                        <div class="col-md-12" align="center">
-                             <p class="foo_bt">Update Global Marketing © | info@update.pe </p>   
-                        </div>
-                    </div>
-                </div>
-              </div>
-  </footer>
+  </div>
+  <!--inmueble-->
   <!--footer-->
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/npm.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
+  <section style="background-color: #fff">
+    <br><br><br><br><br><br><br><br>
+  </section>
+  <?php include("modulos/footer.php"); ?>
   <script type="text/javascript">
     $(document).ready(function(){
       $('.owl-for').owlCarousel({

@@ -22,14 +22,15 @@ if($proceso == "Registrar"){
   $cod_categoria      = $_POST['cod_categoria'];
   $cod_lugar          = $_POST['cod_lugar'];
   $cod_distrito       = $_POST['cod_distrito'];
+  $alquiler           = $_POST['alquiler'];
   $titulo             = $_POST['titulo'];
-  $slug           = $titulo;
-  $slug           = preg_replace('~[^\pL\d]+~u', '-', $slug);
-  $slug           = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
-  $slug           = preg_replace('~[^-\w]+~', '', $slug);
-  $slug           = trim($slug, '-');
-  $slug           = preg_replace('~-+~', '-', $slug);
-  $slug           = strtolower($slug);
+  $slug               = $titulo;
+  $slug               = preg_replace('~[^\pL\d]+~u', '-', $slug);
+  $slug               = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
+  $slug               = preg_replace('~[^-\w]+~', '', $slug);
+  $slug               = trim($slug, '-');
+  $slug               = preg_replace('~-+~', '-', $slug);
+  $slug               = strtolower($slug);
   if (empty($slug)){
       return 'n-a';
   }
@@ -40,12 +41,13 @@ if($proceso == "Registrar"){
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
-  $ubicacion          = $_POST['ubicacion'];
+  $ubicacion          = mysqli_real_escape_string($enlaces, $_POST['ubicacion']);
+  $fecha_ing          = $_POST['fecha_ing'];
   if(isset($_POST['parking'])){$parking = $_POST['parking'];}else{$parking = 0;}
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
-  $insertarInmuebles = "INSERT INTO inmuebles (tipo, cod_categoria, cod_lugar, cod_distrito, slug, titulo, imagen, precio, banos, area, cuartos, descripcion, comodidades, ubicacion, parking, orden, estado) VALUE ('$tipo', '$cod_categoria', '$cod_lugar', '$cod_distrito', '$slug', '$titulo', '$imagen', '$precio', '$banos', '$area', '$cuartos', '$descripcion', '$comodidades', '$ubicacion', '$parking', '$orden', '$estado')";
+  $insertarInmuebles = "INSERT INTO inmuebles (tipo, cod_categoria, cod_lugar, cod_distrito, alquiler, slug, titulo, imagen, precio, banos, area, cuartos, descripcion, comodidades, ubicacion, fecha_ing, parking, orden, estado) VALUE ('$tipo', '$cod_categoria', '$cod_lugar', '$cod_distrito', '$alquiler', '$slug', '$titulo', '$imagen', '$precio', '$banos', '$area', '$cuartos', '$descripcion', '$comodidades', '$ubicacion', '$fecha_ing', '$parking', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces, $insertarInmuebles);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -120,7 +122,7 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="cod_categoria">Categor&iacute;as:</label>
+                  <label class="col-form-label required" for="cod_categoria">Categor&iacute;as:</label>
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_categoria" id="cod_categoria">
@@ -156,7 +158,7 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="cod_lugar">Lugares:</label>
+                  <label class="col-form-label required" for="cod_lugar">Lugares:</label>
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_lugar" id="cod_lugar" onChange="Filtrar();">
@@ -193,7 +195,7 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="cod_distrito">Distrito:</label>
+                  <label class="col-form-label required" for="cod_distrito">Distrito:</label>
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_distrito" id="cod_distrito" required>
@@ -254,7 +256,7 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label require" for="imagen">Imagen:</label><br>
+                  <label class="col-form-label required" for="imagen">Imagen:</label><br>
                   <small>(620px x 470px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
@@ -262,7 +264,7 @@ if($proceso == "Registrar"){
                   <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-4 col-lg-2">
-                  <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IP');" /><i class="fa fa-save"></i> Examinar</button>
+                  <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IM');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 
@@ -272,6 +274,15 @@ if($proceso == "Registrar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <input type="checkbox" name="tipo" id="tipo" data-size="small" data-provide="switchery" value="1" checked>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="alquiler">Alquiler (?):</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input type="checkbox" name="alquiler" id="alquiler" data-size="small" data-provide="switchery" value="1" checked>
                 </div>
               </div>
 
@@ -359,9 +370,11 @@ if($proceso == "Registrar"){
             </div>
 
             <footer class="card-footer">
-              <a href="productos.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
-              <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-chevron-circle-right"></i> Registrar Productos</button>
-              <input type="hidden" name="proceso">
+              <a href="inmuebles.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
+              <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-chevron-circle-right"></i> Registrar Inmuebles</button>
+              <?php $fecha = date("Y-m-d"); ?>
+              <input type="hidden" name="fecha_ing" value="<?php echo $fecha ?>" />
+              <input type="hidden" name="proceso" />
             </footer>
 
           </form>

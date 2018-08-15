@@ -87,13 +87,33 @@ if($id=='BC'){
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
-		$mensaje = "El archivo no se subi&oacute;";  
+		$mensaje = "El archivo no se subi&oacute;";
 	}
 }
 
 // Subir Galeria de productos
 if($id=='IGP'){
 	$uploaddir = 'assets/img/productos/galeria/'.$uploadname;
+	if(move_uploaded_file($uploadtempname, $uploaddir)){
+		$mensaje = "El archivo subi&oacute; correctamente";
+	}else{
+		$mensaje = "El archivo no se subi&oacute;";  
+	}
+}
+
+// Subir Imagen productos
+if($id=='IM'){
+	$uploaddir = 'assets/img/inmuebles/'.$uploadname;
+	if(move_uploaded_file($uploadtempname, $uploaddir)){
+		$mensaje = "El archivo subi&oacute; correctamente";
+	}else{
+		$mensaje = "El archivo no se subi&oacute;";
+	}
+}
+
+// Subir
+if($id=='IMGAL'){
+	$uploaddir = 'assets/img/inmuebles/fotos/'.$uploadname;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -293,6 +313,12 @@ if($id=='SERGAL'){
 			if(valor=="IGP") {
 				opener.window.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
+			if(valor=="IM") {
+				window.opener.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
+			}
+			if(valor=="IMGAL") {
+				window.opener.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
+			}
 			if(valor=="LOGO") {
 				opener.window.fcms.logo.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
@@ -369,6 +395,12 @@ if($id=='SERGAL'){
 				window.opener.fcms.banner_chico.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
 			if(valor=="IGP") {
+				window.opener.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
+			}
+			if(valor=="IM") {
+				window.opener.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
+			}
+			if(valor=="IMGAL") {
 				window.opener.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
 			if(valor=="LOGO") {

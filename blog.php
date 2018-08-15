@@ -13,10 +13,12 @@
         <p class="branch">Inicio > Blog</p>
       </div>
       <div class="col-md-2 col-xs-12" style="float: right;">
+        <!-- 
         <div class="wrap-input2 validate-input">
           <input class="input2" type="text" name="find">
           <span class="focus-input2" data-placeholder=""><i class="fas fa-search"></i></span>
         </div>
+        -->
       </div>
     </div>
   </div>
@@ -25,7 +27,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2">
-        <?php include("modulos/categorias.php"); ?>
+        <?php include("modulos/blog-categorias.php"); ?>
       </div>
       <div class="col-md-10">
         <div class="row">
@@ -33,7 +35,7 @@
               $consultarNoticias = "SELECT * FROM noticias WHERE estado='1'";
               $resultadoNoticias = mysqli_query($enlaces, $consultarNoticias);
               $total_registros = mysqli_num_rows($resultadoNoticias);
-              if($total_registros==0){ 
+              if($total_registros==0){
             ?>
               <h2>No hay entradas en nuestro blog, pronto tendremos novedades.</h2>
               <div style="height: 40px;"></div>
@@ -61,11 +63,13 @@
           ?>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="card" style="margin-bottom: 30px;">
-              <a href="post.php?cod_noticia=<?php echo $xCodigo; ?>">
+              <a href="blog-noticia.php?cod_noticia=<?php echo $xCodigo; ?>">
                 <img class="card-img-top" src="cms/assets/img/noticias/<?php echo $xImagen; ?>">
               </a>
               <div class="card-block">
-                <h4 class="card-title mt-3 titulo-noticia"><a href="post.php?cod_noticia=<?php echo $xCodigo; ?>"><?php echo $xTitulo; ?></a></h4>
+                <h4 class="card-title mt-3 titulo-noticia">
+                  <a href="blog-noticia.php?cod_noticia=<?php echo $xCodigo; ?>"><?php echo $xTitulo; ?></a>
+                </h4>
                 <?php
                   $mydate = strtotime($xFecha);
                   $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
@@ -73,7 +77,7 @@
                 <p class="mcard_p2"><?php echo $meses[date('n', $mydate)-1]." ".date('d', $mydate)." / ".date('Y', $mydate); ?> - por <?php echo $xAutor; ?></p>
                 <div class="meta descripcion-noticia">
                   <p class="mcard_p">
-                    <?php 
+                    <?php
                       $xDescripcion_r = strip_tags($xDescripcion);
                       $strCut = substr($xDescripcion_r,0,200);
                       $xDescripcion_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
@@ -85,13 +89,9 @@
               <div class="card-footer">
                 <div class="row">
                   <div class="col-md-6">
-                    <small class="smtext"><a href="post.php?cod_noticia=<?php echo $xCodigo; ?>">Leer M&aacute;s...</a></small>
+                    <small class="smtext"><a href="blog-noticia.php?cod_noticia=<?php echo $xCodigo; ?>">Leer M&aacute;s...</a></small>
                   </div>
-                  <div class="col-md-6">
-                    <!-- <ul class="mcard_list">
-                      <li><i class="fas fa-share-alt" style="color: skyblue;"></i> 111</li>
-                    </ul> -->
-                  </div>
+                  <div class="col-md-6"></div>
                 </div> 
               </div>
             </div>

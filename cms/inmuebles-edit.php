@@ -22,6 +22,7 @@ if($proceso == ""){
     $cod_categoria      = $filaInm['cod_categoria'];
     $cod_lugar          = $filaInm['cod_lugar'];
     $cod_distrito       = $filaInm['cod_distrito'];
+    $alquiler           = $filaInm['alquiler'];
     $titulo             = $filaInm['titulo'];
     $imagen             = $filaInm['imagen'];
     $precio             = substr(utf8_decode($filaInm['precio']),0,20);
@@ -30,7 +31,8 @@ if($proceso == ""){
     $cuartos            = $filaInm['cuartos'];
     $descripcion        = $filaInm['descripcion'];
     $comodidades        = $filaInm['comodidades'];
-    $ubicacion          = $filaInm['ubicacion'];
+    $ubicacion          = htmlspecialchars($filaInm['ubicacion']);
+    $fecha_ing          = $filaInm['fecha_ing'];
     $parking            = $filaInm['parking'];
     $orden              = $filaInm['orden'];
     $estado             = $filaInm['estado'];
@@ -42,6 +44,7 @@ if($proceso == "Filtrar"){
   $cod_categoria      = $_POST['cod_categoria'];
   $cod_lugar          = $_POST['cod_lugar'];
   $cod_distrito       = $_POST['cod_distrito'];
+  $alquiler           = $_POST['alquiler'];
   $titulo             = $_POST['titulo'];
   $slug           = $titulo;
   $slug           = preg_replace('~[^\pL\d]+~u', '-', $slug);
@@ -60,7 +63,8 @@ if($proceso == "Filtrar"){
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
-  $ubicacion          = $_POST['ubicacion'];
+  $ubicacion          = htmlspecialchars($_POST['ubicacion']);
+  $fecha_ing          = $_POST['fecha_ing'];
   if(isset($_POST['parking'])){$parking = $_POST['parking'];}else{$parking = 0;}
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
@@ -72,6 +76,7 @@ if($proceso == "Actualizar"){
   $cod_categoria      = $_POST['cod_categoria'];
   $cod_lugar          = $_POST['cod_lugar'];
   $cod_distrito       = $_POST['cod_distrito'];
+  $alquiler           = $_POST['alquiler'];
   $titulo             = $_POST['titulo'];
   $slug           = $titulo;
   $slug           = preg_replace('~[^\pL\d]+~u', '-', $slug);
@@ -90,7 +95,8 @@ if($proceso == "Actualizar"){
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
-  $ubicacion          = $_POST['ubicacion'];
+  $ubicacion          = mysqli_real_escape_string($enlaces, $_POST['ubicacion']);
+  $fecha_ing          = $_POST['fecha_ing'];
   if(isset($_POST['parking'])){$parking = $_POST['parking'];}else{$parking = 0;}
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
@@ -102,6 +108,7 @@ if($proceso == "Actualizar"){
     cod_lugar='$cod_lugar', 
     cod_distrito='$cod_distrito', 
     slug='$slug', 
+    alquiler='$alquiler', 
     titulo='$titulo', 
     imagen='$imagen', 
     precio='$precio', 
@@ -110,6 +117,7 @@ if($proceso == "Actualizar"){
     cuartos='$cuartos', 
     descripcion='$descripcion', 
     comodidades='$comodidades', 
+    fecha_ing='$fecha_ing',
     ubicacion='$ubicacion', 
     parking='$parking', 
     orden='$orden', 
@@ -154,7 +162,7 @@ if($proceso == "Actualizar"){
         document.fcms.submit();
       }
       function Filtrar(){
-        document.fcms.action = "inmuebles-nuevo.php";
+        document.fcms.action = "inmuebles-edit.php";
         document.fcms.proceso.value = "Filtrar";
         document.fcms.submit();
       }
@@ -239,7 +247,7 @@ if($proceso == "Actualizar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_lugar" id="cod_lugar" onChange="Filtrar();">
-                    <option value="0">Sin Lugar</option>
+                    <option value="default">Sin Lugar</option>
                     <?php 
                       if($cod_lugar == ""){
                         $consultaLug = "SELECT * FROM inmuebles_lugares WHERE estado='1'";
@@ -276,7 +284,7 @@ if($proceso == "Actualizar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_distrito" id="cod_distrito" required>
-                    <option value="0">Sin Distrito</option>
+                    <option value="default">Sin Distrito</option>
                     <?php 
                       if($cod_lugar==""){
                         echo '<option value="default">Sin Distrito</option>';
@@ -341,7 +349,7 @@ if($proceso == "Actualizar"){
                   <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-4 col-lg-2">
-                  <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IP');" /><i class="fa fa-save"></i> Examinar</button>
+                  <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IM');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 
@@ -351,6 +359,15 @@ if($proceso == "Actualizar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <input type="checkbox" name="tipo" id="tipo" data-size="small" data-provide="switchery" value="1" <?php if($tipo=="1"){echo "checked";} ?>>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="alquiler">Alquiler (?):</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input type="checkbox" name="alquiler" id="alquiler" data-size="small" data-provide="switchery" value="1" <?php if($alquiler=="1"){echo "checked";} ?>>
                 </div>
               </div>
 
@@ -440,6 +457,7 @@ if($proceso == "Actualizar"){
             <footer class="card-footer">
               <a href="inmuebles.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
               <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-refresh"></i> Editar Inmueble</button>
+              <input type="hidden" name="fecha_ing" value="<?php echo $fecha_ing; ?>">
               <input type="hidden" name="proceso">
               <input type="hidden" name="cod_inmueble" value="<?php echo $cod_inmueble; ?>">
             </footer>

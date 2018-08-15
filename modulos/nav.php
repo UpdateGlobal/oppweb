@@ -5,7 +5,7 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid" style="padding: 10px 5px 10px;">
           <div class="header_box1">
-            <div class="header_box1_menu"> 
+            <div class="header_box1_menu">
               <span style="font-size:30px;cursor:pointer; color: white;" onclick="openNav()">&#9776;</span>
             </div>
             <div class="header_box1_logo">
@@ -43,31 +43,45 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas</a>
                 <ul class="dropdown-menu">
-                  <li><a href="view.php">Departamentos</a></li>
-                  <li><a href="view.php">Oficinas</a></li>
-                  <li><a href="view.php">Casa</a></li>
-                  <li><a href="view.php">Locales</a></li>
-                  <li><a href="view.php">Terrenos</a></li>
+                  <?php
+                    $consultarCategoria = "SELECT * FROM inmuebles_categorias ORDER BY orden";
+                    $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                    while($filaCat = mysqli_fetch_array($resultadoCategoria)){
+                      $xCodigo    = $filaCat['cod_categoria'];
+                      $xCategoria = $filaCat['categoria'];
+                  ?>
+                  <li><a href="inmuebles-ventas-categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                  <?php
+                    }
+                    mysqli_free_result($resultadoCategoria);
+                  ?>
                 </ul>
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler</a>
                 <ul class="dropdown-menu">
-                  <li><a href="view.php">Departamentos</a></li>
-                  <li><a href="view.php">Oficinas</a></li>
-                  <li><a href="view.php">Casa</a></li>
-                  <li><a href="view.php">Locales</a></li>
-                  <li><a href="view.php">Terrenos</a></li>
+                  <?php
+                    $consultarCategoria = "SELECT * FROM inmuebles_categorias ORDER BY orden";
+                    $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                    while($filaCat = mysqli_fetch_array($resultadoCategoria)){
+                      $xCodigo    = $filaCat['cod_categoria'];
+                      $xCategoria = $filaCat['categoria'];
+                  ?>
+                  <li><a href="inmuebles-alquiler-categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                  <?php
+                    }
+                    mysqli_free_result($resultadoCategoria);
+                  ?>
                 </ul>
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Proyecto 1</a></li>
-                  <li><a href="#">Proyecto 2</a></li>
+                  <li><a href="inmuebles-proyecto.php">Proyecto 1</a></li>
+                  <li><a href="inmuebles-proyecto.php">Proyecto 2</a></li>
                 </ul>
               </li>
-              <li><a href="#">Quiero Vender</a></li>
+              <li><a href="contacto.php">Quiero Vender</a></li>
               <li><a href="contacto.php">Contacto</a></li>
               <li><a href="blog.php">Blog</a></li>
             </ul>

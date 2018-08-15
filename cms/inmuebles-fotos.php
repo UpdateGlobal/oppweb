@@ -24,24 +24,24 @@
         <span class="dot3"></span>
       </div>
     </div>
-    <?php $menu="galeria"; include("module/menu.php"); ?>
+    <?php $menu="inmuebles"; include("module/menu.php"); ?>
     <?php include("module/header.php"); ?>
     <!-- Main container -->
     <main>
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Productos</strong>
+            <strong>Inmuebles</strong>
             <small></small>
           </h1>
         </div>
-        <?php $page="productosfotos"; include("module/menu-productos.php"); ?>
+        <?php $page="inmueblesfotos"; include("module/menu-inmuebles.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">
-              <h4 class="card-title"><strong>Lista de Productos con Fotos</strong></h4>
+              <h4 class="card-title"><strong>Lista de Inmuebles con Fotos</strong></h4>
               <div class="card-body">
                 <form name="fcms" method="post" action="">
                   <table class="table">
@@ -59,31 +59,31 @@
                     </thead>
                     <tbody>
                       <?php
-                        $consultarPro = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, i.* FROM inmueble_categorias as ci, productos_sub_categorias as scp, productos as p WHERE p.cod_categoria=cp.cod_categoria AND p.cod_sub_categoria=scp.cod_sub_categoria ORDER BY orden ASC";
-                        $resultadoPro = mysqli_query($enlaces, $consultarPro);
-                        while($filaPro = mysqli_fetch_array($resultadoPro)){
-                          $xCodigo      = $filaPro['cod_producto'];
-                          $xCategoria   = utf8_encode($filaPro['categoria']);
-                          $xSCategoria  = utf8_encode($filaPro['subcategoria']);
-                          $xProducto    = $filaPro['nom_producto'];
-                          $xImagen      = $filaPro['imagen'];
+                        $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar ORDER BY orden ASC";
+                        $resultadoInm = mysqli_query($enlaces, $consultarInm);
+                        while($filaInm = mysqli_fetch_array($resultadoInm)){
+                          $xCodigo      = $filaInm['cod_inmueble'];
+                          $xCategoria   = $filaInm['categoria'];
+                          $xLugar       = $filaInm['lugar'];
+                          $xTitulo      = $filaInm['titulo'];
+                          $xImagen      = $filaInm['imagen'];
                           //Número de fotos
-                          $consultaFoto = "SELECT * FROM productos_galeria WHERE cod_producto=$xCodigo";
+                          $consultaFoto = "SELECT * FROM inmuebles_fotos WHERE cod_inmueble=$xCodigo";
                           $resultadoFoto = mysqli_query($enlaces,$consultaFoto);
                           $numfotos = mysqli_num_rows($resultadoFoto);
                       ?>
                       <?php if($xImagen!=""){ ?>
                       <tr>
                         <td><?php echo $xCategoria; ?></td>
-                        <td><?php echo $xSCategoria; ?></td>
-                        <td><?php echo $xProducto; ?><br><i><?php echo $numfotos; ?> Fotos</i></td>
-                        <td><img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/productos/<?php echo $xImagen; ?>" /></td>
-                        <td><a class="boton-nuevo" href="<?php if($xVisitante=="0"){ ?>productos-fotos-nuevo.php?cod_producto=<?php echo $xCodigo; ?>&titulo=<?php echo $xProducto; ?><?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-search"></i></a></td>
+                        <td><?php echo $xLugar; ?></td>
+                        <td><?php echo $xTitulo; ?><br><i><?php echo $numfotos; ?> Fotos</i></td>
+                        <td><img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/inmuebles/<?php echo $xImagen; ?>" /></td>
+                        <td><a class="boton-nuevo" href="<?php if($xVisitante=="0"){ ?>inmuebles-fotos-nuevo.php?cod_inmueble=<?php echo $xCodigo; ?>&titulo=<?php echo $xTitulo; ?><?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-search"></i></a></td>
                       </tr>
                       <?php }else{ ?><?php } ?>
                       <?php
                         }
-                        mysqli_free_result($resultadoPro);
+                        mysqli_free_result($resultadoInm);
                       ?>
                     </tbody>
                   </table>
