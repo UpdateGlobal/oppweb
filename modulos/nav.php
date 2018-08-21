@@ -44,14 +44,20 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ventas</a>
                 <ul class="dropdown-menu">
                   <?php
-                    $consultarCategoria = "SELECT * FROM inmuebles_categorias ORDER BY orden";
+                    $consultarCategoria = "SELECT * FROM inmuebles_categorias WHERE estado='1' ORDER BY orden";
                     $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                     while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                       $xCodigo    = $filaCat['cod_categoria'];
                       $xCategoria = $filaCat['categoria'];
+
+                      $consultaConteo = "SELECT * FROM inmuebles WHERE cod_categoria=$xCodigo AND alquiler='0' AND estado='1'";
+                      $resultadoConteo = mysqli_query($enlaces,$consultaConteo);
+                      $numconteo = mysqli_num_rows($resultadoConteo);
                   ?>
+                  <?php if($numconteo==0){}else{ ?>
                   <li><a href="inmuebles-ventas-categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
                   <?php
+                      }
                     }
                     mysqli_free_result($resultadoCategoria);
                   ?>
@@ -61,14 +67,20 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alquiler</a>
                 <ul class="dropdown-menu">
                   <?php
-                    $consultarCategoria = "SELECT * FROM inmuebles_categorias ORDER BY orden";
+                    $consultarCategoria = "SELECT * FROM inmuebles_categorias WHERE estado='1' ORDER BY orden";
                     $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                     while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                       $xCodigo    = $filaCat['cod_categoria'];
                       $xCategoria = $filaCat['categoria'];
+                      
+                      $consultaConteo = "SELECT * FROM inmuebles WHERE cod_categoria=$xCodigo AND alquiler='1' AND estado='1'";
+                      $resultadoConteo = mysqli_query($enlaces,$consultaConteo);
+                      $numconteo = mysqli_num_rows($resultadoConteo);
                   ?>
+                  <?php if($numconteo==0){}else{ ?>
                   <li><a href="inmuebles-alquiler-categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
                   <?php
+                      }
                     }
                     mysqli_free_result($resultadoCategoria);
                   ?>
@@ -77,8 +89,24 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
                 <ul class="dropdown-menu">
-                  <li><a href="inmuebles-proyecto.php">Proyecto 1</a></li>
-                  <li><a href="inmuebles-proyecto.php">Proyecto 2</a></li>
+                  <?php
+                    $consultarCategoria = "SELECT * FROM inmuebles_categorias WHERE estado='1' ORDER BY orden";
+                    $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                    while($filaCat = mysqli_fetch_array($resultadoCategoria)){
+                      $xCodigo    = $filaCat['cod_categoria'];
+                      $xCategoria = $filaCat['categoria'];
+                      
+                      $consultaConteo = "SELECT * FROM inmuebles WHERE cod_categoria=$xCodigo AND tipo='1' AND estado='1'";
+                      $resultadoConteo = mysqli_query($enlaces,$consultaConteo);
+                      $numconteo = mysqli_num_rows($resultadoConteo);
+                  ?>
+                  <?php if($numconteo==0){}else{ ?>
+                  <li><a href="inmuebles-proyectos-categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                  <?php
+                      }
+                    }
+                    mysqli_free_result($resultadoCategoria);
+                  ?>
                 </ul>
               </li>
               <li><a href="contacto.php">Quiero Vender</a></li>

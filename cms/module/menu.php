@@ -37,9 +37,9 @@
               </li>
 
               <li class="menu-item">
-                <a class="menu-link" href="carrusel.php">
+                <a class="menu-link" href="contenidos.php">
                   <span class="dot"></span>
-                  <span class="title">Carrusel</span>
+                  <span class="title">Contenidos</span>
                 </a>
               </li>
 

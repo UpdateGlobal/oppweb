@@ -37,8 +37,8 @@
         td:nth-of-type(1):before { content: "Categoria"; }
         td:nth-of-type(2):before { content: "Lugares"; }
         td:nth-of-type(3):before { content: "Distritos"; }
-        td:nth-of-type(4):before { content: "Inmuebles"; }
-        td:nth-of-type(5):before { content: "Imagen"; }
+        td:nth-of-type(4):before { content: "Imagen"; }
+        td:nth-of-type(5):before { content: "Orden"; }
         td:nth-of-type(6):before { content: "Estado"; }
         td:nth-of-type(7):before { content: ""; }
         td:nth-of-type(8):before { content: ""; }
@@ -100,14 +100,14 @@
                 <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>inmuebles-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
-                  <table class="table">
+                  <table class="table" data-provide="datatables">
                     <thead>
                       <tr>
                         <th width="15%" scope="col">Categor&iacute;a</th>
                         <th width="15%" scope="col">Lugares</th>
-                        <th width="15%" scope="col">Distritos</th>
-                        <th width="20%" scope="col">Inmuebles</th>
-                        <th width="15%" scope="col">Imagen
+                        <th width="15%" scope="col">Inmuebles</th>
+                        <th width="20%" scope="col">Imagen</th>
+                        <th width="15%" scope="col">Orden
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>

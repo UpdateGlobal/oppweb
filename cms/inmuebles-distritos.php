@@ -98,7 +98,7 @@ if ($eliminar == "true") {
                 <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>inmuebles-distritos-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
-                  <table class="table">
+                  <table class="table" data-provide="datatables">
                     <thead>
                       <tr>
                         <th width="30%" scope="col">Distritos

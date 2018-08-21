@@ -40,11 +40,11 @@ if($proceso == ""){
 
 if($proceso == "Filtrar"){
   $cod_inmueble       = $_POST['cod_inmueble'];
-  $tipo               = $_POST['tipo'];
+  if(isset($_POST['tipo'])){$tipo = $_POST['tipo'];}else{$tipo = 0;}
   $cod_categoria      = $_POST['cod_categoria'];
   $cod_lugar          = $_POST['cod_lugar'];
   $cod_distrito       = $_POST['cod_distrito'];
-  $alquiler           = $_POST['alquiler'];
+  if(isset($_POST['alquiler'])){$alquiler = $_POST['alquiler'];}else{$alquiler = 0;}
   $titulo             = $_POST['titulo'];
   $slug           = $titulo;
   $slug           = preg_replace('~[^\pL\d]+~u', '-', $slug);

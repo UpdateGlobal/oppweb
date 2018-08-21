@@ -10,10 +10,10 @@ if (isset($_REQUEST['proceso'])) {
 if($proceso == "Registrar"){
   $imagen       = $_POST['imagen'];
   $titulo       = mysqli_real_escape_string($enlaces, $_POST['titulo']);
-  $texto        = mysqli_real_escape_string($enlaces, $_POST['texto']);
-  if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;
+  $enlace       = $_POST['enlace'];
+  if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
-  $insertarBanner = "INSERT INTO banners(imagen, titulo, texto, orden, estado)VALUE('$imagen', '$titulo', '$texto', '$orden', '$estado')";
+  $insertarBanner = "INSERT INTO banners(imagen, titulo, enlace, orden, estado)VALUE('$imagen', '$titulo', '$enlace', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces,$insertarBanner);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -77,7 +77,7 @@ if($proceso == "Registrar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label require" for="imagen">Imagen:</label><br>
-                  <small>(-px x -px)</small>
+                  <small>(734px x 435px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <input class="form-control" id="imagen" name="imagen" type="text" required>
@@ -99,10 +99,10 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="texto">Texto:</label>
+                  <label class="col-form-label" for="enlace">Enlace:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <textarea class="form-control" name="texto" id="texto"></textarea>
+                  <input class="form-control" name="enlace" type="text" id="enlace" />
                 </div>
               </div>
 

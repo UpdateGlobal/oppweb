@@ -10,7 +10,7 @@
     <section class="for_bg">
       <div class="container-fluid" id="formulario">
         <div class="row">
-          <div class="col-md-6 col-xs-12">
+          <div class="col-md-6 col-xs-12 hidden-sm hidden-xs">
             <img src="images/agent-image-1.png" class="img-responsive for_img">
           </div>
           <div class="col-md-6 col-xs-12">
@@ -83,46 +83,46 @@
       }
     </script>
     <script>
-                function sendContact(){
-                  var valid;
-                  valid = validateContact();
-                  if(valid) {
-                    jQuery.ajax({
-                      url: "contact_form.php",
-                      data:'nombres='+$("#nombres").val()+'&email='+$("#email").val()+'&telefono='+$("#telefono").val()+'&mensaje='+$("#mensaje").val()+'&fecha_ingreso='+$("#fecha_ingreso").val(),
-                      type: "POST",
-                      success:function(data){
-                        $("#mail-status").html(data);
-                        $("#send").html("");
-                      },
-                      error:function (){}
-                    });
-                  }
-                }
-                function validateContact() {
-                  var valid = true;
-                  if(!$("#nombres").val()) {
-                    $("#nombres").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  if(!$("#email").val()) {
-                    $("#email").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  if(!$("#email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-                    $("#email").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  if(!$("#telefono").val()) {
-                    $("#telefono").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  if(!$("#mensaje").val()) {
-                    $("#mensaje").css('background-color','#f28282');
-                    valid = false;
-                  }
-                  return valid;
-                }
-              </script>
+      function sendContact(){
+        var valid;
+        valid = validateContact();
+        if(valid) {
+          jQuery.ajax({
+            url: "contact_form.php",
+            data:'nombres='+$("#nombres").val()+'&email='+$("#email").val()+'&telefono='+$("#telefono").val()+'&mensaje='+$("#mensaje").val()+'&fecha_ingreso='+$("#fecha_ingreso").val(),
+            type: "POST",
+            success:function(data){
+              $("#mail-status").html(data);
+              $("#send").html("");
+            },
+            error:function (){}
+          });
+        }
+      }
+      function validateContact() {
+        var valid = true;
+        if(!$("#nombres").val()) {
+          $("#nombres").css('background-color','#f28282');
+          valid = false;
+        }
+        if(!$("#email").val()) {
+          $("#email").css('background-color','#f28282');
+          valid = false;
+        }
+        if(!$("#email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+          $("#email").css('background-color','#f28282');
+          valid = false;
+        }
+        if(!$("#telefono").val()) {
+          $("#telefono").css('background-color','#f28282');
+          valid = false;
+        }
+        if(!$("#mensaje").val()) {
+          $("#mensaje").css('background-color','#f28282');
+          valid = false;
+        }
+        return valid;
+      }
+    </script>
   </body>
 </html>

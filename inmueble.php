@@ -115,7 +115,6 @@
           <div class="item"><img src="cms/assets/img/inmuebles/fotos/<?php echo $xImgG; ?>" class="owl_img" /></div>
           <?php
             }
-
           ?>
         </div>
       </div>
@@ -132,7 +131,7 @@
           <li>Baños:<span class="span"><?php echo $banos; ?></span></li>
           <li>Cuartos:<span class="span"><?php echo $cuartos; ?></span></li>
         </ul>
-        <a href="contacto.php" class="btn btn-default">Cotizar</a>      
+        <a href="contacto.php" class="btn btn-default">Cotizar</a>
       </div>
     </div>
   </div>
@@ -142,7 +141,7 @@
       <div class="col-md-12">
         <h3 class="title_inm">Descripci&oacute;n</h3>
         <hr class="hr">
-        <?php echo $descripcion; ?>       
+        <?php echo $descripcion; ?>
         <br>
         <h3 class="title_inm">Comodidades</h3>
         <hr class="hr">
@@ -152,12 +151,12 @@
           <li><i class="fas fa-check"></i> Sala de cine</li>
           <li><i class="fas fa-check"></i> Sala de Reuniones</li>
           <li><i class="fas fa-check"></i> Mesa de Billar</li>
-        </ul>    
+        </ul>
         <br><br>
         <h3 class="title_inm">Ubicaci&oacute;n</h3>
         <hr class="hr">
         <?php echo $ubicacion; ?>
-      </div>  
+      </div>
     </div>
   </div>
   <!--inmueble-->

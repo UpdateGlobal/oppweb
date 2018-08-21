@@ -1,39 +1,43 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php 
-$menu = $_REQUEST['menu'];
-if($menu==3){
-  $tipo = 1;
-}else{
-  $tipo = 0;
-}
-$cod_categoria = $_REQUEST['cod_categoria'];
-$distrito = $_REQUEST['distrito'];
-$parametros = "&distrito=$distrito";
-?>
+<?php $cod_lugar=$_REQUEST['cod_lugar']; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <?php include("modulos/head.php"); ?>
-    <script>
-      function ValidarBus(){
-        if(document.bus.buscador.value==""){
-          alert("Debes ingresar datos para la búsqueda");
-          document.bus.buscador.focus();
-          return;
-        }
-        document.bus.action="/buscar.php";
-        document.bus.submit();
+  <?php include("modulos/head.php"); ?>
+  <script>
+    function ValidarBus(){
+      if(document.bus.buscador.value==""){
+        alert("Debes ingresar datos para la búsqueda");
+        document.bus.buscador.focus();
+        return;
       }
-    </script>
+      document.bus.action="/busqueda.php";
+      document.bus.submit();
+    }
+  </script>
 </head>
 <body>
   <?php include('modulos/nav.php'); ?>
   <!--finder-->
   <div class="container">
     <div class="row">
+      <?php 
+        $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.cod_lugar='$cod_lugar'";
+        $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
+        $filaInm = mysqli_fetch_array($resultadoInm);
+          $xLugar   = $filaInm['lugar'];
+      ?>
       <div class="col-md-8 col-xs-12">
-        <p class="branch">Inicio > B&uacute;squeda <?php echo $distrito; ?> </p>
+        <p class="branch">Inicio > <?php echo $xLugar; ?></p>
       </div>
+      <!-- 
+      <div class="col-md-2 col-xs-12" style="float: right;">
+        <div class="wrap-input2 validate-input">
+          <input class="input2" type="text" id="buscador" name="buscador" onkeypress="if(event.keyCode==13){ValidarBus();}">
+          <span class="focus-input2" data-placeholder="" onclick="javascript:ValidarBus();" ><i class="fas fa-search"></i></span>
+        </div>
+      </div>
+      -->
     </div>
   </div>
   <!-- end finder-->
@@ -45,20 +49,15 @@ $parametros = "&distrito=$distrito";
       </div>
       <div class="col-md-8">
         <?php
-          //configuracion de paginador
-          if($menu==2){
-            $buscarpro = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.alquiler='0' AND (di.distrito LIKE '%$distrito%' AND i.cod_categoria LIKE '%$cod_categoria%' AND i.tipo LIKE '%$tipo%') AND i.estado='1'";
-          }else{
-            $buscarpro = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.alquiler='1' AND (di.distrito LIKE '%$distrito%' AND i.cod_categoria LIKE '%$cod_categoria%' AND i.tipo LIKE '%$tipo%') AND i.estado='1'";
-          }
-          $resultadobus = mysqli_query($enlaces, $buscarpro);
-          $total_registros = mysqli_num_rows($resultadobus);
-          if($total_registros==0){ ?>
-            <h2>Sin resultados para la b&uacute;squeda: <?php echo $distrito; ?><br>
-            Intente con otro término.</h2>
-            <div style="height: 40px;"></div>
-          </div>
-        <?php 
+          $consultarInm = "SELECT * FROM inmuebles WHERE cod_lugar='$cod_lugar' AND estado='1'";
+          $resultadoInm = mysqli_query($enlaces, $consultarInm);
+          $total_registros = mysqli_num_rows($resultadoInm);
+          if($total_registros==0){
+        ?>
+        <h2>No hay inmuebles disponibles para esta categor&iacute;a, pronto tendremos novedades.</h2>
+        <div style="height: 40px;"></div>
+      </div>
+        <?php
           }else{
             $registros_por_paginas = 3;
             $total_paginas = ceil($total_registros/$registros_por_paginas);
@@ -68,15 +67,10 @@ $parametros = "&distrito=$distrito";
             }
             $posicion = ($pagina-1)*$registros_por_paginas;
             $limite = "LIMIT $posicion, $registros_por_paginas";
-            //fin configuracion paginador
 
-            if($menu==2){
-              $buscarpro="SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND (di.distrito LIKE '%$distrito%' AND i.cod_categoria LIKE '%$cod_categoria%' AND i.alquiler='0' AND i.tipo LIKE '%$tipo%') AND i.estado='1' $limite";
-            }else{
-              $buscarpro="SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND (di.distrito LIKE '%$distrito%' AND i.cod_categoria LIKE '%$cod_categoria%' AND i.alquiler='1' AND i.tipo LIKE '%$tipo%') AND i.estado='1' $limite";
-            }
-            $resultadobus=mysqli_query($enlaces, $buscarpro);
-            while($filaInm=mysqli_fetch_array($resultadobus)){
+            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.cod_lugar='$cod_lugar' AND i.estado='1' ORDER BY orden ASC $limite";
+            $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
+            while($filaInm = mysqli_fetch_array($resultadoInm)){
               $xCodigo      = $filaInm['cod_inmueble'];
               $xLugar       = $filaInm['lugar'];
               $xInmuebles   = $filaInm['titulo'];
@@ -88,8 +82,8 @@ $parametros = "&distrito=$distrito";
         ?>
         <!--item inmueble-->
         <div class="ncard">
-          <div class="col-md-5" style="padding: 0px;">
-            <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>"><img src="cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="ncard_img2"></a>
+          <div class="col-md-5" style="padding:0px;">
+            <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>"><img src="cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="ncard_img2" /></a>
           </div>
           <div class="col-md-7" style="padding: 0px;">
             <div class="card-block">
@@ -125,6 +119,7 @@ $parametros = "&distrito=$distrito";
         <!--item inmueble-->
         <?php
           }
+          mysqli_free_result($resultadoInm); 
         ?>
       </div>
     </div>
@@ -136,20 +131,20 @@ $parametros = "&distrito=$distrito";
                   <div class='col-lg-12'>
                     <ul class='pagination'>";
                   if($pagina>1){
-                    echo "<li><a href='?p=".($pagina-1)."'>&laquo;</a></li>";
+                    echo "<li><a href='?cod_lugar=".$cod_lugar."&p=".($pagina-1)."'>&laquo;</a></li>";
                   }
                   for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                     if($i==$pagina){
                       echo "<li class='active'><a><strong>$i</strong></a></li>";
                     }else{
-                      echo "<li><a href='?p=$i'>$i</a></li>";
+                      echo "<li><a href='?cod_lugar=".$cod_lugar."&p=$i'>$i</a></li>";
                     }
                   }
                   if(($pagina+$paginas_mostrar)<$total_paginas){
                     echo "<li>...</li>";
                   }
                   if($pagina<$total_paginas){
-                    echo "  <li><a href='?p=".($pagina+1)."'>&raquo;</a></li>";
+                    echo "  <li><a href='?cod_lugar=".$cod_lugar."&p=".($pagina+1)."'>&raquo;</a></li>";
                   }
         echo "  </ul>
               </div>

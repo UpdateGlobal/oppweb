@@ -21,23 +21,42 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6 bg_slide_de">
+                <?php
+                    $consultaCon = "SELECT * FROM contenidos WHERE cod_contenido='3'";
+                    $ejecutarCon = mysqli_query($enlaces,$consultaCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                    $filaCon = mysqli_fetch_array($ejecutarCon);
+                        $cod_contenido    = $filaCon['cod_contenido'];
+                        $titulo_contenido = $filaCon['titulo_contenido'];
+                        $img_contenido    = $filaCon['img_contenido'];
+                        $contenido        = $filaCon['contenido'];
+                        $estado           = $filaCon['estado'];
+                        $enlace           = $filaCon['enlace'];
+                ?>
                 <div class="depa_desta">
-                    <p class="textowless">San Miguel</p>
+                    <p class="textowless"><?php echo $titulo_contenido; ?></p>
                 </div>
                 <div class="depa_title">
-                    <p class="textowless2">Condominios Las Brisas</p>
+                    <p class="textowless2"><?php echo $contenido; ?></p>
                 </div>
             </div>
             <div class="col-sm-6 bg_slide_iz">
                 <div class="owl-one owl-carousel owl-theme">
-                    <div class="item items" style="background: url(images/slide1.png);">
+                    <?php
+                        $consultarBanner = "SELECT * FROM banners WHERE estado='1' ORDER BY orden";
+                        $resultadoBanner = mysqli_query($enlaces,$consultarBanner) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        while($filaBan = mysqli_fetch_array($resultadoBanner)){
+                            $xCodigo    = $filaBan['cod_banner'];
+                            $xTitulo    = $filaBan['titulo'];
+                            $xImagen    = $filaBan['imagen'];
+                    ?>
+                    <div class="item items" style="background: url(cms/assets/img/banner/<?php echo $xImagen; ?>);">
                         <div class="textowl">
-                            <p class="textowless">Edificio San Jose</p>
+                            <p class="textowless"><?php echo $xTitulo; ?></p>
                         </div>
                     </div>
-                    <div class="item items" style="background: url(images/slide2.png);">
-                        <p class="textowl">loren ipsum #2<br><span>LOREN IPSUM</span></p>
-                    </div>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -83,7 +102,6 @@
                         </li>
                         <li class="inpute">
                             <input type="button" class="btn btnfin" value="Buscar" onclick="javascript:ValidarBus();" />
-                            <input type="hidden" name="tipo" id="tipo" value="1" />
                         </li>
                     </ul>
                 </form>
@@ -116,7 +134,7 @@
                                 $xPrecio      = $filaInm['precio'];
                                 $xParking     = $filaInm['parking'];
                         ?>
-                        <a href="inmueble.php?cod_inmueble=<?php echo $cod_inmueble; ?>">
+                        <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>">
                             <div class="item slushi rent_shadow" style="background: url(cms/assets/img/inmuebles/<?php echo $xImagen; ?>); background-size: cover;">
                                 <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
                                     <div class="col-md-6 col-xs-12 card_home" align="left"><?php echo $xDistrito; ?></div>
@@ -326,32 +344,33 @@
                             <p class="for_p">Ayudamos a vender tu inmueble</p>
                             <br>
                         </div>
-                        <form class="contact2-form validate-form">
+                        <div class="contact2-form validate-form">
                             <div class="wrap-input2 validate-input" data-validate="Nombre requerido">
-                                <input class="input2" type="text" name="name">
-                                <span class="focus-input2" data-placeholder="Nombre"></span>
+                                <input class="input2" type="text" id="nombres" name="nombres">
+                                <span class="focus-input2" data-placeholder="Nombres"></span>
                             </div>
                             <div class="wrap-input2 validate-input" data-validate="Correo requerido">
-                                <input class="input2" type="text" name="email">
+                                <input class="input2" type="text" id="email" name="email">
                                 <span class="focus-input2" data-placeholder="Email"></span>
                             </div>
                             <div class="wrap-input2 validate-input" data-validate="Telefono requerido">
-                                <input class="input2" type="text" name="email">
+                                <input class="input2" type="text" id="telefono" name="telefono">
                                 <span class="focus-input2" data-placeholder="Telefono"></span>
                             </div>
                             <div class="wrap-input2 validate-input" data-validate="Mensaje requerido">
-                                <textarea class="input2" name="message"></textarea>
+                                <textarea class="input2" id="mensaje" name="mensaje"></textarea>
                                 <span class="focus-input2" data-placeholder="Mensaje"></span>
                             </div>
                             <div class="container-contact2-form-btn">
+                                <div id="mail-status"></div>
+                                <?php $fecha = date("Y-m-d"); ?>
+                                <input type="hidden" id="fecha_ingreso" name="fecha_ingreso" value="<?php echo $fecha ?>" />
                                 <div class="wrap-contact2-form-btn">
-
                                     <div class="contact2-form-bgbtn"></div>
-                                    <button class="contact2-form-btn">Enviar Mensaje</button>
-                                
+                                    <button class="contact2-form-btn" name="submit" onClick="sendContact();">Enviar Mensaje</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -504,6 +523,48 @@
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <script>
+        function sendContact(){
+            var valid;
+            valid = validateContact();
+            if(valid) {
+              jQuery.ajax({
+                url: "contact_form.php",
+                data:'nombres='+$("#nombres").val()+'&email='+$("#email").val()+'&telefono='+$("#telefono").val()+'&mensaje='+$("#mensaje").val()+'&fecha_ingreso='+$("#fecha_ingreso").val(),
+                type: "POST",
+                success:function(data){
+                  $("#mail-status").html(data);
+                  $("#send").html("");
+                },
+                error:function (){}
+              });
+            }
+        }
+        function validateContact() {
+            var valid = true;
+            if(!$("#nombres").val()) {
+              $("#nombres").css('background-color','#f28282');
+              valid = false;
+            }
+            if(!$("#email").val()) {
+              $("#email").css('background-color','#f28282');
+              valid = false;
+            }
+            if(!$("#email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+              $("#email").css('background-color','#f28282');
+              valid = false;
+            }
+            if(!$("#telefono").val()) {
+              $("#telefono").css('background-color','#f28282');
+              valid = false;
+            }
+            if(!$("#mensaje").val()) {
+              $("#mensaje").css('background-color','#f28282');
+              valid = false;
+            }
+            return valid;
         }
     </script>
 </body>
