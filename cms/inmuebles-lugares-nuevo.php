@@ -3,21 +3,30 @@
 <?php
 $mensaje = "";
 if (isset($_REQUEST['proceso'])) {
-  $proceso  = $_POST['proceso'];
+  $proceso = $_POST['proceso'];
 } else {
-  $proceso  = "";
+  $proceso = "";
 }
 if($proceso == "Registrar"){
-  $imagen       = $_POST['imagen'];
-  $titulo       = mysqli_real_escape_string($enlaces, $_POST['titulo']);
-  $enlace       = $_POST['enlace'];
+  $lugar          = $_POST['lugar'];
+  $slug           = $lugar;
+  $slug           = preg_replace('~[^\pL\d]+~u', '-', $slug);
+  $slug           = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
+  $slug           = preg_replace('~[^-\w]+~', '', $slug);
+  $slug           = trim($slug, '-');
+  $slug           = preg_replace('~-+~', '-', $slug);
+  $slug           = strtolower($slug);
+  if (empty($slug)){
+      return 'n-a';
+  }
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
-  $insertarBanner = "INSERT INTO banners(imagen, titulo, enlace, orden, estado)VALUE('$imagen', '$titulo', '$enlace', '$orden', '$estado')";
-  $resultadoInsertar = mysqli_query($enlaces,$insertarBanner);
+  
+  $insertarLugar = "INSERT INTO inmuebles_lugares(slug, lugar, orden, estado)VALUE('$slug', '$lugar', '$orden', '$estado')";
+  $resultadoInsertar = mysqli_query($enlaces,$insertarLugar);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-          <strong>Nota:</strong> El Banner se registr&oacute; con exitosamente. <a href='banners.php'>Ir a Banners</a>
+          <strong>Nota:</strong> El lugar se registr&oacute; exitosamente. <a href='inmuebles-lugares.php'>Ir a Lugares</a>
         </div>";
 }
 ?>
@@ -28,11 +37,12 @@ if($proceso == "Registrar"){
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
       function Validar(){
-        if(document.fcms.imagen.value==""){
-          alert("Debe subir una imagen");
+        if(document.fcms.lugar.value==""){
+          alert("Debes ingresar un lugar");
+          document.fcms.lugar.focus();
           return;
         }
-        document.fcms.action = "banner-nuevo.php";
+        document.fcms.action = "inmuebles-lugares-nuevo.php";
         document.fcms.proceso.value="Registrar";
         document.fcms.submit();
       }
@@ -40,7 +50,7 @@ if($proceso == "Registrar"){
         url = "agregar-foto.php?id=" + codigo;
         AbrirCentro(url,'Agregar', 475, 180, 'no', 'no');
       }
-      function soloNumeros(e){
+      function soloNumeros(e){ 
         var key = window.Event ? e.which : e.keyCode 
         return ((key >= 48 && key <= 57) || (key==8)) 
       }
@@ -55,54 +65,33 @@ if($proceso == "Registrar"){
         <span class="dot3"></span>
       </div>
     </div>
-    <?php $menu="inicio"; include("module/menu.php"); ?>
+    <?php $menu="inmuebles"; include("module/menu.php"); ?>
     <?php include("module/header.php"); ?>
     <!-- Main container -->
     <main>
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Banners</strong>
+            <strong>Inmuebles</strong>
             <small></small>
           </h1>
         </div>
-        <?php $page="banners"; include("module/menu-inicio.php"); ?>
+        <?php $page="inmuebleslugares"; include("module/menu-inmuebles.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
-          <h4 class="card-title"><strong>Banners Nuevo</strong></h4>
+          <h4 class="card-title"><strong>Nuevo Lugares</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
               <?php if(isset($mensaje)){ echo $mensaje; } else {}; ?>
+
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label require" for="imagen">Imagen:</label><br>
-                  <small>(734px x 435px)</small>
+                  <label class="col-form-label required" for="lugar">Lugar:</label>
                 </div>
-                <div class="col-4 col-lg-8">
-                  <input class="form-control" id="imagen" name="imagen" type="text" required>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="lugar" type="text" id="lugar" required />
                   <div class="invalid-feedback"></div>
-                </div>
-                <div class="col-4 col-lg-2">
-                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('BAN');" /><i class="fa fa-save"></i> Examinar</button>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="titulo">T&iacute;tulo:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input class="form-control" name="titulo" type="text" id="titulo" />
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="enlace">Enlace:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input class="form-control" name="enlace" type="text" id="enlace" />
                 </div>
               </div>
 
@@ -123,12 +112,11 @@ if($proceso == "Registrar"){
                   <input type="checkbox" name="estado" data-size="small" data-provide="switchery" value="1" checked>
                 </div>
               </div>
-
             </div>
 
             <footer class="card-footer">
-              <a href="banners.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
-              <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-chevron-circle-right"></i> Registrar Banner</button>
+              <a href="inmuebles-lugares.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
+              <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-chevron-circle-right"></i> Publicar Lugar</button>
               <input type="hidden" name="proceso">
             </footer>
 

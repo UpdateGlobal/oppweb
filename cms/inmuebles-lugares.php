@@ -7,25 +7,25 @@ if (isset($_REQUEST['eliminar'])) {
   $eliminar = "";
 }
 if ($eliminar == "true") {
-  $sqlEliminar = "SELECT cod_categoria FROM inmuebles_categorias ORDER BY orden";
+  $sqlEliminar = "SELECT cod_lugar FROM inmuebles_lugares ORDER BY orden";
   $sqlResultado = mysqli_query($enlaces,$sqlEliminar);
   $x = 0;
   while($filaElim = mysqli_fetch_array($sqlResultado)){
-    $id_categoria = $filaElim["cod_categoria"];
-    if ($_REQUEST["chk" . $id_categoria] == "on") {
+    $id_lugar = $filaElim["cod_lugar"];
+    if ($_REQUEST["chk" . $id_lugar] == "on") {
       $x++;
       if ($x == 1) {
-          $sql = "DELETE FROM inmuebles_categorias WHERE cod_categoria=$id_categoria";
+          $sql = "DELETE FROM inmuebles_lugares WHERE cod_lugar=$id_lugar";
         } else {
-          $sql = $sql . " OR cod_categoria=$id_categoria";
+          $sql = $sql . " OR cod_lugar=$id_lugar";
         }
     }
   }
   mysqli_free_result($sqlResultado);
-  if ($x > 0) { 
+  if ($x > 0) {
     $rs = mysqli_query($enlaces,$sql);
   }
-  header ("Location:inmuebles-categorias.php");
+  header ("Location:inmuebles-lugares.php");
 }
 ?>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ if ($eliminar == "true") {
     <?php include("module/head.php"); ?>
     <style>
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
-        td:nth-of-type(1):before { content: "Categoría"; }
+        td:nth-of-type(1):before { content: "Lugares"; }
         td:nth-of-type(2):before { content: "Orden"; }
         td:nth-of-type(3):before { content: "Estado"; }
         td:nth-of-type(4):before { content: ""; }
@@ -55,7 +55,7 @@ if ($eliminar == "true") {
         }
         if (estado == 0) {
           if (seccion == "N"){
-            alert("Debes de seleccionar un categoria.")
+            alert("Debes de seleccionar un lugar.")
           }
           return
         }
@@ -86,21 +86,21 @@ if ($eliminar == "true") {
             <small></small>
           </h1>
         </div>
-        <?php $page="inmueblescategorias"; include("module/menu-inmuebles.php"); ?>
+        <?php $page="inmuebleslugares"; include("module/menu-inmuebles.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">
-              <h4 class="card-title"><strong>Lista de Categor&iacute;as</strong></h4>
+              <h4 class="card-title"><strong>Lista de Lugares</strong></h4>
               <div class="card-body">
-                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>inmuebles-categorias-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
+                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>inmuebles-lugares-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="60%" scope="col">Categor&iacute;a
+                        <th width="60%" scope="col">Lugares
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
@@ -113,24 +113,24 @@ if ($eliminar == "true") {
                     </thead>
                     <tbody>
                       <?php
-                        $consultarCategoria = "SELECT * FROM inmuebles_categorias ORDER BY orden";
-                        $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
-                        while($filaCat = mysqli_fetch_array($resultadoCategoria)){
-                          $xCodigo    = $filaCat['cod_categoria'];
-                          $xCategoria = $filaCat['categoria'];
-                          $xOrden     = $filaCat['orden'];
-                          $xEstado    = $filaCat['estado'];
+                        $consultarLugar = "SELECT * FROM inmuebles_lugares ORDER BY orden";
+                        $resultadoLugar = mysqli_query($enlaces,$consultarLugar) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        while($filaLug = mysqli_fetch_array($resultadoLugar)){
+                          $xCodigo    = $filaLug['cod_lugar'];
+                          $xLugar     = $filaLug['lugar'];
+                          $xOrden     = $filaLug['orden'];
+                          $xEstado    = $filaLug['estado'];
                       ?>
                       <tr>
-                        <td><?php echo $xCategoria; ?></td>
+                        <td><?php echo $xLugar; ?></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><?php if($xCodigo!="0"){?>
                           <strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong>
                         <?php }?></td>
                         <td><?php if($xCodigo!="0"){?>
-                          <?php if($xVisitante=="0"){ ?><a class="boton-eliminar" href="inmuebles-categorias-delete.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-trash"></i></a><?php }else{ ?><a class="boton-eliminar boton-eliminar-bloqueado" href="javascript:visitante();"><i class="fa fa-trash"></i></a><?php } ?><?php }?>
+                          <?php if($xVisitante=="0"){ ?><a class="boton-eliminar" href="inmuebles-lugares-delete.php?cod_lugar=<?php echo $xCodigo; ?>"><i class="fa fa-trash"></i></a><?php }else{ ?><a class="boton-eliminar boton-eliminar-bloqueado" href="javascript:visitante();"><i class="fa fa-trash"></i></a><?php } ?><?php }?>
                         </td>
-                        <td><?php if($xCodigo!="0"){?><a class="boton-editar" href="inmuebles-categorias-edit.php?cod_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square"></i></a><?php }?></td>
+                        <td><?php if($xCodigo!="0"){?><a class="boton-editar" href="inmuebles-lugares-edit.php?cod_lugar=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square"></i></a><?php }?></td>
                         <td><?php if($xVisitante=="0"){?>
                           <?php if($xCodigo!="0"){?>
                           <div class="hidden">
@@ -144,7 +144,7 @@ if ($eliminar == "true") {
                       </tr>
                       <?php
                         }
-                        mysqli_free_result($resultadoCategoria);
+                        mysqli_free_result($resultadoLugar);
                       ?>
                     </tbody>
                   </table>

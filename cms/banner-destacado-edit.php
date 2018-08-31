@@ -1,32 +1,34 @@
 <?php include("module/conexion.php"); ?>
 <?php include("module/verificar.php"); ?>
 <?php
-$cod_banner   = $_REQUEST['cod_banner'];
+$cod_contenido  = $_REQUEST['cod_contenido'];
 if (isset($_REQUEST['proceso'])) {
   $proceso  = $_POST['proceso'];
 } else {
   $proceso  = "";
 }
-if($proceso == ""){
-  $consultaBanner = "SELECT * FROM banners WHERE cod_banner='$cod_banner'";
-  $ejecutarBanner = mysqli_query($enlaces,$consultaBanner) or die('Consulta fallida: ' . mysqli_error($enlaces));
-  $filaBan = mysqli_fetch_array($ejecutarBanner);
-  $cod_banner = $filaBan['cod_banner'];
-  $imagen = $filaBan['imagen'];
-  $titulo = $filaBan['titulo'];
-  $enlace = $filaBan['enlace'];
-  $orden  = $filaBan['orden'];
-  $estado = $filaBan['estado'];
+if($proceso==""){
+  $consultaCon = "SELECT * FROM contenidos WHERE cod_contenido='$cod_contenido'";
+  $ejecutarCon = mysqli_query($enlaces,$consultaCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+  $filaCon = mysqli_fetch_array($ejecutarCon);
+  $cod_contenido    = $filaCon['cod_contenido'];
+  $titulo_contenido = $filaCon['titulo_contenido'];
+  $img_contenido    = $filaCon['img_contenido'];
+  $contenido        = $filaCon['contenido'];
+  $estado           = $filaCon['estado'];
+  $enlace           = $filaCon['enlace'];
 }
-if($proceso=="Actualizar"){ 
-  $cod_banner   = $_POST['cod_banner'];
-  $imagen       = $_POST['imagen'];
-  $titulo       = mysqli_real_escape_string($enlaces, $_POST['titulo']);
-  $enlace       = $_POST['enlace'];
-  if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
-  if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
-  $actualizarBanner = "UPDATE banners SET cod_banner='$cod_banner', imagen='$imagen', titulo='$titulo', enlace='$enlace', orden='$orden', estado='$estado' WHERE cod_banner='$cod_banner'";
-  $resultadoActualizar = mysqli_query($enlaces,$actualizarBanner) or die('Consulta fallida: ' . mysqli_error($enlaces));
+
+if($proceso == "Actualizar"){
+  $cod_contenido    = $_POST['cod_contenido'];
+  $titulo_contenido = mysqli_real_escape_string($enlaces, $_POST['titulo_contenido']);
+  $img_contenido    = $_POST['img_contenido'];
+  $contenido        = mysqli_real_escape_string($enlaces, $_POST['contenido']);
+  $estado           = $_POST['estado'];
+  $enlace           = $_POST['enlace'];
+
+  $ActualizarCon = "UPDATE contenidos SET cod_contenido='$cod_contenido', titulo_contenido='$titulo_contenido', img_contenido='$img_contenido', contenido='$contenido', estado='$estado', enlace='$enlace' WHERE cod_contenido='$cod_contenido'";
+  $resultadoActualizar = mysqli_query($enlaces,$ActualizarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
   header("Location:banners.php");
 }
 ?>
@@ -37,11 +39,11 @@ if($proceso=="Actualizar"){
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
       function Validar(){
-        if(document.fcms.imagen.value==""){
+        if(document.fcms.img_contenido.value==""){
           alert("Debe subir una imagen");
           return; 
         }
-        document.fcms.action = "banner-edit.php";
+        document.fcms.action = "banner-destacado-edit.php";
         document.fcms.proceso.value="Actualizar";
         document.fcms.submit();
       } 
@@ -85,27 +87,36 @@ if($proceso=="Actualizar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label require" for="imagen">Imagen:</label><br>
+                  <label class="col-form-label require" for="img_contenido">Imagen:</label><br>
                   <small>(734px x 435px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
-                  <?php if($xVisitante=="1"){ ?><p><?php echo $imagen; ?></p><?php } ?>
-                  <input class="form-control" id="imagen" name="imagen" type="<?php if($xVisitante=="1"){ ?>hidden<?php }else{ ?>text<?php } ?>" value="<?php echo $imagen; ?>" required>
+                  <?php if($xVisitante=="1"){ ?><p><?php echo $img_contenido; ?></p><?php } ?>
+                  <input class="form-control" id="img_contenido" name="img_contenido" type="<?php if($xVisitante=="1"){ ?>hidden<?php }else{ ?>text<?php } ?>" value="<?php echo $img_contenido; ?>" required>
                   <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-4 col-lg-2">
                   <?php if($xVisitante=="0"){ ?>
-                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('BAN');" /><i class="fa fa-save"></i> Examinar</button>
+                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('NOS');" /><i class="fa fa-save"></i> Examinar</button>
                   <?php } ?>
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="titulo">T&iacute;tulo:</label>
+                  <label class="col-form-label" for="titulo_contenido">Lugar:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input class="form-control" name="titulo" type="text" id="titulo" value="<?php echo htmlspecialchars($titulo); ?>" />
+                  <input class="form-control" name="titulo_contenido" type="text" id="titulo_contenido" value="<?php echo $titulo_contenido; ?>" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="contenido">Lugar:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="contenido" type="text" id="contenido" value="<?php echo $contenido; ?>" />
                 </div>
               </div>
 
@@ -114,16 +125,7 @@ if($proceso=="Actualizar"){
                   <label class="col-form-label" for="enlace">Enlace:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input class="form-control" name="enlace" type="text" id="enlace" value="<?php echo htmlspecialchars($enlace); ?>" />
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="orden">Orden:</label>
-                </div>
-                <div class="col-2 col-lg-1">
-                  <input class="form-control" name="orden" type="text" id="orden" value="<?php echo $orden; ?>" onKeyPress="return soloNumeros(event)" />
+                  <input class="form-control" name="enlace" type="text" id="enlace" value="<?php echo $enlace; ?>" />
                 </div>
               </div>
 
@@ -141,7 +143,7 @@ if($proceso=="Actualizar"){
               <a href="banners.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
               <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-refresh"></i> Guardar Cambios</button>
               <input type="hidden" name="proceso">
-              <input type="hidden" name="cod_banner" value="<?php echo $cod_banner; ?>">
+              <input type="hidden" name="cod_contenido" value="<?php echo $cod_contenido; ?>">
             </footer>
 
           </form>

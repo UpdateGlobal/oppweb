@@ -1,19 +1,24 @@
-.titulo-noticia{
+.titulo-noticia {
 	height: 88px;
 }
 
-.descripcion-noticia{
+.descripcion-noticia {
 	height: 104px;
 }
 
-.lista-categoria{
+.lista-categoria {
 	width: 100%;
 	display: block;
 }
 
-.icono-lista{
+.icono-lista {
 	float: right;
 	padding-top: 5px;
+}
+
+.pagination > li > a, .pagination > li > span {
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 @media screen and (min-width: 1440px){
@@ -42,5 +47,11 @@
 	}
 	.descripcion-noticia{
 		height: auto;
+	}
+	.alert {
+	    margin-bottom:0px;
+	}
+	.wrap-contact2 {
+	    padding: 60px 50px 60px 50px;
 	}
 }
