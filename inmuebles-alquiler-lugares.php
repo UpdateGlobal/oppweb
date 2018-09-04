@@ -1,5 +1,11 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php $cod_lugar=$_REQUEST['cod_lugar']; ?>
+<?php $slug=$_REQUEST['slug']; ?>
+<?php 
+  $consultaInmuebles = "SELECT * FROM inmuebles_lugares WHERE slug='$slug'";
+  $ejecutarInmuebles = mysqli_query($enlaces,$consultaInmuebles) or die('Consulta fallida: ' . mysqli_error($enlaces));
+  $filaInm = mysqli_fetch_array($ejecutarInmuebles);
+    $cod_lugar = $filaInm['cod_lugar'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -74,6 +80,7 @@
               $xCodigo      = $filaInm['cod_inmueble'];
               $xLugar       = $filaInm['lugar'];
               $xInmuebles   = $filaInm['titulo'];
+              $xSlug        = $filaInm['slug'];
               $xDescripcion = $filaInm['descripcion'];
               $xImagen      = $filaInm['imagen'];
               $xFecha       = $filaInm['fecha_ing'];
@@ -82,10 +89,10 @@
         ?>
         <!--item inmueble-->
         <div class="ncard">
-          <div class="col-md-5" style="padding:0px;">
-            <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>"><img src="cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="ncard_img2" /></a>
+          <div class="col-md-5 col-sm-5" style="padding:0px;">
+            <a href="/inmueble/<?php echo $xSlug; ?>"><img src="/cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="ncard_img2" /></a>
           </div>
-          <div class="col-md-7" style="padding: 0px;">
+          <div class="col-md-7 col-sm-7" style="padding: 0px;">
             <div class="card-block">
               <h4 class="ncard-title mt-3"><?php echo $xInmuebles; ?></h4>
               <p class="mcard_p2"><?php
@@ -108,7 +115,7 @@
             <div class="ncard-footer">
               <div class="row">
                 <div class="col-md-5">
-                  <small class="smtext"><a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>">Ver Inmueble</a></small>
+                  <small class="smtext"><a href="/inmueble/<?php echo $xSlug; ?>">Ver Inmueble</a></small>
                 </div>
                 <div class="col-md-7"></div>
               </div> 
@@ -131,20 +138,20 @@
                   <div class='col-lg-12'>
                     <ul class='pagination'>";
                   if($pagina>1){
-                    echo "<li><a href='?cod_lugar=".$cod_lugar."&p=".($pagina-1)."'>&laquo;</a></li>";
+                    echo "<li><a href='/alquiler-lugares/".$slug."&p=".($pagina-1)."'>&laquo;</a></li>";
                   }
                   for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                     if($i==$pagina){
                       echo "<li class='active'><a><strong>$i</strong></a></li>";
                     }else{
-                      echo "<li><a href='?cod_lugar=".$cod_lugar."&p=$i'>$i</a></li>";
+                      echo "<li><a href='/alquiler-lugares/".$slug."&p=$i'>$i</a></li>";
                     }
                   }
                   if(($pagina+$paginas_mostrar)<$total_paginas){
                     echo "<li>...</li>";
                   }
                   if($pagina<$total_paginas){
-                    echo "  <li><a href='?cod_lugar=".$cod_lugar."&p=".($pagina+1)."'>&raquo;</a></li>";
+                    echo "  <li><a href='/alquiler-lugares/".$slug."&p=".($pagina+1)."'>&raquo;</a></li>";
                   }
         echo "  </ul>
               </div>

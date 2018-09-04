@@ -80,6 +80,7 @@ $parametros = "&distrito=$distrito";
               $xCodigo      = $filaInm['cod_inmueble'];
               $xLugar       = $filaInm['lugar'];
               $xInmuebles   = $filaInm['titulo'];
+              $xSlug        = $filaInm['slug'];
               $xDescripcion = $filaInm['descripcion'];
               $xImagen      = $filaInm['imagen'];
               $xFecha       = $filaInm['fecha_ing'];
@@ -89,7 +90,7 @@ $parametros = "&distrito=$distrito";
         <!--item inmueble-->
         <div class="ncard">
           <div class="col-md-5" style="padding: 0px;">
-            <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>"><img src="cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="ncard_img2"></a>
+            <a href="/inmueble/<?php echo $xSlug; ?>"><img src="/cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="ncard_img2"></a>
           </div>
           <div class="col-md-7" style="padding: 0px;">
             <div class="card-block">
@@ -114,7 +115,7 @@ $parametros = "&distrito=$distrito";
             <div class="ncard-footer">
               <div class="row">
                 <div class="col-md-5">
-                  <small class="smtext"><a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>">Ver Inmueble</a></small>
+                  <small class="smtext"><a href="/inmueble/<?php echo $xSlug; ?>">Ver Inmueble</a></small>
                 </div>
                 <div class="col-md-7"></div>
               </div> 

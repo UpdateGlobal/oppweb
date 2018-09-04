@@ -88,7 +88,7 @@
         valid = validateContact();
         if(valid) {
           jQuery.ajax({
-            url: "contact_form.php",
+            url: "/contact_form.php",
             data:'nombres='+$("#nombres").val()+'&email='+$("#email").val()+'&telefono='+$("#telefono").val()+'&mensaje='+$("#mensaje").val()+'&fecha_ingreso='+$("#fecha_ingreso").val(),
             type: "POST",
             success:function(data){

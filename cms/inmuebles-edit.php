@@ -23,6 +23,7 @@ if($proceso == ""){
     $cod_lugar          = $filaInm['cod_lugar'];
     $cod_distrito       = $filaInm['cod_distrito'];
     $alquiler           = $filaInm['alquiler'];
+    $ventas             = $filaInm['venta'];
     $titulo             = $filaInm['titulo'];
     $imagen             = $filaInm['imagen'];
     $precio             = substr(utf8_decode($filaInm['precio']),0,20);
@@ -45,6 +46,7 @@ if($proceso == "Filtrar"){
   $cod_lugar          = $_POST['cod_lugar'];
   $cod_distrito       = $_POST['cod_distrito'];
   if(isset($_POST['alquiler'])){$alquiler = $_POST['alquiler'];}else{$alquiler = 0;}
+  if(isset($_POST['venta'])){$ventas = $_POST['venta'];}else{$ventas = 0;}
   $titulo             = $_POST['titulo'];
   $slug           = $titulo;
   $slug           = preg_replace('~[^\pL\d]+~u', '-', $slug);
@@ -77,6 +79,7 @@ if($proceso == "Actualizar"){
   $cod_lugar          = $_POST['cod_lugar'];
   $cod_distrito       = $_POST['cod_distrito'];
   $alquiler           = $_POST['alquiler'];
+  $ventas             = $_POST['venta'];
   $titulo             = $_POST['titulo'];
   $slug           = $titulo;
   $slug           = preg_replace('~[^\pL\d]+~u', '-', $slug);
@@ -109,6 +112,7 @@ if($proceso == "Actualizar"){
     cod_distrito='$cod_distrito', 
     slug='$slug', 
     alquiler='$alquiler', 
+    venta='$ventas',
     titulo='$titulo', 
     imagen='$imagen', 
     precio='$precio', 
@@ -355,19 +359,24 @@ if($proceso == "Actualizar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="tipo">Proyecto (?):</label>
+                  <label class="col-form-label" for="tipo">Secci&oacute;n (?):</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input type="checkbox" name="tipo" id="tipo" data-size="small" data-provide="switchery" value="1" <?php if($tipo=="1"){echo "checked";} ?>>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="alquiler">Alquiler (?):</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input type="checkbox" name="alquiler" id="alquiler" data-size="small" data-provide="switchery" value="1" <?php if($alquiler=="1"){echo "checked";} ?>>
+                  <label class="custom-control no-border custom-control-lg custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="tipo" value="1" <?php if($tipo=="1"){echo "checked";} ?>>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Proyecto</span>
+                  </label>
+                  <label class="custom-control no-border custom-control-lg custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="alquiler" value="1" <?php if($alquiler=="1"){echo "checked";} ?>>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Alquiler</span>
+                  </label>
+                  <label class="custom-control no-border custom-control-lg custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="venta" value="1" <?php if($ventas=="1"){echo "checked";} ?>>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Ventas</span>
+                  </label>
                 </div>
               </div>
 
@@ -416,7 +425,7 @@ if($proceso == "Actualizar"){
                 </div>
               </div>
 
-              <div class="form-group row">
+              <!-- <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="comodidades">Comodidades:</label><br>
                   <small>(Separar con coma ",")</small>
@@ -424,7 +433,9 @@ if($proceso == "Actualizar"){
                 <div class="col-8 col-lg-10">
                   <input class="form-control" name="comodidades" id="comodidades" type="text" value="<?php echo $comodidades; ?>" />
                 </div>
-              </div>
+              </div> -->
+
+              <input type="hidden" name="comodidades" value="<?php echo $comodidades; ?>" />
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">

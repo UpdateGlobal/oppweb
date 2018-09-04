@@ -10,7 +10,7 @@
                 document.bus.distrito.focus();
                 return;
             }
-            document.bus.action="busqueda.php";
+            document.bus.action="/busqueda.php";
             document.bus.submit();
         }
     </script>
@@ -49,7 +49,7 @@
                             $xTitulo    = $filaBan['titulo'];
                             $xImagen    = $filaBan['imagen'];
                     ?>
-                    <div class="item items" style="background: url(cms/assets/img/banner/<?php echo $xImagen; ?>);">
+                    <div class="item items" style="background: url(/cms/assets/img/banner/<?php echo $xImagen; ?>);">
                         <div class="textowl">
                             <p class="textowless"><?php echo $xTitulo; ?></p>
                         </div>
@@ -121,21 +121,22 @@
                     <br>
                     <div class="owl-two owl-carousel owl-theme">
                         <?php 
-                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito ORDER BY orden ASC";
+                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.tipo='1' ORDER BY orden ASC";
                             $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
                             while($filaInm = mysqli_fetch_array($resultadoInm)){
                                 $xCodigo      = $filaInm['cod_inmueble'];
                                 $xDistrito    = $filaInm['distrito'];
                                 $xLugar       = $filaInm['lugar'];
                                 $xTitulo      = $filaInm['titulo'];
+                                $xSlug        = $filaInm['slug'];
                                 $xImagen      = $filaInm['imagen'];
                                 $xArea        = $filaInm['area'];
                                 $xCuartos     = $filaInm['cuartos'];
                                 $xPrecio      = $filaInm['precio'];
                                 $xParking     = $filaInm['parking'];
                         ?>
-                        <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>">
-                            <div class="item slushi rent_shadow" style="background: url(cms/assets/img/inmuebles/<?php echo $xImagen; ?>); background-size: cover;">
+                        <a href="/inmueble/<?php echo $xSlug; ?>">
+                            <div class="item slushi rent_shadow" style="background: url(/cms/assets/img/inmuebles/<?php echo $xImagen; ?>); background-size: cover;">
                                 <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
                                     <div class="col-md-6 col-xs-12 card_home" align="left"><?php echo $xDistrito; ?></div>
                                     <div class="col-md-6 col-xs-12 card_price" align="right">$ <?php echo $xPrecio; ?></div>
@@ -177,22 +178,23 @@
                 <div class="col-md-9">
                     <div class="owl-tree owl-carousel owl-theme">
                         <?php 
-                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito ORDER BY orden ASC";
+                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.alquiler='0' ORDER BY orden ASC";
                             $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
                             while($filaInm = mysqli_fetch_array($resultadoInm)){
                                 $xCodigo      = $filaInm['cod_inmueble'];
                                 $xDistrito    = $filaInm['distrito'];
                                 $xTitulo      = $filaInm['titulo'];
+                                $xSlug        = $filaInm['slug'];
                                 $xImagen      = $filaInm['imagen'];
                                 $xArea        = $filaInm['area'];
                                 $xCuartos     = $filaInm['cuartos'];
                                 $xBanos       = $filaInm['banos'];
                         ?>
-                        <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>">
+                        <a href="/inmueble/<?php echo $xSlug; ?>">
                             <div class="rent_img">
                                 <div class="rent_item rent_shadow">
                                     <div class="row" style="margin: 0px;">
-                                        <img src="cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="rent_img" alt="">
+                                        <img src="/cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="rent_img" alt="">
                                         <div class="botton_rent">
                                             <div class="rent_valor"><?php echo $xDistrito; ?></div>
                                         </div>
@@ -227,10 +229,11 @@
                 <div class="col-md-9">
                     <div class="owl-tree owl-carousel owl-theme">
                         <?php
-                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito ORDER BY orden ASC";
+                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND alquiler='1' ORDER BY orden ASC";
                             $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
                             while($filaInm = mysqli_fetch_array($resultadoInm)){
                                 $xCodigo      = $filaInm['cod_inmueble'];
+                                $xSlug        = $filaInm['slug'];
                                 $xDistrito    = $filaInm['distrito'];
                                 $xTitulo      = $filaInm['titulo'];
                                 $xImagen      = $filaInm['imagen'];
@@ -238,11 +241,11 @@
                                 $xCuartos     = $filaInm['cuartos'];
                                 $xBanos       = $filaInm['banos'];
                         ?>
-                        <a href="inmueble.php?cod_inmueble=<?php echo $xCodigo; ?>">
+                        <a href="/inmueble/<?php echo $xSlug; ?>">
                             <div class="rent_img">
                                 <div class="rent_item rent_shadow">
                                     <div class="row" style="margin: 0px;">
-                                        <img src="cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="rent_img" alt="">
+                                        <img src="/cms/assets/img/inmuebles/<?php echo $xImagen; ?>" class="rent_img" alt="">
                                         <div class="botton_rent">
                                             <div class="rent_valor"><?php echo $xDistrito ?></div>
                                         </div>
@@ -284,7 +287,7 @@
             ?>
             <div class="row">
                 <div class="col-md-5">
-                    <img src="cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive abt_img">
+                    <img src="/cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive abt_img">
                 </div>
                 <div class="col-md-7">
                     <h3 class="about">Nosotros</h3>
@@ -306,25 +309,30 @@
     <section class="cont_bg">
         <div class="container">
             <div class="row">
+                <?php
+                    $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='4' AND estado='1'";
+                    $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                    $filaCon = mysqli_fetch_array($resultadoCon);
+                        $xTitulo      = $filaCon['titulo_contenido'];
+                        $xContenido   = $filaCon['contenido'];
+                ?>
                 <div class="col-md-4" align="center">
                     <div class="cont_txt2">
                         <i class="fas fa-home fa-5x" style="color: white !important;"></i>
                         <br>
-                        <h3 class="opptitle">LOREN IPSUN</h3>
-                        <p class="oppmtext">loren ipsun text da</p>
+                        <h3 class="opptitle"><?php echo $xTitulo; ?></h3>
                         <br>
                     </div>
                 </div>
                 <div class="col-md-4" align="center">
                     <div class="cont_txt">
                         <br>
-                        <h3 class="opptitle" align="left">LOREN IPSUN</h3>
-                        <p class="oppmtext" align="left">loren ipsun text da moret</p>
+                        <p class="oppmtext" align="left"><?php echo $xContenido; ?></p>
                         <br>
                     </div>
                 </div>
                 <div class="col-md-4" align="center">
-                     <button type="button" class="btn btn-defaults btn-lg">Contactanos</button>
+                     <a href="/contacto.php" class="btn btn-defaults btn-lg">Contactanos</a>
                 </div>
             </div>
         </div>
@@ -335,7 +343,7 @@
         <div class="container-fluid" id="formulario">
             <div class="row">
                 <div class="col-md-6 col-xs-12">
-                    <img src="images/agent-image-1.png" class="img-responsive for_img hidden-xs">
+                    <img src="/images/agent-image-1.png" class="img-responsive for_img hidden-xs">
                 </div>
                 <div class="col-md-6 col-xs-12">
                     <div class="wrap-contact2">
@@ -402,10 +410,10 @@
                     ?>
                     <div class="col-md-6">
                         <div class="ncard">
-                            <div class="col-md-5" style="padding: 0px;">
-                                <img src="cms/assets/img/noticias/<?php echo $xImagen; ?>" class="ncard_img">
+                            <div class="col-md-5 col-sm-5" style="padding: 0px;">
+                                <a href="/blog/<?php echo $xSlug; ?>"><img src="/cms/assets/img/noticias/<?php echo $xImagen; ?>" class="ncard_img"></a>
                             </div>
-                            <div class="col-md-7" style="padding: 0px;">
+                            <div class="col-md-7 col-sm-7" style="padding: 0px;">
                                 <div class="card-block">
                                     <h4 class="ncard-title mt-3"><?php echo $xTitulo; ?></h4>
                                     <?php
@@ -425,7 +433,7 @@
                                 <div class="ncard-footer">
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <small class="smtext">Leer M&aacute;s...</small>
+                                            <small class="smtext"><a href="/blog/<?php echo $xSlug; ?>">Leer M&aacute;s...</a></small>
                                         </div>
                                         <div class="col-md-7"></div>
                                     </div>
@@ -531,7 +539,7 @@
             valid = validateContact();
             if(valid) {
               jQuery.ajax({
-                url: "contact_form.php",
+                url: "/contact_form.php",
                 data:'nombres='+$("#nombres").val()+'&email='+$("#email").val()+'&telefono='+$("#telefono").val()+'&mensaje='+$("#mensaje").val()+'&fecha_ingreso='+$("#fecha_ingreso").val(),
                 type: "POST",
                 success:function(data){

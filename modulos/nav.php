@@ -15,8 +15,8 @@
                 $filaMet = mysqli_fetch_array($resultadoMet);
                   $xLogo      = $filaMet['logo'];
               ?>
-              <a href="index.php">
-                <img src="cms/assets/img/meta/<?php echo $xLogo; ?>" width="220" class="logo" />
+              <a href="/index.php">
+                <img src="/cms/assets/img/meta/<?php echo $xLogo; ?>" width="220" class="logo" />
               </a>
               <?php
                 mysqli_free_result($resultadoMet);
@@ -31,8 +31,8 @@
                 $filaMet = mysqli_fetch_array($resultadoMet);
                   $xLogo      = $filaMet['logo'];
               ?>
-              <a href="index.php">
-                <img src="cms/assets/img/meta/<?php echo $xLogo ?>" width="220" class="logoside" />
+              <a href="/index.php">
+                <img src="/cms/assets/img/meta/<?php echo $xLogo ?>" width="220" class="logoside" />
               </a>
               <?php
                 mysqli_free_result($resultadoMet);
@@ -48,6 +48,7 @@
                     $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                     while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                       $xCodigo    = $filaCat['cod_categoria'];
+                      $xSlug      = $filaCat['slug'];
                       $xCategoria = $filaCat['categoria'];
 
                       $consultaConteo = "SELECT * FROM inmuebles WHERE cod_categoria=$xCodigo AND alquiler='0' AND estado='1'";
@@ -55,7 +56,7 @@
                       $numconteo = mysqli_num_rows($resultadoConteo);
                   ?>
                   <?php if($numconteo==0){}else{ ?>
-                  <li><a href="inmuebles-ventas-categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                  <li><a href="/ventas-categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
                   <?php
                       }
                     }
@@ -71,6 +72,7 @@
                     $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                     while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                       $xCodigo    = $filaCat['cod_categoria'];
+                      $xSlug      = $filaCat['slug'];
                       $xCategoria = $filaCat['categoria'];
                       
                       $consultaConteo = "SELECT * FROM inmuebles WHERE cod_categoria=$xCodigo AND alquiler='1' AND estado='1'";
@@ -78,7 +80,7 @@
                       $numconteo = mysqli_num_rows($resultadoConteo);
                   ?>
                   <?php if($numconteo==0){}else{ ?>
-                  <li><a href="inmuebles-alquiler-categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                  <li><a href="/alquiler-categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
                   <?php
                       }
                     }
@@ -94,6 +96,7 @@
                     $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                     while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                       $xCodigo    = $filaCat['cod_categoria'];
+                      $xSlug      = $filaCat['slug'];
                       $xCategoria = $filaCat['categoria'];
                       
                       $consultaConteo = "SELECT * FROM inmuebles WHERE cod_categoria=$xCodigo AND tipo='1' AND estado='1'";
@@ -101,7 +104,7 @@
                       $numconteo = mysqli_num_rows($resultadoConteo);
                   ?>
                   <?php if($numconteo==0){}else{ ?>
-                  <li><a href="inmuebles-proyectos-categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                  <li><a href="/proyectos-categorias/<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
                   <?php
                       }
                     }
@@ -109,9 +112,9 @@
                   ?>
                 </ul>
               </li>
-              <li><a href="contacto.php">Quiero Vender</a></li>
-              <li><a href="contacto.php">Contacto</a></li>
-              <li><a href="blog.php">Blog</a></li>
+              <li><a href="/contacto.php">Quiero Vender</a></li>
+              <li><a href="/contacto.php">Contacto</a></li>
+              <li><a href="/blog.php">Blog</a></li>
             </ul>
             <div class="row">
               <div class="redes">
@@ -135,7 +138,7 @@
                       if($xType=="fa-instagram"){ $xValor = "fa-instagram"; }
                       if($xType=="fa-flickr"){ $xValor = "fa-flickr"; }
                   ?>
-                  <li><a href="<?php echo $xLinks; ?>" target="_blank"><i class="fab <?php echo $xValor; ?>"></i></span></a></li>
+                  <li><a href="/<?php echo $xLinks; ?>" target="_blank"><i class="fab <?php echo $xValor; ?>"></i></span></a></li>
                   <?php
                     }
                     mysqli_free_result($resultadoSol);

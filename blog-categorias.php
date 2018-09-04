@@ -71,7 +71,7 @@
           ?>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="card" style="margin-bottom: 30px;">
-              <img class="card-img-top" src="cms/assets/img/noticias/<?php echo $xImagen; ?>">
+              <img class="card-img-top" src="/cms/assets/img/noticias/<?php echo $xImagen; ?>">
               <div class="card-block">
                 <h4 class="card-title mt-3 titulo-noticia"><?php echo $xTitulo; ?></h4>
                 <?php
@@ -93,7 +93,7 @@
               <div class="card-footer">
                 <div class="row">
                   <div class="col-md-6">
-                    <small class="smtext"><a href="blog-noticia.php?cod_noticia=<?php echo $xCodigo; ?>" target="new">Leer M&aacute;s...</a></small>
+                    <small class="smtext"><a href="/blog-noticia/<?php echo $xSlug; ?>" target="new">Leer M&aacute;s...</a></small>
                   </div>
                   <div class="col-md-6">
                     <!-- <ul class="mcard_list">
@@ -119,20 +119,20 @@
                   <div class='col-lg-12'>
                     <ul class='pagination'>";
                   if($pagina>1){
-                    echo "<li><a href='?cod_categoria=".$cod_categoria."&p=".($pagina-1)."'>&laquo;</a></li>";
+                    echo "<li><a href='/blog-categorias/".$slug."&p=".($pagina-1)."'>&laquo;</a></li>";
                   }
                   for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                     if($i==$pagina){
                       echo "<li class='active'><a><strong>$i</strong></a></li>";
                     }else{
-                      echo "<li><a href='?cod_categoria=".$cod_categoria."&p=$i'>$i</a></li>";
+                      echo "<li><a href='/blog-categorias/".$slug."&p=$i'>$i</a></li>";
                     }
                   }
                   if(($pagina+$paginas_mostrar)<$total_paginas){
                     echo "<li>...</li>";
                   }
                   if($pagina<$total_paginas){
-                    echo "  <li><a href='?cod_categoria=".$cod_categoria."&p=".($pagina+1)."'>&raquo;</a></li>";
+                    echo "<li><a href='/blog-categorias/".$slug."&p=".($pagina+1)."'>&raquo;</a></li>";
                   }
           echo "</ul>
               </div>

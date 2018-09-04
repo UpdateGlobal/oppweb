@@ -38,11 +38,12 @@
         td:nth-of-type(2):before { content: "Lugares"; }
         td:nth-of-type(3):before { content: "Distritos"; }
         td:nth-of-type(4):before { content: "Imagen"; }
-        td:nth-of-type(5):before { content: "Orden"; }
-        td:nth-of-type(6):before { content: "Estado"; }
-        td:nth-of-type(7):before { content: ""; }
+        td:nth-of-type(5):before { content: "Secciones"; }
+        td:nth-of-type(6):before { content: "Orden"; }
+        td:nth-of-type(7):before { content: "Estado"; }
         td:nth-of-type(8):before { content: ""; }
         td:nth-of-type(9):before { content: ""; }
+        td:nth-of-type(10):before { content: ""; }
       }
     </style>
     <script>
@@ -103,11 +104,12 @@
                   <table class="table" data-provide="datatables">
                     <thead>
                       <tr>
-                        <th width="15%" scope="col">Categor&iacute;a</th>
-                        <th width="15%" scope="col">Lugares</th>
-                        <th width="15%" scope="col">Inmuebles</th>
-                        <th width="20%" scope="col">Imagen</th>
-                        <th width="15%" scope="col">Orden
+                        <th width="10%" scope="col">Categor&iacute;a</th>
+                        <th width="10%" scope="col">Lugares</th>
+                        <th width="10%" scope="col">Inmuebles</th>
+                        <th width="25%" scope="col">Imagen</th>
+                        <th width="15%" scope="col">Secciones</th>
+                        <th width="10%" scope="col">Orden
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
@@ -127,6 +129,9 @@
                           $xLugar       = $filaInm['lugar'];
                           $xInmuebles   = $filaInm['titulo'];
                           $xImagen      = $filaInm['imagen'];
+                          $xAlquiler    = $filaInm['alquiler'];
+                          $xTipo        = $filaInm['tipo'];
+                          $xVenta       = $filaInm['venta'];
                           $xOrden       = $filaInm['orden'];
                           $xEstado      = $filaInm['estado'];
                       ?>
@@ -135,6 +140,11 @@
                         <td><?php echo $xLugar; ?></td>
                         <td><?php echo $xInmuebles; ?></td>
                         <td><img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/inmuebles/<?php echo $xImagen; ?>" /></td>
+                        <td>
+                          <?php if($xAlquiler=='1'){echo "[Alquiler]<br>";}else{} ?>
+                          <?php if($xTipo=='1'){echo "[Proyecto]<br>";}else{} ?>
+                          <?php if($xVenta=='1'){echo "[Venta]";}else{} ?>
+                        </td>
                         <td><?php echo $xOrden; ?></td>
                         <td><strong>
                           <?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]"; } ?>

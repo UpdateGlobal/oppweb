@@ -64,11 +64,11 @@
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="card" style="margin-bottom: 30px;">
               <a href="blog-noticia.php?cod_noticia=<?php echo $xCodigo; ?>">
-                <img class="card-img-top" src="cms/assets/img/noticias/<?php echo $xImagen; ?>">
+                <img class="card-img-top" src="/cms/assets/img/noticias/<?php echo $xImagen; ?>">
               </a>
               <div class="card-block">
                 <h4 class="card-title mt-3 titulo-noticia">
-                  <a href="blog-noticia.php?cod_noticia=<?php echo $xCodigo; ?>"><?php echo $xTitulo; ?></a>
+                  <?php echo $xTitulo; ?>
                 </h4>
                 <?php
                   $mydate = strtotime($xFecha);
@@ -89,7 +89,7 @@
               <div class="card-footer">
                 <div class="row">
                   <div class="col-md-6">
-                    <small class="smtext"><a href="blog-noticia.php?cod_noticia=<?php echo $xCodigo; ?>">Leer M&aacute;s...</a></small>
+                    <small class="smtext"><a href="/blog/<?php echo $xSlug; ?>">Leer M&aacute;s...</a></small>
                   </div>
                   <div class="col-md-6"></div>
                 </div> 

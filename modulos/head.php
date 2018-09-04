@@ -19,12 +19,12 @@
 	<meta name="description" content="<?php echo $xDes; ?>" />
   <meta name="keywords" content="<?php echo $xKey; ?>" />
   <!-- Favicon -->
-	<link href="cms/assets/img/meta/<?php echo $xIco; ?>" rel="shortcut icon"/>
+	<link href="/cms/assets/img/meta/<?php echo $xIco; ?>" rel="shortcut icon"/>
   <?php
     mysqli_free_result($resultadoMet);
   ?>
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet" />
 
   <!-- fontawason-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -33,13 +33,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.css"/>
-  <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/style.css"/>
   <!-- <link rel="stylesheet" href="css/util.css"/> -->
-  <link rel="stylesheet" href="css/main.css"/>
-  <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
-  <link rel="stylesheet" type="text/css" href="css/custom.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/owl.carousel.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/owl.theme.default.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
 
   <!-- Facebook Pixel Code -->
   <script>

@@ -21,6 +21,12 @@
     margin-right: 0px;
 }
 
+p.rent_titl {
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: bold;
+}
+
 @media screen and (min-width: 1440px){
 	.titulo-noticia{
 		height: 88px;

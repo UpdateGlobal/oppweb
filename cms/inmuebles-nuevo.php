@@ -18,12 +18,12 @@ if($proceso == "Filtrar"){
 }
 
 if($proceso == "Registrar"){
-  
   if(isset($_POST['tipo'])){$tipo = $_POST['tipo'];}else{$tipo = 0;}
   $cod_categoria      = $_POST['cod_categoria'];
   $cod_lugar          = $_POST['cod_lugar'];
   $cod_distrito       = $_POST['cod_distrito'];
   if(isset($_POST['alquiler'])){$alquiler = $_POST['alquiler'];}else{$alquiler = 0;}
+  if(isset($_POST['venta'])){$ventas = $_POST['venta'];}else{$ventas = 0;}
   $titulo             = $_POST['titulo'];
   $slug               = $titulo;
   $slug               = preg_replace('~[^\pL\d]+~u', '-', $slug);
@@ -48,7 +48,7 @@ if($proceso == "Registrar"){
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
-  $insertarInmuebles = "INSERT INTO inmuebles (tipo, cod_categoria, cod_lugar, cod_distrito, alquiler, slug, titulo, imagen, precio, banos, area, cuartos, descripcion, comodidades, ubicacion, fecha_ing, parking, orden, estado) VALUE ('$tipo', '$cod_categoria', '$cod_lugar', '$cod_distrito', '$alquiler', '$slug', '$titulo', '$imagen', '$precio', '$banos', '$area', '$cuartos', '$descripcion', '$comodidades', '$ubicacion', '$fecha_ing', '$parking', '$orden', '$estado')";
+  $insertarInmuebles = "INSERT INTO inmuebles (tipo, cod_categoria, cod_lugar, cod_distrito, alquiler, venta, slug, titulo, imagen, precio, banos, area, cuartos, descripcion, comodidades, ubicacion, fecha_ing, parking, orden, estado) VALUE ('$tipo', '$cod_categoria', '$cod_lugar', '$cod_distrito', '$alquiler', '$venta', '$slug', '$titulo', '$imagen', '$precio', '$banos', '$area', '$cuartos', '$descripcion', '$comodidades', '$ubicacion', '$fecha_ing', '$parking', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces, $insertarInmuebles);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -271,19 +271,24 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="tipo">Proyecto (?):</label>
+                  <label class="col-form-label" for="tipo">Secci&oacute;n (?):</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input type="checkbox" name="tipo" id="tipo" data-size="small" data-provide="switchery" value="1" checked>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="alquiler">Alquiler (?):</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input type="checkbox" name="alquiler" id="alquiler" data-size="small" data-provide="switchery" value="1" checked>
+                  <label class="custom-control no-border custom-control-lg custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="tipo" value="1" />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Proyecto</span>
+                  </label>
+                  <label class="custom-control no-border custom-control-lg custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="alquiler" value="1" />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Alquiler</span>
+                  </label>
+                  <label class="custom-control no-border custom-control-lg custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="venta" value="1" />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">Ventas</span>
+                  </label>
                 </div>
               </div>
 
@@ -332,7 +337,7 @@ if($proceso == "Registrar"){
                 </div>
               </div>
 
-              <div class="form-group row">
+              <!-- <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="comodidades">Comodidades:</label><br>
                   <small>(Separar con coma ",")</small>
@@ -340,7 +345,8 @@ if($proceso == "Registrar"){
                 <div class="col-8 col-lg-10">
                   <input class="form-control" name="comodidades" id="comodidades" type="text" />
                 </div>
-              </div>
+              </div> -->
+              <input type="hidden" name="comodidades" value="nada" />
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">

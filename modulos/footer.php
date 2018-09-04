@@ -9,14 +9,14 @@
                             $xImagen      = $filaCon['img_contenido'];
                             $xContenido   = $filaCon['contenido'];
                     ?>
-                    <img src="cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive abt_img2 hidden-xs" />
+                    <img src="/cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive abt_img2 hidden-xs" />
                     <?php
                         $consultarMet = 'SELECT * FROM metatags';
                         $resultadoMet = mysqli_query($enlaces,$consultarMet) or die('Consulta fallida: ' . mysqli_error($enlaces));
                         $filaMet = mysqli_fetch_array($resultadoMet);
                             $xLogo      = $filaMet['logo'];
                     ?>
-                    <img src="cms/assets/img/meta/<?php echo $xLogo; ?>" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
+                    <img src="/cms/assets/img/meta/<?php echo $xLogo; ?>" class="img-responsive abt_img2 hidden-sm hidden-md hidden-lg">
                     <?php
                         mysqli_free_result($resultadoMet);
                     ?>
@@ -44,7 +44,7 @@
                                 if($xType=="fa-instagram"){ $xValor = "fa-instagram"; }
                                 if($xType=="fa-flickr"){ $xValor = "fa-flickr"; }
                         ?>
-                        <a href="<?php echo $xLinks; ?>" target="_blank"><span class="social"><i class="fab <?php echo $xValor; ?>"></i></span></a>
+                        <a href="/<?php echo $xLinks; ?>" target="_blank"><span class="social"><i class="fab <?php echo $xValor; ?>"></i></span></a>
                         <?php
                           }
                           mysqli_free_result($resultadoSol);
@@ -67,6 +67,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/npm.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/npm.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>

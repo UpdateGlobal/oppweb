@@ -1,0 +1,57 @@
+AddDefaultCharset utf-8
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} !-d
+RewriteCond %{REQUEST_URI} !-f
+RewriteCond %{REQUEST_URI} !^/blog-categorias/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/blog/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/post/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/inmuebles-categorias/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/inmuebles-lugares/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/inmuebles-distritos/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/ventas-categorias/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/ventas-lugares/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/ventas-distritos/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/alquiler-categorias/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/alquiler-lugares/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/alquiler-distritos/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/proyectos-categorias/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/proyectos-lugares/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/proyectos-distritos/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/inmueble/(.*) [OR]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^blog-categorias/([^/]*) blog-categorias.php?slug=$1
+RewriteRule ^blog-categorias/([^/]*) blog-categorias.php?slug=$1&p=$2
+RewriteRule ^blog/([^/]*) blog-noticia.php?slug=$1
+RewriteRule ^inmuebles-categorias/([^/]*) inmuebles-categorias.php?slug=$1
+RewriteRule ^inmuebles-categorias/([^/]*) inmuebles-categorias.php?slug=$1&p=$2
+RewriteRule ^inmuebles-lugares/([^/]*) inmuebles-lugares.php?slug=$1
+RewriteRule ^inmuebles-lugares/([^/]*) inmuebles-lugares.php?slug=$1&p=$2
+RewriteRule ^inmuebles-distritos/([^/]*) inmuebles-distrito.php?slug=$1
+RewriteRule ^inmuebles-distritos/([^/]*) inmuebles-distrito.php?slug=$1&p=$2
+RewriteRule ^ventas-categorias/([^/]*) inmuebles-ventas-categorias.php?slug=$1
+RewriteRule ^ventas-categorias/([^/]*) inmuebles-ventas-categorias.php?slug=$1&p=$2
+RewriteRule ^ventas-lugares/([^/]*) inmuebles-ventas-lugares.php?slug=$1
+RewriteRule ^ventas-lugares/([^/]*) inmuebles-ventas-lugares.php?slug=$1&p=$2
+RewriteRule ^ventas-distritos/([^/]*) inmuebles-ventas-distrito.php?slug=$1
+RewriteRule ^ventas-distritos/([^/]*) inmuebles-ventas-distrito.php?slug=$1&p=$2
+RewriteRule ^alquiler-categorias/([^/]*) inmuebles-alquiler-categorias.php?slug=$1
+RewriteRule ^alquiler-categorias/([^/]*) inmuebles-alquiler-categorias.php?slug=$1&p=$2
+RewriteRule ^alquiler-lugares/([^/]*) inmuebles-alquiler-lugares.php?slug=$1
+RewriteRule ^alquiler-lugares/([^/]*) inmuebles-alquiler-lugares.php?slug=$1&p=$2
+RewriteRule ^alquiler-distritos/([^/]*) inmuebles-alquiler-distrito.php?slug=$1
+RewriteRule ^alquiler-distritos/([^/]*) inmuebles-alquiler-distrito.php?slug=$1&p=$2
+RewriteRule ^proyectos-categorias/([^/]*) inmuebles-proyectos-categorias.php?slug=$1
+RewriteRule ^proyectos-categorias/([^/]*) inmuebles-proyectos-categorias.php?slug=$1&p=$2
+RewriteRule ^proyectos-lugares/([^/]*) inmuebles-proyectos-lugares.php?slug=$1
+RewriteRule ^proyectos-lugares/([^/]*) inmuebles-proyectos-lugares.php?slug=$1&p=$2
+RewriteRule ^proyectos-distritos/([^/]*) inmuebles-proyectos-distrito.php?slug=$1
+RewriteRule ^proyectos-distritos/([^/]*) inmuebles-proyectos-distrito.php?slug=$1&p=$2
+RewriteRule ^inmueble/([^/]*) inmueble.php?slug=$1
+RewriteCond %{HTTP_HOST} ^opp\.com.pe$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.opp\.com.pe$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/.+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "https\:\/\/opp\.com.pe\/index\.php" [R=301,L]

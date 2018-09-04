@@ -1,12 +1,11 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php $cod_noticia = $_REQUEST['cod_noticia']; ?>
-<!--  < ?php $slug = $_REQUEST['slug']; ?>
-< ?php
+<?php $slug = $_REQUEST['slug']; ?>
+<?php
     $consultaNoticias = "SELECT * FROM noticias WHERE slug='$slug'";
     $ejecutarNoticias = mysqli_query($enlaces,$consultaNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
     $filaNot = mysqli_fetch_array($ejecutarNoticias);
       $cod_noticia = $filaNot['cod_noticia'];
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,7 +36,7 @@
         $strCut = substr($noticiaM,0,140);
         $noticiaM = substr($strCut,0,strrpos($strCut, ' ')).'...';
         echo $noticiaM; ?>" /> <!-- maximum 140 char -->
-  <meta name="twitter:image" content="cms/assets/img/noticias/<?php echo $imagen; ?>" /><!-- when you post this page url in twitter , this image will be shown -->
+  <meta name="twitter:image" content="/cms/assets/img/noticias/<?php echo $imagen; ?>" /><!-- when you post this page url in twitter , this image will be shown -->
 
   <!-- facebook open graph starts from here, if you don't need then delete open graph related  -->
   <meta property="og:title" content="<?php echo $titulo; ?>" />
@@ -50,7 +49,7 @@
         $noticiaM = substr($strCut,0,strrpos($strCut, ' ')).'...';
         echo $noticiaM; ?>" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="cms/assets/img/noticias/<?php echo $imagen; ?>" />
+  <meta property="og:image" content="/cms/assets/img/noticias/<?php echo $imagen; ?>" />
   <!-- facebook open graph ends from here -->
   <?php
     mysqli_free_result($ejecutarNoticias);
@@ -59,7 +58,7 @@
 </head>
 <body>
   <?php include("modulos/nav.php"); ?>
-  <div class="container-fluid" style="background: url(cms/assets/img/noticias/<?php echo $imagen; ?>); background-size: cover; margin-bottom: 50px;">
+  <div class="container-fluid" style="background: url(/cms/assets/img/noticias/<?php echo $imagen; ?>); background-size: cover; margin-bottom: 50px;">
     <div class="row">
       <div class="col-md-12">
         <p class="branch_blog">Inicio > Blog > <?php echo $titulo; ?></p>
@@ -87,7 +86,7 @@
           <?php echo $noticia; ?>
         </div>
         <hr>
-        <a class="btn btnfin" href="blog.php">&lt; Volver</a>
+        <a class="btn btnfin" href="/blog.php">&lt; Volver</a>
         <!--conten_posted-->
       </div>
     </div>

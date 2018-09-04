@@ -1,5 +1,12 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php $cod_inmueble = $_REQUEST['cod_inmueble']; ?>
+
+<?php $slug = $_REQUEST['slug']; ?>
+<?php
+    $consultaInm = "SELECT * FROM inmuebles WHERE slug='$slug'";
+    $ejecutarInm = mysqli_query($enlaces,$consultaInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
+    $filaInm = mysqli_fetch_array($ejecutarInm);
+      $cod_inmueble = $filaInm['cod_inmueble'];
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -35,7 +42,7 @@
         $strCut = substr($descripcionM,0,140);
         $descripcionM = substr($strCut,0,strrpos($strCut, ' ')).'...';
         echo $descripcionM; ?>" /> <!-- maximum 140 char -->
-    <meta name="twitter:image" content="cms/assets/img/inmuebles/<?php echo $imagen; ?>" /> <!-- when you post this page url in twitter , this image will be shown -->
+    <meta name="twitter:image" content="/cms/assets/img/inmuebles/<?php echo $imagen; ?>" /> <!-- when you post this page url in twitter , this image will be shown -->
     <!-- twitter card ends from here -->
 
     <!-- facebook open graph starts from here, if you don't need then delete open graph related  -->
@@ -47,7 +54,7 @@
         echo $descripcionM; ?>" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="cms/assets/img/inmuebles/<?php echo $imagen; ?>" /> <!-- when you post this page url in facebook , this image will be shown -->
+    <meta property="og:image" content="/cms/assets/img/inmuebles/<?php echo $imagen; ?>" /> <!-- when you post this page url in facebook , this image will be shown -->
     <!-- facebook open graph ends from here -->
 
   	<style type="text/css">
@@ -105,14 +112,14 @@
     <div class="row">
       <div class="col-md-8 col-xs-12">
         <div class="owl-for owl-carousel owl-theme">
-          <div class="item"><img src="cms/assets/img/inmuebles/<?php echo $imagen; ?>" class="owl_img" /></div>
+          <div class="item"><img src="/cms/assets/img/inmuebles/<?php echo $imagen; ?>" class="owl_img" /></div>
           <?php
             $galeria="SELECT * FROM inmuebles_fotos WHERE cod_inmueble='$cod_inmueble'";
             $ejecutag=mysqli_query($enlaces, $galeria);
             while($filagp=mysqli_fetch_array($ejecutag)){
               $xImgG = $filagp['imagen'];
           ?>
-          <div class="item"><img src="cms/assets/img/inmuebles/fotos/<?php echo $xImgG; ?>" class="owl_img" /></div>
+          <div class="item"><img src="/cms/assets/img/inmuebles/fotos/<?php echo $xImgG; ?>" class="owl_img" /></div>
           <?php
             }
           ?>
@@ -142,7 +149,7 @@
         <h3 class="title_inm">Descripci&oacute;n</h3>
         <hr class="hr">
         <?php echo $descripcion; ?>
-        <br>
+        <!-- <br>
         <h3 class="title_inm">Comodidades</h3>
         <hr class="hr">
         <ul class="card_list3">
@@ -152,7 +159,7 @@
           <li><i class="fas fa-check"></i> Sala de Reuniones</li>
           <li><i class="fas fa-check"></i> Mesa de Billar</li>
         </ul>
-        <br><br>
+        <br>--><br>
         <h3 class="title_inm">Ubicaci&oacute;n</h3>
         <hr class="hr">
         <?php echo $ubicacion; ?>
