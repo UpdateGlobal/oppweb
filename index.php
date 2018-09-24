@@ -67,8 +67,8 @@
         <div class="row">
             <div class="conten_finder" align="center">
                 <br>
-                <span class="sea_textp">ENCUENTRA UN LUGAR PARA TI</span>
-                <p class="card_p">Porqu&eacute; Invertir En Plexus</p>
+                <span class="sea_textp">TU MEJOR EXPERIENCIA INMOBILIARIA</span>
+                <p class="card_p">Octavio Pedraza Porras</p>
                 <br>
                 <form name="bus" id="bus">
                     <ul class="finder">

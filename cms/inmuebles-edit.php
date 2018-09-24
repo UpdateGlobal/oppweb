@@ -1,3 +1,7 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+?>
 <?php include("module/conexion.php"); ?>
 <?php include("module/verificar.php"); ?>
 <?php
@@ -14,9 +18,9 @@ if (isset($_REQUEST['proceso'])){
 }
 
 if($proceso == ""){
-  $consultaInm          = "SELECT * FROM inmuebles WHERE cod_inmueble='$cod_inmueble'";
-  $resultadoInm         = mysqli_query($enlaces, $consultaInm);
-  $filaInm              = mysqli_fetch_array($resultadoInm);
+  $consultaInm = "SELECT * FROM inmuebles WHERE cod_inmueble='$cod_inmueble'";
+  $resultadoInm = mysqli_query($enlaces, $consultaInm);
+  $filaInm = mysqli_fetch_array($resultadoInm);
     $cod_inmueble       = $filaInm['cod_inmueble'];
     $tipo               = $filaInm['tipo'];
     $cod_categoria      = $filaInm['cod_categoria'];
@@ -26,7 +30,7 @@ if($proceso == ""){
     $ventas             = $filaInm['venta'];
     $titulo             = $filaInm['titulo'];
     $imagen             = $filaInm['imagen'];
-    $precio             = substr(utf8_decode($filaInm['precio']),0,20);
+    $precio             = $filaInm['precio'];
     $banos              = $filaInm['banos'];
     $area               = $filaInm['area'];
     $cuartos            = $filaInm['cuartos'];
@@ -59,13 +63,13 @@ if($proceso == "Filtrar"){
       return 'n-a';
   }
   $imagen             = $_POST['imagen'];
-  $precio             = substr(utf8_decode($_POST['precio']),0,20);
+  $precio             = $_POST['precio'];
   $banos              = $_POST['banos'];
   $area               = $_POST['area'];
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
-  $ubicacion          = htmlspecialchars($_POST['ubicacion']);
+  $ubicacion          = $_POST['ubicacion'];
   $fecha_ing          = $_POST['fecha_ing'];
   if(isset($_POST['parking'])){$parking = $_POST['parking'];}else{$parking = 0;}
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
@@ -74,12 +78,12 @@ if($proceso == "Filtrar"){
 
 if($proceso == "Actualizar"){
   $cod_inmueble       = $_POST['cod_inmueble'];
-  $tipo               = $_POST['tipo'];
+  if(isset($_POST['tipo'])){$tipo = $_POST['tipo'];}else{$tipo = 0;}
   $cod_categoria      = $_POST['cod_categoria'];
   $cod_lugar          = $_POST['cod_lugar'];
   $cod_distrito       = $_POST['cod_distrito'];
-  $alquiler           = $_POST['alquiler'];
-  $ventas             = $_POST['venta'];
+  if(isset($_POST['alquiler'])){$alquiler = $_POST['alquiler'];}else{$alquiler = 0;}
+  if(isset($_POST['venta'])){$ventas = $_POST['venta'];}else{$ventas = 0;}
   $titulo             = $_POST['titulo'];
   $slug           = $titulo;
   $slug           = preg_replace('~[^\pL\d]+~u', '-', $slug);
@@ -92,42 +96,19 @@ if($proceso == "Actualizar"){
       return 'n-a';
   }
   $imagen             = $_POST['imagen'];
-  $precio             = substr(utf8_decode($_POST['precio']),0,20);
+  $precio             = $_POST['precio'];
   $banos              = $_POST['banos'];
   $area               = $_POST['area'];
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
-  $ubicacion          = mysqli_real_escape_string($enlaces, $_POST['ubicacion']);
+  $ubicacion          = $_POST['ubicacion'];
   $fecha_ing          = $_POST['fecha_ing'];
   if(isset($_POST['parking'])){$parking = $_POST['parking'];}else{$parking = 0;}
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
-  $actualizarInmuebles = "UPDATE inmuebles SET 
-    cod_inmueble='$cod_inmueble', 
-    tipo='$tipo', 
-    cod_categoria='$cod_categoria', 
-    cod_lugar='$cod_lugar', 
-    cod_distrito='$cod_distrito', 
-    slug='$slug', 
-    alquiler='$alquiler', 
-    venta='$ventas',
-    titulo='$titulo', 
-    imagen='$imagen', 
-    precio='$precio', 
-    banos='$banos', 
-    area='$area', 
-    cuartos='$cuartos', 
-    descripcion='$descripcion', 
-    comodidades='$comodidades', 
-    fecha_ing='$fecha_ing',
-    ubicacion='$ubicacion', 
-    parking='$parking', 
-    orden='$orden', 
-    estado='$estado' 
-    WHERE cod_inmueble='$cod_inmueble'";
-
+  $actualizarInmuebles = "UPDATE inmuebles SET cod_inmueble='$cod_inmueble', tipo='$tipo', cod_categoria='$cod_categoria', cod_distrito='$cod_distrito', cod_lugar='$cod_lugar', alquiler='$alquiler', venta='$ventas', slug='$slug', titulo='$titulo', imagen='$imagen', precio='$precio', banos='$banos', area='$area', cuartos='$cuartos', descripcion='$descripcion', comodidades='$comodidades', ubicacion='$ubicacion', parking='$parking', fecha_ing='$fecha_ing', orden='$orden', estado='$estado' WHERE cod_inmueble='$cod_inmueble'";
   $resultadoActualizar = mysqli_query($enlaces, $actualizarInmuebles);
   header("Location:inmuebles.php");
 }

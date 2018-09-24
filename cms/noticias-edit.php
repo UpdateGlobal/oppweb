@@ -186,7 +186,7 @@ if($proceso=="Actualizar"){
               <a href="noticias.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
               <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-refresh"></i> Editar Noticia</button>
               <?php $fecha = date("Y-m-d"); ?>
-              <input type="hidden" name="autor" value="<?php echo $autor; ?>">
+              <input type="hidden" name="autor" value="<?php echo $xAlias; ?>">
               <input type="hidden" name="fecha" value="<?php echo $fecha; ?>">
               <input type="hidden" name="proceso">
               <input type="hidden" name="cod_noticia" value="<?php echo $cod_noticia; ?>">

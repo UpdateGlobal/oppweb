@@ -36,13 +36,13 @@ if($proceso == "Registrar"){
       return 'n-a';
   }
   $imagen             = $_POST['imagen'];
-  $precio             = substr(utf8_decode($_POST['precio']),0,20);
+  $precio             = $_POST['precio'];
   $banos              = $_POST['banos'];
   $area               = $_POST['area'];
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
-  $ubicacion          = mysqli_real_escape_string($enlaces, $_POST['ubicacion']);
+  $ubicacion          = $_POST['ubicacion'];
   $fecha_ing          = $_POST['fecha_ing'];
   if(isset($_POST['parking'])){$parking = $_POST['parking'];}else{$parking = 0;}
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}

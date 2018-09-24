@@ -1,5 +1,4 @@
 <?php include("cms/module/conexion.php"); ?>
-
 <?php $slug = $_REQUEST['slug']; ?>
 <?php
     $consultaInm = "SELECT * FROM inmuebles WHERE slug='$slug'";
@@ -79,6 +78,8 @@
         border-radius: 30px;
       }
     </style>
+    <link href="/jackbox/css/jackbox.css" rel="stylesheet" type="text/css" />
+    <link href="/jackbox/css/jackbox_hovers.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <?php include('modulos/nav.php'); ?>
@@ -112,14 +113,14 @@
     <div class="row">
       <div class="col-md-8 col-xs-12">
         <div class="owl-for owl-carousel owl-theme">
-          <div class="item"><img src="/cms/assets/img/inmuebles/<?php echo $imagen; ?>" class="owl_img" /></div>
+          <div class="item"><a class="jackbox" data-group="img-prin" href="/cms/assets/img/inmuebles/<?php echo $imagen; ?>"><img src="/cms/assets/img/inmuebles/<?php echo $imagen; ?>" class="owl_img" /></a></div>
           <?php
             $galeria="SELECT * FROM inmuebles_fotos WHERE cod_inmueble='$cod_inmueble'";
             $ejecutag=mysqli_query($enlaces, $galeria);
             while($filagp=mysqli_fetch_array($ejecutag)){
               $xImgG = $filagp['imagen'];
           ?>
-          <div class="item"><img src="/cms/assets/img/inmuebles/fotos/<?php echo $xImgG; ?>" class="owl_img" /></div>
+          <div class="item"><a class="jackbox" data-group="img-prin" href="/cms/assets/img/inmuebles/fotos/<?php echo $xImgG; ?>"><img src="/cms/assets/img/inmuebles/fotos/<?php echo $xImgG; ?>" class="owl_img" /></a></div>
           <?php
             }
           ?>
@@ -132,11 +133,15 @@
         <small class="serch">Caracter&iacute;sticas</small>
         <ul class="card_list2">
           <li>Precio:<span class="span">$<?php echo $precio; ?></span></li>
-          <li>Tipo:<span class="span"><?php echo $xnomCat; ?></span></li>
-          <li>Ubicaci&oacute;n:<span class="span"><?php echo $xnomDis; ?></span></li>
           <li>Area:<span class="span"><?php echo $area; ?></span></li>
-          <li>Baños:<span class="span"><?php echo $banos; ?></span></li>
-          <li>Cuartos:<span class="span"><?php echo $cuartos; ?></span></li>
+          <li>Area Techada:<span class="span"><?php echo $areaT; ?></span></li>
+          <li>Dormitorios:<span class="span"><?php echo $cuartos; ?></span></li>
+          <li>Ba&ntilde;os:<span class="span"><?php echo $banos; ?></span></li>
+          <li>Medio Ba&ntilde;o:<span class="span"><?php echo $banosM; ?></span></li>
+          <li>Estacionamientos:<span class="span"><?php echo $Estacionamientos; ?></span></li>
+          <li>-----------------------</li>
+          <li>Ubicaci&oacute;n:<span class="span"><?php echo $xnomDis; ?></span></li>
+          <li>Tipo:<span class="span"><?php echo $xnomCat; ?></span></li>
         </ul>
         <a href="contacto.php" class="btn btn-default">Cotizar</a>
       </div>
@@ -149,17 +154,7 @@
         <h3 class="title_inm">Descripci&oacute;n</h3>
         <hr class="hr">
         <?php echo $descripcion; ?>
-        <!-- <br>
-        <h3 class="title_inm">Comodidades</h3>
-        <hr class="hr">
-        <ul class="card_list3">
-          <li><i class="fas fa-check"></i> Parque Infantil</li>
-          <li><i class="fas fa-check"></i> Canchas Deportivas</li>
-          <li><i class="fas fa-check"></i> Sala de cine</li>
-          <li><i class="fas fa-check"></i> Sala de Reuniones</li>
-          <li><i class="fas fa-check"></i> Mesa de Billar</li>
-        </ul>
-        <br>--><br>
+        <br>
         <h3 class="title_inm">Ubicaci&oacute;n</h3>
         <hr class="hr">
         <?php echo $ubicacion; ?>
@@ -175,7 +170,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $('.owl-for').owlCarousel({
-        loop:true,
+        loop:false,
         margin:0,
         autoplay:false,
         autoplayTimeout:2000,
@@ -202,6 +197,29 @@
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+  </script>
+  <script type="text/javascript" src="/jackbox/js/libs/jquery.address-1.5.min.js"></script>
+  <script type="text/javascript" src="/jackbox/js/libs/Jacked.js"></script>
+  <script type="text/javascript" src="/jackbox/js/jackbox-swipe.js"></script>
+  <script type="text/javascript" src="/jackbox/js/jackbox.js"></script>
+  <script type="text/javascript" src="/jackbox/js/libs/StackBlur.js"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+    //        jQuery(".jackbox[data-group]").jackBox("init");
+      jQuery(".jackbox[data-group]").jackBox("init", {
+        deepLinking: false,
+        showInfoByDefault: false,       // show item info automatically when content loads, true/false
+        preloadGraphics: true,          // preload the jackbox graphics for a faster jackbox
+        fullscreenScalesContent: false,  // choose to always scale content up in fullscreen mode, true/false
+     
+        autoPlayVideo: false,           // video autoplay default, this can also be set per video in the data-attributes, true/false
+        flashVideoFirst: false,         // choose which technology has first priority for video, HTML5 or Flash, true/false
+         
+        useThumbs: false,                // choose to use thumbnails, true/false
+        thumbsStartHidden: false,       // choose to initially hide the thumbnail strip, true/false
+        useThumbTooltips: false
+      });
+    });
   </script>
 </body>
 </html>

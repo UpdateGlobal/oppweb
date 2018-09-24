@@ -49,9 +49,9 @@ RewriteRule ^proyectos-lugares/([^/]*) inmuebles-proyectos-lugares.php?slug=$1&p
 RewriteRule ^proyectos-distritos/([^/]*) inmuebles-proyectos-distrito.php?slug=$1
 RewriteRule ^proyectos-distritos/([^/]*) inmuebles-proyectos-distrito.php?slug=$1&p=$2
 RewriteRule ^inmueble/([^/]*) inmueble.php?slug=$1
-RewriteCond %{HTTP_HOST} ^opp\.com.pe$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.opp\.com.pe$
+RewriteCond %{HTTP_HOST} ^octaviopedraza\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.octaviopedraza\.com$
 RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
 RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/.+$
 RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
-RewriteRule ^/?$ "https\:\/\/opp\.com.pe\/index\.php" [R=301,L]
+RewriteRule ^/?$ "https\:\/\/octaviopedraza\.com\/index\.php" [R=301,L]
