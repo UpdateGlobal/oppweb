@@ -36,12 +36,12 @@
                 </a>
               </li>
 
-              <li class="menu-item">
+              <!-- <li class="menu-item">
                 <a class="menu-link" href="contenidos.php">
                   <span class="dot"></span>
                   <span class="title">Contenidos</span>
                 </a>
-              </li>
+              </li> -->
 
             </ul>
           </li>

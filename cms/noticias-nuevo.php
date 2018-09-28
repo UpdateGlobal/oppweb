@@ -21,7 +21,17 @@ if($proceso == "Registrar"){
   if (empty($slug)){
       return 'n-a';
   }
-  $imagen       = $_POST['imagen'];
+  $imagen         = $_POST['imagen'];
+  $slugitem       = $imagen;
+  $slugitem       = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem       = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem       = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem       = trim($slugitem, '-');
+  $slugitem       = preg_replace('~-+~', '.', $slugitem);
+  $imagen         = strtolower($slugitem);
+  if (empty($imagen)){
+      return 'n-a';
+  }
   $noticia      = mysqli_real_escape_string($enlaces, $_POST['noticia']);
   $autor        = $_POST['autor'];
   $fecha        = $_POST['fecha'];

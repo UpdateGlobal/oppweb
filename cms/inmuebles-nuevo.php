@@ -1,3 +1,7 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+?>
 <?php include("module/conexion.php"); ?>
 <?php include("module/verificar.php"); ?>
 <?php
@@ -36,19 +40,33 @@ if($proceso == "Registrar"){
       return 'n-a';
   }
   $imagen             = $_POST['imagen'];
+  $slugitem           = $imagen;
+  $slugitem           = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem           = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem           = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem           = trim($slugitem, '-');
+  $slugitem           = preg_replace('~-+~', '.', $slugitem);
+  $imagen             = strtolower($slugitem);
+  if (empty($imagen)){
+      return 'n-a';
+  }
   $precio             = $_POST['precio'];
+  $hasta_precio       = $_POST['hasta_precio'];
   $banos              = $_POST['banos'];
+  $banos_medios       = $_POST['banos_medios'];
   $area               = $_POST['area'];
+  $area_hasta         = $_POST['area_hasta'];
+  $area_techada       = $_POST['area_techada'];
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
   $ubicacion          = $_POST['ubicacion'];
   $fecha_ing          = $_POST['fecha_ing'];
-  if(isset($_POST['parking'])){$parking = $_POST['parking'];}else{$parking = 0;}
+  $parking            = $_POST['parking'];
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
-  $insertarInmuebles = "INSERT INTO inmuebles (tipo, cod_categoria, cod_lugar, cod_distrito, alquiler, venta, slug, titulo, imagen, precio, banos, area, cuartos, descripcion, comodidades, ubicacion, fecha_ing, parking, orden, estado) VALUE ('$tipo', '$cod_categoria', '$cod_lugar', '$cod_distrito', '$alquiler', '$venta', '$slug', '$titulo', '$imagen', '$precio', '$banos', '$area', '$cuartos', '$descripcion', '$comodidades', '$ubicacion', '$fecha_ing', '$parking', '$orden', '$estado')";
+  $insertarInmuebles = "INSERT INTO inmuebles (tipo, cod_categoria, cod_lugar, cod_distrito, alquiler, venta, slug, titulo, imagen, precio, hasta_precio, banos, banos_medios, area, area_hasta, area_techada, cuartos, descripcion, comodidades, ubicacion, fecha_ing, parking, orden, estado) VALUE ('$tipo', '$cod_categoria', '$cod_lugar', '$cod_distrito', '$alquiler', '$ventas', '$slug', '$titulo', '$imagen', '$precio', '$hasta_precio', '$banos', '$banos_medios', '$area', '$area_hasta', '$area_techada', '$cuartos', '$descripcion', '$comodidades', '$ubicacion', '$fecha_ing', '$parking', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces, $insertarInmuebles);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -63,6 +81,14 @@ if($proceso == "Registrar"){
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
       function Validar(){
+        if(document.fcms.cod_lugar.value=="default"){
+          alert("Debe especificar un lugar");
+          return;
+        }
+        if(document.fcms.cod_distrito.value=="default"){
+          alert("Debe especificar un distrito");
+          return;
+        }
         if(document.fcms.titulo.value==""){
           alert("Debe escribir un título");
           document.fcms.titulo.focus();
@@ -71,6 +97,16 @@ if($proceso == "Registrar"){
         if(document.fcms.imagen.value==""){
           alert("Debe subir una imagen");
           document.fcms.imagen.focus();
+          return;
+        }
+        if(document.fcms.area.value==""){
+          alert("Debe especificar el tamaño del área (desde).");
+          document.fcms.area.focus();
+          return;
+        }
+        if(document.fcms.hasta_area.value==""){
+          alert("Debe especificar el tamaño del área (hasta).");
+          document.fcms.hasta_area.focus();
           return;
         }
         document.fcms.action = "inmuebles-nuevo.php";
@@ -163,7 +199,7 @@ if($proceso == "Registrar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_lugar" id="cod_lugar" onChange="Filtrar();">
-                    <option value="0">Sin Lugar</option>
+                    <option value="default">- Seleccione un Lugar -</option>
                     <?php 
                       if($cod_lugar == ""){
                         $consultaLug = "SELECT * FROM inmuebles_lugares WHERE estado='1'";
@@ -200,10 +236,10 @@ if($proceso == "Registrar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_distrito" id="cod_distrito" required>
-                    <option value="0">Sin Distrito</option>
+                    <option value="default">- Sin Distrito -</option>
                     <?php 
                       if($cod_lugar==""){
-                        echo '<option value="0">Sin Distrito</option>';
+                        echo '<option value="0">- Especifique un Lugar para ver distritos -</option>';
                       }else{
                         if(($cod_lugar=="")or($cod_lugar=="0")){
                           $consultaDis = "SELECT * FROM inmuebles_distritos WHERE estado='1' AND cod_distrito='$cod_distrito'";
@@ -258,7 +294,7 @@ if($proceso == "Registrar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label required" for="imagen">Imagen:</label><br>
-                  <small>(620px x 470px)</small>
+                  <small>(1240px x 940px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <input class="form-control" id="imagen" name="imagen" type="text" required />
@@ -294,7 +330,7 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="precio">Precio:</label>
+                  <label class="col-form-label" for="precio">Precio Desde:</label>
                 </div>
                 <div class="col-4 col-lg-2">
                   <input class="form-control" name="precio" type="text" id="precio" />
@@ -303,7 +339,16 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label">Ba&ntilde;os:</label>
+                  <label class="col-form-label" for="hasta_precio">Precio Hasta:</label>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <input class="form-control" name="hasta_precio" type="text" id="hasta_precio"  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="banos">Ba&ntilde;os:</label>
                 </div>
                 <div class="col-4 col-lg-2">
                   <input class="form-control" name="banos" type="text" id="banos" />
@@ -312,16 +357,43 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label>&Aacute;rea:</label>
+                  <label class="col-form-label" for="banos_medios">Ba&ntilde;os medios:</label>
                 </div>
                 <div class="col-4 col-lg-2">
-                  <input class="form-control" name="area" type="text" id="area" />
+                  <input class="form-control" name="banos_medios" type="text" id="banos_medios" />
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label>Parking:</label>
+                  <label class="col-form-label required" for="area">&Aacute;rea Desde:</label>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <input class="form-control" name="area" type="text" id="area" required />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label required" for="area_hasta">&Aacute;rea Hasta:</label>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <input class="form-control" name="area_hasta" type="text" id="area_hasta" required />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="area_techada">&Aacute;rea Techada:</label>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <input class="form-control" name="area_techada" type="text" id="area_techada" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="parking">Estacionamientos:</label>
                 </div>
                 <div class="col-4 col-lg-2">
                   <input class="form-control" name="parking" type="text" id="parking" />
@@ -330,7 +402,7 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label>Cuartos:</label>
+                  <label class="col-form-label" for="cuartos">Dormitorios:</label>
                 </div>
                 <div class="col-4 col-lg-2">
                   <input class="form-control" name="cuartos" type="text" id="cuartos" />

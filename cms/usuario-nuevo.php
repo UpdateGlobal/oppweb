@@ -11,6 +11,16 @@ if($proceso == "Registrar"){
   $nombres    = mysqli_real_escape_string($enlaces, $_POST['nombres']);
   $email      = mysqli_real_escape_string($enlaces, $_POST['email']);
   $imagen     = $_POST['imagen'];
+  $slugitem     = $imagen;
+  $slugitem     = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem     = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem     = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem     = trim($slugitem, '-');
+  $slugitem     = preg_replace('~-+~', '.', $slugitem);
+  $imagen       = strtolower($slugitem);
+  if (empty($imagen)){
+      return 'n-a';
+  }
   $usuario    = mysqli_real_escape_string($enlaces, $_POST['usuario']);
   $claveemail = mysqli_real_escape_string($enlaces, $_POST['clave']);
   $clave      = password_hash(mysqli_real_escape_string($enlaces, $_POST['clave']), PASSWORD_BCRYPT);

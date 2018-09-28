@@ -3,6 +3,10 @@
 <html lang="es">
 <head>
     <?php include("modulos/head.php"); ?>
+    <meta property="og:title" content="<?php echo $xTitulo; ?><?php if($xSlogan==""){ echo " | ".$xSlogan; } ?>" />
+    <meta property="og:description" content="<?php echo $xDes; ?>" />
+    <meta property="og:image" content="<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xFace1; ?>" />
+    <meta property="og:image" content="<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xFace2; ?>" />
     <script>
         function ValidarBus(){
             if(document.bus.distrito.value==""){
@@ -20,8 +24,7 @@
     <!--slider-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6 bg_slide_de">
-                <?php
+            <?php
                     $consultaCon = "SELECT * FROM contenidos WHERE cod_contenido='3'";
                     $ejecutarCon = mysqli_query($enlaces,$consultaCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
                     $filaCon = mysqli_fetch_array($ejecutarCon);
@@ -30,28 +33,30 @@
                         $img_contenido    = $filaCon['img_contenido'];
                         $contenido        = $filaCon['contenido'];
                         $estado           = $filaCon['estado'];
-                        $enlace           = $filaCon['enlace'];
-                ?>
+                        $xEnlacex         = $filaCon['enlace'];
+            ?>
+            <div class="col-sm-6 bg_slide_de" style="background:'/cms/assets/img/banner/<?php echo $img_contenido; ?>';">
                 <div class="depa_desta">
-                    <p class="textowless"><?php echo $titulo_contenido; ?></p>
+                    <p class="textowless"><a href="<?php echo $xEnlacex; ?>" style="color:#fff; font-size: 18px; margin-left: 0px;"><?php echo $titulo_contenido; ?></a></p>
                 </div>
                 <div class="depa_title">
-                    <p class="textowless2"><?php echo $contenido; ?></p>
+                    <p class="textowless2"><a href="<?php echo $xEnlacex; ?>" style="color:#fff; font-size: 22px; line-height:0px;"><?php echo $contenido; ?></a></p>
                 </div>
             </div>
             <div class="col-sm-6 bg_slide_iz">
-                <div class="owl-one owl-carousel owl-theme">
+                <div id="banneres" class="owl-carousel owl-theme">
                     <?php
                         $consultarBanner = "SELECT * FROM banners WHERE estado='1' ORDER BY orden";
                         $resultadoBanner = mysqli_query($enlaces,$consultarBanner) or die('Consulta fallida: ' . mysqli_error($enlaces));
                         while($filaBan = mysqli_fetch_array($resultadoBanner)){
                             $xCodigo    = $filaBan['cod_banner'];
                             $xTitulo    = $filaBan['titulo'];
+                            $xEnlacex   = $filaBan['enlace'];
                             $xImagen    = $filaBan['imagen'];
                     ?>
                     <div class="item items" style="background: url(/cms/assets/img/banner/<?php echo $xImagen; ?>);">
                         <div class="textowl">
-                            <p class="textowless"><?php echo $xTitulo; ?></p>
+                            <p class="textowless"><a href="<?php echo $xEnlacex; ?>" style="color: #fff; font-size: 18px; margin-left: 0px;"><?php echo $xTitulo; ?></a></p>
                         </div>
                     </div>
                     <?php
@@ -119,7 +124,7 @@
                     <span class="sea_textp">PROYECTOS</span>
                     <p class="card_p">Lanzamientos Inmobiliarios</p>
                     <br>
-                    <div class="owl-two owl-carousel owl-theme">
+                    <div class="owl-one owl-carousel owl-theme">
                         <?php 
                             $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.tipo='1' ORDER BY orden ASC";
                             $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
@@ -131,6 +136,7 @@
                                 $xSlug        = $filaInm['slug'];
                                 $xImagen      = $filaInm['imagen'];
                                 $xArea        = $filaInm['area'];
+                                $xArea_hasta  = $filaInm['area_hasta'];
                                 $xCuartos     = $filaInm['cuartos'];
                                 $xPrecio      = $filaInm['precio'];
                                 $xParking     = $filaInm['parking'];
@@ -139,14 +145,14 @@
                             <div class="item slushi rent_shadow" style="background: url(/cms/assets/img/inmuebles/<?php echo $xImagen; ?>); background-size: cover;">
                                 <div class="row card_title" style="margin: 20px 0px;padding: 10px 0px;">
                                     <div class="col-md-6 col-xs-12 card_home" align="left"><?php echo $xDistrito; ?></div>
-                                    <div class="col-md-6 col-xs-12 card_price" align="right">$ <?php echo $xPrecio; ?></div>
+                                    <div class="col-md-6 col-xs-12 card_price" align="right"><?php echo $xPrecio; ?></div>
                                     <p class="card_adres"><i class="fas fa-map-marker-alt"></i> <?php echo $xTitulo; ?> - <?php echo $xLugar; ?></p>
                                 </div>
                                 <div class="row botton_title navbar-fixed-bottom">
                                     <ul class="card_list">
-                                        <li><i class="fas fa-home"></i> <?php echo $xArea; ?></li>
-                                        <li><i class="fas fa-bed"></i> <?php echo $xCuartos ?></li>
-                                        <li><i class="fas fa-car"></i> <?php echo $xParking; ?></li>
+                                        <li><i class="fas fa-home"></i> <?php echo $xArea; ?> - <?php echo $xArea_hasta; ?></li>
+                                        <?php if($xCuartos==""){}else{ ?><li><i class="fas fa-bed"></i> <?php echo $xCuartos ?></li><?php } ?>
+                                        <?php if($xParking==""){}else{ ?><li><i class="fas fa-car"></i> <?php echo $xParking; ?></li><?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -172,13 +178,12 @@
                 <div class="col-md-3" align="left">
                     <p class="rent_p">Propiedad</p>
                     <h3 class="rent_text">ALQUILER</h3>
-                    <p class="rent_p oppmtext">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
                     <br>
                 </div>
                 <div class="col-md-9">
-                    <div class="owl-tree owl-carousel owl-theme">
+                    <div class="owl-two owl-carousel owl-theme">
                         <?php 
-                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.alquiler='0' ORDER BY orden ASC";
+                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND i.alquiler='1' ORDER BY orden ASC";
                             $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
                             while($filaInm = mysqli_fetch_array($resultadoInm)){
                                 $xCodigo      = $filaInm['cod_inmueble'];
@@ -200,11 +205,11 @@
                                         </div>
                                     </div>
                                     <div class="row" style="margin: 0px;">
-                                        <p class="rent_titl"><?php echo $xTitulo; ?></p>
+                                        <p class="rent_titl"><?php echo $xTitulo; ?><br> Precio: <?php echo $xPrecio; ?></p>
                                         <ul class="rent_list">
-                                            <li class="itemc"><i class="fas fa-home"></i> <?php echo $xArea; ?></li>
-                                            <li class="itemc"><i class="fas fa-bed"></i> <?php echo $xCuartos; ?> cubiculos</li>
-                                            <li class="itemc"><i class="fas fa-shower"></i> <?php echo $xBanos; ?> Baños</li>
+                                            <li class="itemc"><i class="fas fa-home"></i> <?php echo $xArea; ?> - <?php echo $xArea_hasta; ?></li>
+                                            <?php if($xCuartos==""){}else{ ?><li class="itemc"><i class="fas fa-bed"></i> <?php echo $xCuartos; ?> Cub&iacute;culos</li><?php } ?>
+                                            <?php if($xBanos==""){}else{ ?><li class="itemc"><i class="fas fa-shower"></i> <?php echo $xBanos; ?> Ba&ntilde;os</li><?php } ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -223,13 +228,12 @@
                 <div class="col-md-3" align="left">
                     <p class="rent_p">Propiedad</p>
                     <h3 class="rent_text">EN VENTA</h3>
-                    <p class="rent_p">loren ipnsun text da more fitne max height da il lovo dirte mamat mot</p>
                     <br>
                 </div>
                 <div class="col-md-9">
                     <div class="owl-tree owl-carousel owl-theme">
                         <?php
-                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND alquiler='1' ORDER BY orden ASC";
+                            $consultarInm = "SELECT ci.cod_categoria, ci.categoria, li.cod_lugar, li.lugar, di.cod_distrito, di.distrito, i.* FROM inmuebles_categorias as ci, inmuebles_lugares as li, inmuebles_distritos as di, inmuebles as i WHERE i.cod_categoria=ci.cod_categoria AND i.cod_lugar=li.cod_lugar AND i.cod_distrito=di.cod_distrito AND alquiler='0' ORDER BY orden ASC";
                             $resultadoInm = mysqli_query($enlaces, $consultarInm) or die('Consulta fallida: ' . mysqli_error($enlaces));
                             while($filaInm = mysqli_fetch_array($resultadoInm)){
                                 $xCodigo      = $filaInm['cod_inmueble'];
@@ -251,11 +255,11 @@
                                         </div>
                                     </div>
                                     <div class="row" style="margin: 0px;">
-                                        <p class="rent_titl"><?php echo $xTitulo; ?> <br> Precio: $ <?php echo $xPrecio; ?></p>
+                                        <p class="rent_titl"><?php echo $xTitulo; ?> <br> Precio: <?php echo $xPrecio; ?></p>
                                         <ul class="rent_list">
-                                            <li class="itemc"><i class="fas fa-home"></i> <?php echo $xArea; ?></li>
-                                            <li class="itemc"><i class="fas fa-bed"></i> <?php echo $xCuartos; ?> Cuartos</li>
-                                            <li class="itemc"><i class="fas fa-shower"></i> <?php echo $xBanos; ?> Baños</li>
+                                            <li class="itemc"><i class="fas fa-home"></i> <?php echo $xArea; ?> - <?php echo $xArea_hasta; ?></li>
+                                            <?php if($xCuartos==""){}else{ ?><li class="itemc"><i class="fas fa-bed"></i> <?php echo $xCuartos; ?> Cuartos</li><?php } ?>
+                                            <?php if($xBanos==""){}else{ ?><li class="itemc"><i class="fas fa-shower"></i> <?php echo $xBanos; ?> Ba&ntilde;os</li><?php } ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -291,7 +295,6 @@
                 </div>
                 <div class="col-md-7">
                     <h3 class="about">Nosotros</h3>
-                    <p class="abt_nom"><?php echo $xTitulo; ?></p>
                     <br>
                     <div class="art_abt">
                         <?php echo $xContenido; ?>
@@ -321,7 +324,7 @@
                         <i class="fas fa-home fa-5x" style="color: white !important;"></i>
                         <br>
                         <h3 class="opptitle"><?php echo $xTitulo; ?></h3>
-                        <br>
+                        <br><br>
                     </div>
                 </div>
                 <div class="col-md-4" align="center">
@@ -382,7 +385,7 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
     </section>
     <!--formulario-->
     <!--mcard-->
@@ -391,7 +394,7 @@
             <div class="row mcard" align="center"><br>
                 <h3 class="rent_text">CONSEJOS Y NOTICIAS</h3>
                 <p class="rent_p">Lo que debes saber si buscas un inmueble</p>
-            </div>        
+            </div>
             <br>
             <div class="col-md-12">
                 <br>
@@ -460,11 +463,11 @@
     <!-- Set up your HTML -->
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.owl-one').owlCarousel({
+            $('#banneres').owlCarousel({
                 loop:true,
                 margin:0,
                 autoplay:false,
-                autoplayTimeout:3000,
+                autoplayTimeout:5000,
                 nav:false,
                 responsive:{
                     0:{
@@ -475,6 +478,28 @@
                     },
                     1000:{
                         items:1
+                    }
+                }
+            })
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.owl-one').owlCarousel({
+                loop:true,
+                margin:50,
+                autoplay:false,
+                autoplayTimeout:3000,
+                nav:false,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:2
+                    },
+                    1000:{
+                        items:3
                     }
                 }
             })

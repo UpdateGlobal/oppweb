@@ -1,0 +1,21 @@
+[25-Sep-2018 22:04:08 UTC] PHP Notice:  Undefined index: venta in /home/octaviopedraza/public_html/cms/inmuebles-edit.php on line 30
+[25-Sep-2018 22:59:09 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5
+[25-Sep-2018 22:59:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5
+[25-Sep-2018 23:00:46 UTC] PHP Notice:  Undefined index: venta in /home/octaviopedraza/public_html/cms/inmuebles-edit.php on line 30
+[26-Sep-2018 15:55:13 UTC] PHP Notice:  Undefined index: venta in /home/octaviopedraza/public_html/cms/inmuebles-edit.php on line 30
+[26-Sep-2018 16:11:25 UTC] PHP Notice:  Undefined variable: venta in /home/octaviopedraza/public_html/cms/inmuebles-nuevo.php on line 58
+[26-Sep-2018 16:14:05 UTC] PHP Notice:  Undefined index: venta in /home/octaviopedraza/public_html/cms/inmuebles-edit.php on line 30
+[26-Sep-2018 19:33:57 UTC] PHP Notice:  Undefined index: xCodigo in /home/octaviopedraza/public_html/cms/module/verificar.php on line 3
+[26-Sep-2018 19:33:57 UTC] PHP Notice:  Undefined index: xAlias in /home/octaviopedraza/public_html/cms/module/verificar.php on line 4
+[26-Sep-2018 19:33:57 UTC] PHP Notice:  Undefined index: xEmail in /home/octaviopedraza/public_html/cms/module/verificar.php on line 5
+[26-Sep-2018 19:33:57 UTC] PHP Notice:  Undefined index: xUsuario in /home/octaviopedraza/public_html/cms/module/verificar.php on line 6
+[26-Sep-2018 19:33:57 UTC] PHP Notice:  Undefined index: xVisitante in /home/octaviopedraza/public_html/cms/module/verificar.php on line 7
+[26-Sep-2018 19:33:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/module/verificar.php:3) in /home/octaviopedraza/public_html/cms/module/verificar.php on line 9
+[26-Sep-2018 19:34:29 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5
+[26-Sep-2018 19:34:33 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5
+[26-Sep-2018 21:17:47 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5
+[26-Sep-2018 22:51:39 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5
+[27-Sep-2018 16:34:28 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5
+[27-Sep-2018 22:39:04 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5
+[28-Sep-2018 16:04:46 UTC] PHP Warning:  preg_replace(): Unknown modifier '.' in /home/octaviopedraza/public_html/cms/proceso-agregar-fotos.php on line 198
+[28-Sep-2018 18:09:02 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/octaviopedraza/public_html/cms/seguridad.php:5) in /home/octaviopedraza/public_html/cms/seguridad.php on line 5

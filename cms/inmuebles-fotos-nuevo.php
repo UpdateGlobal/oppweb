@@ -19,6 +19,16 @@ $resultadoNombre = mysqli_query($enlaces,$consultaNombre);
 if($proceso == "Registrar"){
   $cod_galeria  = $_POST['cod_inmueble'];
   $imagen       = $_POST['imagen'];
+  $slugitem     = $imagen;
+  $slugitem     = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem     = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem     = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem     = trim($slugitem, '-');
+  $slugitem     = preg_replace('~-+~', '.', $slugitem);
+  $imagen       = strtolower($slugitem);
+  if (empty($imagen)){
+      return 'n-a';
+  }
   $insertarInmueble = "INSERT INTO inmuebles_fotos(cod_inmueble, imagen)VALUE('$cod_inmueble', '$imagen')";
   $resultadoInsertar = mysqli_query($enlaces,$insertarInmueble);
   $mensaje = "<div class='alert alert-success' role='alert'>

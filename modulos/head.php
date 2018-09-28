@@ -13,13 +13,16 @@
       $xSlogan    = $filaMet['slogan'];
       $xDes       = $filaMet['description'];
       $xKey       = $filaMet['keywords'];
+      $xUrl       = $filaMet['url'];
+      $xFace1     = $filaMet['face1'];
+      $xFace2     = $filaMet['face2'];
       $xIco       = $filaMet['ico'];
   ?>
   <title><?php echo $xTitulo; ?><?php if($xSlogan==""){ echo " | ".$xSlogan; } ?></title>
 	<meta name="description" content="<?php echo $xDes; ?>" />
   <meta name="keywords" content="<?php echo $xKey; ?>" />
   <!-- Favicon -->
-	<link href="/cms/assets/img/meta/<?php echo $xIco; ?>" rel="shortcut icon"/>
+	<link href="<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xIco; ?>" rel="shortcut icon"/>
   <?php
     mysqli_free_result($resultadoMet);
   ?>

@@ -21,12 +21,17 @@
         $cod_distrito     = $filaInm['cod_distrito'];
         $titulo           = $filaInm['titulo'];
         $imagen           = $filaInm['imagen'];
-        $precio           = substr(utf8_decode($filaInm['precio']),0,20);
+        $precio           = $filaInm['precio'];
+        $hasta_precio     = $filaInm['hasta_precio'];
         $banos            = $filaInm['banos'];
+        $banosM           = $filaInm['banos_medios'];
         $area             = $filaInm['area'];
+        $area_hasta       = $filaInm['area_hasta'];
+        $areaT            = $filaInm['area_techada'];
         $cuartos          = $filaInm['cuartos'];
         $descripcion      = $filaInm['descripcion'];
         $comodidades      = $filaInm['comodidades'];
+        $estacionamientos = $filaInm['estacionamientos'];
         $ubicacion        = $filaInm['ubicacion'];
         $fecha_ing        = $filaInm['fecha_ing'];
         $parking          = $filaInm['parking'];
@@ -113,7 +118,7 @@
     <div class="row">
       <div class="col-md-8 col-xs-12">
         <div class="owl-for owl-carousel owl-theme">
-          <div class="item"><a class="jackbox" data-group="img-prin" href="/cms/assets/img/inmuebles/<?php echo $imagen; ?>"><img src="/cms/assets/img/inmuebles/<?php echo $imagen; ?>" class="owl_img" /></a></div>
+          <div class="item inner"><a class="jackbox" data-group="img-prin" href="/cms/assets/img/inmuebles/<?php echo $imagen; ?>"><img src="/cms/assets/img/inmuebles/<?php echo $imagen; ?>" class="owl_img" /></a></div>
           <?php
             $galeria="SELECT * FROM inmuebles_fotos WHERE cod_inmueble='$cod_inmueble'";
             $ejecutag=mysqli_query($enlaces, $galeria);
@@ -132,18 +137,20 @@
         <hr class="hr">
         <small class="serch">Caracter&iacute;sticas</small>
         <ul class="card_list2">
-          <li>Precio:<span class="span">$<?php echo $precio; ?></span></li>
-          <li>Area:<span class="span"><?php echo $area; ?></span></li>
-          <li>Area Techada:<span class="span"><?php echo $areaT; ?></span></li>
-          <li>Dormitorios:<span class="span"><?php echo $cuartos; ?></span></li>
-          <li>Ba&ntilde;os:<span class="span"><?php echo $banos; ?></span></li>
-          <li>Medio Ba&ntilde;o:<span class="span"><?php echo $banosM; ?></span></li>
-          <li>Estacionamientos:<span class="span"><?php echo $Estacionamientos; ?></span></li>
-          <li>-----------------------</li>
-          <li>Ubicaci&oacute;n:<span class="span"><?php echo $xnomDis; ?></span></li>
-          <li>Tipo:<span class="span"><?php echo $xnomCat; ?></span></li>
+          <?php if($precio==""){ }else{ ?><li>Precio Desde:<span class="span"><?php echo $precio; ?></span></li><?php } ?>
+          <?php if($hasta_precio==""){ }else{ ?><li>Precio Hasta:<span class="span"><?php echo $hasta_precio; ?></span></li><?php } ?>
+          <?php if($area==""){ }else{ ?><li>Area Desde:<span class="span"><?php echo $area; ?></span></li><?php } ?>
+          <?php if($area_hasta==""){ }else{ ?><li>Area Hasta:<span class="span"><?php echo $area_hasta; ?></span></li><?php } ?>
+          <?php if($areaT==""){ }else{ ?><li>Area Techada:<span class="span"><?php echo $areaT; ?></span></li><?php } ?>
+          <?php if($cuartos==""){ }else{ ?><li>Dormitorios:<span class="span"><?php echo $cuartos; ?></span></li><?php } ?>
+          <?php if($banos==""){ }else{ ?><li>Ba&ntilde;os:<span class="span"><?php echo $banos; ?></span></li><?php } ?>
+          <?php if($banosM==""){ }else{ ?><li>Medio Ba&ntilde;o:<span class="span"><?php echo $banosM; ?></span></li><?php } ?>
+          <?php if($parking==""){ }else{ ?><li>Estacionamientos:<span class="span"><?php echo $parking; ?></span></li><?php } ?>
+         <!-- <li>-----------------------</li>
+          <li>Ubicaci&oacute;n:<span class="span">< ?php echo $xnomDis; ?></span></li>
+          <li>Tipo:<span class="span">< ?php echo $xnomCat; ?></span></li> -->
         </ul>
-        <a href="contacto.php" class="btn btn-default">Cotizar</a>
+        <a href="/contacto.php" class="btn btn-default">Cotizar</a>
       </div>
     </div>
   </div>

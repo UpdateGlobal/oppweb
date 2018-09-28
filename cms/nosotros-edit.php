@@ -22,6 +22,16 @@ if($proceso == "Actualizar"){
   $cod_contenido    = $_POST['cod_contenido'];
   $titulo_contenido = mysqli_real_escape_string($enlaces, $_POST['titulo_contenido']);
   $img_contenido    = $_POST['img_contenido'];
+  $slugitem       = $img_contenido;
+  $slugitem       = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem       = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem       = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem       = trim($slugitem, '-');
+  $slugitem       = preg_replace('~-+~', '.', $slugitem);
+  $img_contenido  = strtolower($slugitem);
+  if (empty($imagen)){
+      return 'n-a';
+  }
   $contenido        = mysqli_real_escape_string($enlaces, $_POST['contenido']);
   $estado           = $_POST['estado'];
 

@@ -36,6 +36,16 @@ if($proceso=="Actualizar"){
   }
   $noticia        = mysqli_real_escape_string($enlaces, $_POST['noticia']);
   $imagen         = $_POST['imagen'];
+  $slugitem       = $imagen;
+  $slugitem       = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem       = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem       = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem       = trim($slugitem, '-');
+  $slugitem       = preg_replace('~-+~', '.', $slugitem);
+  $imagen         = strtolower($slugitem);
+  if (empty($imagen)){
+      return 'n-a';
+  }
   $fecha          = $_POST['fecha'];
   $autor          = $_POST['autor'];
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}

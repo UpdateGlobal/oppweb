@@ -1,6 +1,4 @@
-<?php 
-$id = $_REQUEST['id'];
-?>
+<?php $id = $_REQUEST['id']; ?>
 <!DOCTYPE HTML>
 <html>
 <head>

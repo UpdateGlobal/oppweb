@@ -32,8 +32,38 @@ if($proceso == "Actualizar"){
   $keywords     = mysqli_real_escape_string($enlaces, $_POST['keywords']);
   $url          = $_POST['url'];
   $logo         = $_POST['logo'];
+  $slugitem     = $logo;
+  $slugitem     = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem     = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem     = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem     = trim($slugitem, '-');
+  $slugitem     = preg_replace('~-+~', '.', $slugitem);
+  $logo         = strtolower($slugitem);
+  if (empty($logo)){
+      return 'n-a';
+  }
   $face1        = $_POST['face1'];
+  $slugitem     = $face1;
+  $slugitem     = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem     = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem     = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem     = trim($slugitem, '-');
+  $slugitem     = preg_replace('~-+~', '.', $slugitem);
+  $face1        = strtolower($slugitem);
+  if (empty($face1)){
+      return 'n-a';
+  }
   $face2        = $_POST['face2'];
+  $slugitem     = $face2;
+  $slugitem     = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem     = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem     = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem     = trim($slugitem, '-');
+  $slugitem     = preg_replace('~-+~', '.', $slugitem);
+  $face2        = strtolower($slugitem);
+  if (empty($face2)){
+      return 'n-a';
+  }
   $ico          = $_POST['ico'];
 
   $ActualizarMeta = "UPDATE metatags SET cod_meta='$cod_meta', titulo='$titulo', slogan='$slogan', description='$description', keywords='$keywords', url='$url', logo='$logo', face1='$face1', face2='$face2', ico='$ico' WHERE cod_meta='$cod_meta'";

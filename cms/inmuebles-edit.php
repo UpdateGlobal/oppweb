@@ -30,9 +30,23 @@ if($proceso == ""){
     $ventas             = $filaInm['venta'];
     $titulo             = $filaInm['titulo'];
     $imagen             = $filaInm['imagen'];
+    $slugitem           = $imagen;
+    $slugitem           = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+    $slugitem           = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+    $slugitem           = preg_replace('~[^-\w]+~', '', $slugitem);
+    $slugitem           = trim($slugitem, '-');
+    $slugitem           = preg_replace('~-+~', '.', $slugitem);
+    $imagen             = strtolower($slugitem);
+    if (empty($imagen)){
+        return 'n-a';
+    }
     $precio             = $filaInm['precio'];
+    $hasta_precio       = $filaInm['hasta_precio'];
     $banos              = $filaInm['banos'];
+    $banos_medios       = $filaInm['banos_medios'];
     $area               = $filaInm['area'];
+    $area_hasta         = $filaInm['area_hasta'];
+    $area_techada       = $filaInm['area_techada'];
     $cuartos            = $filaInm['cuartos'];
     $descripcion        = $filaInm['descripcion'];
     $comodidades        = $filaInm['comodidades'];
@@ -64,8 +78,12 @@ if($proceso == "Filtrar"){
   }
   $imagen             = $_POST['imagen'];
   $precio             = $_POST['precio'];
+  $hasta_precio       = $_POST['hasta_precio'];
   $banos              = $_POST['banos'];
+  $banos_medios       = $_POST['banos_medios'];
   $area               = $_POST['area'];
+  $area_hasta         = $_POST['area_hasta'];
+  $area_techada       = $_POST['area_techada'];
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
@@ -97,8 +115,12 @@ if($proceso == "Actualizar"){
   }
   $imagen             = $_POST['imagen'];
   $precio             = $_POST['precio'];
+  $hasta_precio       = $_POST['hasta_precio'];
   $banos              = $_POST['banos'];
+  $banos_medios       = $_POST['banos_medios'];
   $area               = $_POST['area'];
+  $area_hasta         = $_POST['area_hasta'];
+  $area_techada       = $_POST['area_techada'];
   $cuartos            = $_POST['cuartos'];
   $descripcion        = $_POST['descripcion'];
   $comodidades        = $_POST['comodidades'];
@@ -108,7 +130,7 @@ if($proceso == "Actualizar"){
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
-  $actualizarInmuebles = "UPDATE inmuebles SET cod_inmueble='$cod_inmueble', tipo='$tipo', cod_categoria='$cod_categoria', cod_distrito='$cod_distrito', cod_lugar='$cod_lugar', alquiler='$alquiler', venta='$ventas', slug='$slug', titulo='$titulo', imagen='$imagen', precio='$precio', banos='$banos', area='$area', cuartos='$cuartos', descripcion='$descripcion', comodidades='$comodidades', ubicacion='$ubicacion', parking='$parking', fecha_ing='$fecha_ing', orden='$orden', estado='$estado' WHERE cod_inmueble='$cod_inmueble'";
+  $actualizarInmuebles = "UPDATE inmuebles SET cod_inmueble='$cod_inmueble', tipo='$tipo', cod_categoria='$cod_categoria', cod_distrito='$cod_distrito', cod_lugar='$cod_lugar', alquiler='$alquiler', venta='$ventas', slug='$slug', titulo='$titulo', imagen='$imagen', precio='$precio', hasta_precio='$hasta_precio', banos='$banos', banos_medios='$banos_medios', area='$area', area_hasta='$area_hasta', area_techada='$area_techada', cuartos='$cuartos', descripcion='$descripcion', comodidades='$comodidades', ubicacion='$ubicacion', parking='$parking', fecha_ing='$fecha_ing', orden='$orden', estado='$estado' WHERE cod_inmueble='$cod_inmueble'";
   $resultadoActualizar = mysqli_query($enlaces, $actualizarInmuebles);
   header("Location:inmuebles.php");
 }
@@ -125,11 +147,11 @@ if($proceso == "Actualizar"){
           return;
         }
         if(document.fcms.cod_lugar.value=="default"){
-          alert("Elegir un lugar");
+          alert("Debe especificar un lugar");
           return;
         }
         if(document.fcms.cod_distrito.value=="default"){
-          alert("Elegir un distrito");
+          alert("Debe especificar un distrito");
           return;
         }
         if(document.fcms.titulo.value==""){
@@ -140,6 +162,16 @@ if($proceso == "Actualizar"){
         if(document.fcms.imagen.value==""){
           alert("Debe subir una imagen");
           document.fcms.imagen.focus();
+          return;
+        }
+        if(document.fcms.area.value==""){
+          alert("Debe especificar el tamaño del área (desde).");
+          document.fcms.area.focus();
+          return;
+        }
+        if(document.fcms.hasta_area.value==""){
+          alert("Debe especificar el tamaño del área (hasta).");
+          document.fcms.hasta_area.focus();
           return;
         }
         document.fcms.action = "inmuebles-edit.php";
@@ -232,7 +264,7 @@ if($proceso == "Actualizar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_lugar" id="cod_lugar" onChange="Filtrar();">
-                    <option value="default">Sin Lugar</option>
+                    <option value="default">- Seleccione un Lugar -</option>
                     <?php 
                       if($cod_lugar == ""){
                         $consultaLug = "SELECT * FROM inmuebles_lugares WHERE estado='1'";
@@ -269,10 +301,10 @@ if($proceso == "Actualizar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" name="cod_distrito" id="cod_distrito" required>
-                    <option value="default">Sin Distrito</option>
+                    <option value="default">- Sin Distrito -</option>
                     <?php 
                       if($cod_lugar==""){
-                        echo '<option value="default">Sin Distrito</option>';
+                        echo '<option value="default">- Especifique un Lugar para ver distritos -</option>';
                       }else{
                         if(($cod_lugar=="")or($cod_lugar=="0")){
                           $consultaDis = "SELECT * FROM inmuebles_distritos WHERE estado='1' AND cod_distrito='$cod_distrito'";
@@ -327,7 +359,7 @@ if($proceso == "Actualizar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label required" for="imagen">Imagen:</label><br>
-                  <small>(620px x 470px)</small>
+                  <small>(1240px x 940px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <input class="form-control" id="imagen" name="imagen" type="text" value="<?php echo $imagen; ?>" required />
@@ -363,10 +395,19 @@ if($proceso == "Actualizar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="precio">Precio:</label>
+                  <label class="col-form-label" for="precio">Precio Desde:</label>
                 </div>
                 <div class="col-4 col-lg-2">
                   <input class="form-control" name="precio" type="text" id="precio" value="<?php echo $precio; ?>" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="hasta_precio">Precio Hasta:</label>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <input class="form-control" name="hasta_precio" type="text" id="hasta_precio" value="<?php echo $hasta_precio; ?>" />
                 </div>
               </div>
 
@@ -381,16 +422,43 @@ if($proceso == "Actualizar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="area">&Aacute;rea:</label>
+                  <label class="col-form-label" for="banos_medios">Ba&ntilde;os medios:</label>
                 </div>
                 <div class="col-4 col-lg-2">
-                  <input class="form-control" name="area" type="text" id="area" value="<?php echo $area; ?>" />
+                  <input class="form-control" name="banos_medios" type="text" id="banos_medios" value="<?php echo $banos_medios; ?>" />
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="parking">Parking:</label>
+                  <label class="col-form-label required" for="area">&Aacute;rea Desde:</label>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <input class="form-control" name="area" type="text" id="area" value="<?php echo $area; ?>" required />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label required" for="area_hasta">&Aacute;rea Hasta:</label>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <input class="form-control" name="area_hasta" type="text" id="area_hasta" value="<?php echo $area_hasta; ?>" required />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="area_techada">&Aacute;rea Techada:</label>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <input class="form-control" name="area_techada" type="text" id="area_techada" value="<?php echo $area_techada; ?>" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="parking">Estacionamientos:</label>
                 </div>
                 <div class="col-4 col-lg-2">
                   <input class="form-control" name="parking" type="text" id="parking" value="<?php echo $parking; ?>" />
@@ -412,7 +480,7 @@ if($proceso == "Actualizar"){
                   <small>(Separar con coma ",")</small>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input class="form-control" name="comodidades" id="comodidades" type="text" value="<?php echo $comodidades; ?>" />
+                  <input class="form-control" name="comodidades" id="comodidades" type="text" value="< ?php echo $comodidades; ?>" />
                 </div>
               </div> -->
 

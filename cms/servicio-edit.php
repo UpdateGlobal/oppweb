@@ -21,6 +21,16 @@ if($proceso == ""){
 if($proceso=="Actualizar"){
   $cod_servicio     = $_POST['cod_servicio'];
   $imagen           = $_POST['imagen'];
+  $slugitem     = $imagen;
+  $slugitem     = preg_replace('~[^\pL\d]+~u', '-', $slugitem);
+  $slugitem     = iconv('utf-8', 'us-ascii//TRANSLIT', $slugitem);
+  $slugitem     = preg_replace('~[^-\w]+~', '', $slugitem);
+  $slugitem     = trim($slugitem, '-');
+  $slugitem     = preg_replace('~-+~', '.', $slugitem);
+  $imagen       = strtolower($slugitem);
+  if (empty($imagen)){
+      return 'n-a';
+  }
   $titulo           = mysqli_real_escape_string($enlaces, $_POST['titulo']);
   $descripcion      = mysqli_real_escape_string($enlaces, $_POST['descripcion']);
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}

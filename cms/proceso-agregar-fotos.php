@@ -5,16 +5,36 @@ $uploadname 	= $_FILES['imagen'] ['name'];
 $uploadtempname	= $_FILES['imagen'] ['tmp_name'];
 
 if($id=='IG'){
-	$uploaddir = 'assets/img/galerias/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/galerias/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
-		$mensaje = "El archivo no se subi&oacute;";  
+		$mensaje = "El archivo no se subi&oacute;";
 	}
 }
 // Imagen subir Fotos
 if($id=='FO'){
-	$uploaddir = 'assets/img/galerias/fotos/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/galerias/fotos/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -23,7 +43,17 @@ if($id=='FO'){
 }
 // Subir Imagen Video
 if($id=='IV'){
-	$uploaddir = 'assets/img/videos/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/videos/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -33,17 +63,37 @@ if($id=='IV'){
 
 // Imagen Categoria productos
 if($id=='IC'){
-	$uploaddir = 'assets/img/productos/categorias/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/productos/categorias/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
-		$mensaje = "El archivo no se subi&oacute;";  
+		$mensaje = "El archivo no se subi&oacute;";
 	}
 }
 
 // Imagen sub categoria productos
 if($id=='ISC'){
-	$uploaddir = 'assets/img/productos/subcategoria/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/productos/subcategoria/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -53,7 +103,17 @@ if($id=='ISC'){
 
 // Subir Imagen productos
 if($id=='IP'){
-	$uploaddir = 'assets/img/productos/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/productos/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -63,7 +123,17 @@ if($id=='IP'){
 
 // Subir Ficha Técnica
 if($id=='FT'){
-	$uploaddir = 'assets/archivos/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/archivos/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -73,7 +143,17 @@ if($id=='FT'){
 
 // Subir Banner Grande
 if($id=='BG'){
-	$uploaddir = 'assets/img/productos/bannerg/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/productos/bannerg/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -83,7 +163,17 @@ if($id=='BG'){
 
 // Subir Banner Chico
 if($id=='BC'){
-	$uploaddir = 'assets/img/productos/bannerc/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/productos/bannerc/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -93,7 +183,17 @@ if($id=='BC'){
 
 // Subir Galeria de productos
 if($id=='IGP'){
-	$uploaddir = 'assets/img/productos/galeria/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/productos/galeria/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -103,7 +203,17 @@ if($id=='IGP'){
 
 // Subir Imagen productos
 if($id=='IM'){
-	$uploaddir = 'assets/img/inmuebles/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/inmuebles/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -113,7 +223,17 @@ if($id=='IM'){
 
 // Subir
 if($id=='IMGAL'){
-	$uploaddir = 'assets/img/inmuebles/fotos/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/inmuebles/fotos/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -123,7 +243,17 @@ if($id=='IMGAL'){
 
 // Subir Facebook Logo
 if($id=='LOGO'){
-	$uploaddir = 'assets/img/meta/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/meta/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -133,7 +263,17 @@ if($id=='LOGO'){
 
 // Subir Facebook imagen 1
 if($id=='FIA'){
-	$uploaddir = 'assets/img/meta/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/meta/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -143,7 +283,17 @@ if($id=='FIA'){
 
 // Subir Facebook imagen 2
 if($id=='FIB'){
-	$uploaddir = 'assets/img/meta/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/meta/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -153,7 +303,17 @@ if($id=='FIB'){
 
 // Subir Facebook Icono
 if($id=='ICO'){
-	$uploaddir = 'assets/img/meta/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/meta/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -163,7 +323,17 @@ if($id=='ICO'){
 
 // Subir Avatar
 if($id=='USU'){
-	$uploaddir = 'assets/img/avatar/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/avatar/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -173,7 +343,17 @@ if($id=='USU'){
 
 // Subir Imagen Nosotros
 if($id=='NOS'){
-	$uploaddir = 'assets/img/nosotros/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/nosotros/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -183,7 +363,17 @@ if($id=='NOS'){
 
 // Subir Imagen a Carrusel
 if($id=='CAR'){
-	$uploaddir = 'assets/img/carrusel/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/carrusel/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -193,7 +383,17 @@ if($id=='CAR'){
 
 // Subir Imagen a Banner
 if($id=='BAN'){
-	$uploaddir = 'assets/img/banner/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/banner/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -203,7 +403,17 @@ if($id=='BAN'){
 
 // Subir Imagen a Noticias
 if($id=='NOT'){
-	$uploaddir = 'assets/img/noticias/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/noticias/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -213,7 +423,17 @@ if($id=='NOT'){
 
 // Subir Imagen Portafolio
 if($id=='IPR'){
-	$uploaddir = 'assets/img/portafolio/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/portafolio/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -223,7 +443,17 @@ if($id=='IPR'){
 
 // Imagen galería portafolio
 if($id=='IGPOR'){
-	$uploaddir = 'assets/img/portafolio/fotos/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/portafolio/fotos/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -233,7 +463,17 @@ if($id=='IGPOR'){
 
 // Imagenes galerías
 if($id=='GAL'){
-	$uploaddir = 'assets/img/galerias/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/galerias/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -243,7 +483,17 @@ if($id=='GAL'){
 
 // Imagenes galerías
 if($id=='IGGAL'){
-	$uploaddir = 'assets/img/galerias/fotos/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/galerias/fotos/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -253,7 +503,17 @@ if($id=='IGGAL'){
 
 // Imagenes servicios
 if($id=='SER'){
-	$uploaddir = 'assets/img/servicios/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/servicios/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
@@ -263,7 +523,17 @@ if($id=='SER'){
 
 // Imagenes servicios
 if($id=='SERGAL'){
-	$uploaddir = 'assets/img/servicios/fotos/'.$uploadname;
+	$nuevoitem         = $uploadname;
+	$nuevoitem         = preg_replace('~[^\pL\d]+~u', '-', $nuevoitem);
+	$nuevoitem         = iconv('utf-8', 'us-ascii//TRANSLIT', $nuevoitem);
+	$nuevoitem         = preg_replace('~[^-\w]+~', '', $nuevoitem);
+	$nuevoitem         = trim($nuevoitem, '-');
+	$nuevoitem         = preg_replace('~-+~', '.', $nuevoitem);
+	$nuevoitem         = strtolower($nuevoitem);
+	if (empty($nuevoitem)){
+	    return 'n-a';
+	}
+	$uploaddir = 'assets/img/servicios/fotos/'.$nuevoitem;
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{

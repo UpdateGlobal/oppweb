@@ -8,7 +8,8 @@ function AbrirCentro(url,nompopup,popW,popH,resizable,scroll){
 }
 
 function Caracteres(string) {
-    var invalid = "!ñÑ´áéíóúÁÉÍÓÚ{}[]-";
+    //var invalid = "!ñÑ´áéíóúÁÉÍÓÚ{}[]-";
+    var invalid = "´{}[]";
     var rpta = '';
     for (var i=0; i<string.length; i++){
         inval = string.substring(i, i+1);
@@ -17,7 +18,7 @@ function Caracteres(string) {
     return rpta;
 }
 function Espacio(string) {
-    var invalid = " ";
+    var invalid = "";
     var rpta = '';
     for (var i=0; i<string.length; i++){
         inval = string.substring(i, i+1);

@@ -16,7 +16,6 @@ if($proceso==""){
   $img_contenido    = $filaCon['img_contenido'];
   $contenido        = $filaCon['contenido'];
   $estado           = $filaCon['estado'];
-  $enlace           = $filaCon['enlace'];
 }
 
 if($proceso == "Actualizar"){
@@ -29,17 +28,16 @@ if($proceso == "Actualizar"){
   $slugitem     = preg_replace('~[^-\w]+~', '', $slugitem);
   $slugitem     = trim($slugitem, '-');
   $slugitem     = preg_replace('~-+~', '.', $slugitem);
-  $img_contenido = strtolower($slugitem);
+  $img_contenido  = strtolower($slugitem);
   if (empty($imagen)){
       return 'n-a';
   }
   $contenido        = mysqli_real_escape_string($enlaces, $_POST['contenido']);
   $estado           = $_POST['estado'];
-  $enlace           = $_POST['enlace'];
 
-  $ActualizarCon = "UPDATE contenidos SET cod_contenido='$cod_contenido', titulo_contenido='$titulo_contenido', img_contenido='$img_contenido', contenido='$contenido', estado='$estado', enlace='$enlace' WHERE cod_contenido='$cod_contenido'";
+  $ActualizarCon = "UPDATE contenidos SET cod_contenido='$cod_contenido', titulo_contenido='$titulo_contenido', img_contenido='$img_contenido', contenido='$contenido', estado='$estado' WHERE cod_contenido='$cod_contenido'";
   $resultadoActualizar = mysqli_query($enlaces,$ActualizarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
-  header("Location:banners.php");
+  header("Location:nosotros.php");
 }
 ?>
 <!DOCTYPE html>
@@ -48,24 +46,23 @@ if($proceso == "Actualizar"){
     <?php include("module/head.php"); ?>
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
-      function Validar(){
-        if(document.fcms.img_contenido.value==""){
-          alert("Debe subir una imagen");
-          return; 
-        }
-        document.fcms.action = "banner-destacado-edit.php";
-        document.fcms.proceso.value="Actualizar";
-        document.fcms.submit();
-      } 
-      function Imagen(codigo){
-        url = "agregar-foto.php?id=" + codigo;
-        AbrirCentro(url,'Agregar', 475, 180, 'no', 'no');
+    function Validar(){
+      if(document.fcms.titulo_contenido.value==""){
+        alert("Debe escribir un título");
+        document.fcms.titulo_contenido.focus();
+        return; 
       }
-      function soloNumeros(e){ 
-        var key = window.Event ? e.which : e.keyCode 
-        return ((key >= 48 && key <= 57) || (key==8)) 
-      }
+      
+      document.fcms.action = "contenidos-edit.php";
+      document.fcms.proceso.value="Actualizar";
+      document.fcms.submit();
+    }
+    function Imagen(codigo){
+      url = "agregar-foto.php?id=" + codigo;
+      AbrirCentro(url,'Agregar', 475, 180, 'no', 'no');
+    }
     </script>
+    <script src="assets/js/visitante-alert.js"></script>
   </head>
   <body>
     <!-- Preloader -->
@@ -83,79 +80,55 @@ if($proceso == "Actualizar"){
       <header class="header bg-ui-general">
         <div class="header-info">
           <h1 class="header-title">
-            <strong>Banners</strong>
+            <strong>Nosotros</strong>
             <small></small>
           </h1>
         </div>
-        <?php $page="banners"; include("module/menu-inicio.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
-          <h4 class="card-title"><strong>Editar Banners</strong></h4>
+          <h4 class="card-title"><strong>Editar Contenidos</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label require" for="titulo_contenido">T&iacute;tulo:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <?php if($xVisitante=="1"){ ?><p><?php echo $titulo_contenido; ?></p><?php } ?>
+                  <input class="form-control" type="text" id="titulo_contenido" name="titulo_contenido" type="<?php if($xVisitante=="1"){ ?>hidden<?php }else{ ?>text<?php } ?>" value="<?php echo $titulo_contenido; ?>" required>
+                  <div class="invalid-feedback"></div>
+                </div>
+              </div>
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label require" for="img_contenido">Imagen:</label><br>
-                  <small>(734px x 435px)</small>
+                  <label class="col-form-label" for="contenido">Descripci&oacute;n:</label>
                 </div>
-                <div class="col-4 col-lg-8">
-                  <?php if($xVisitante=="1"){ ?><p><?php echo $img_contenido; ?></p><?php } ?>
-                  <input class="form-control" id="img_contenido" name="img_contenido" type="<?php if($xVisitante=="1"){ ?>hidden<?php }else{ ?>text<?php } ?>" value="<?php echo $img_contenido; ?>" required>
-                  <div class="invalid-feedback"></div>
+                <div class="col-8 col-lg-10">
+                  <?php if($xVisitante=="1"){ ?><p><?php echo $contenido; ?></p><?php } ?>
+                  <textarea class="form-control" name="contenido" id="contenido" <?php if($xVisitante=="1"){ ?> style="display:none;" <?php }else{ ?> <?php } ?> ><?php echo $contenido; ?></textarea>
                 </div>
+              </div>
+
+              <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <?php if($xVisitante=="0"){ ?>
-                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('NOS');" /><i class="fa fa-save"></i> Examinar</button>
+                  <label class="col-form-label" for="description">Estado:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <?php if($xVisitante=="1"){ ?><p><?php if($estado=="1"){ echo "[Activo]";}else{ echo "[Inactivo]"; } ?></p><?php }else{ ?>
+                  <input type="checkbox" name="estado" data-size="small" data-provide="switchery" value="1" <?php if($estado=="1"){echo "checked";} ?>>
                   <?php } ?>
                 </div>
               </div>
 
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="titulo_contenido">Lugar:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input class="form-control" name="titulo_contenido" type="text" id="titulo_contenido" value="<?php echo $titulo_contenido; ?>" />
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="contenido">Lugar:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input class="form-control" name="contenido" type="text" id="contenido" value="<?php echo $contenido; ?>" />
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="enlace">Enlace:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input class="form-control" name="enlace" type="text" id="enlace" value="<?php echo $enlace; ?>" />
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="estado">Estado:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input type="checkbox" name="estado" data-size="small" data-provide="switchery" value="1" <?php if($estado=="1"){echo "checked";} ?> />
-                </div>
-              </div>
-              
             </div>
             <footer class="card-footer">
-              <a href="banners.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
+              <a href="nosotros.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
               <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-refresh"></i> Guardar Cambios</button>
               <input type="hidden" name="proceso">
               <input type="hidden" name="cod_contenido" value="<?php echo $cod_contenido; ?>">
             </footer>
-
           </form>
         </div>
       </div><!--/.main-content -->

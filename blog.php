@@ -3,6 +3,10 @@
 <html lang="es">
 <head>
   <?php include("modulos/head.php"); ?>
+  <meta property="og:title" content="<?php echo $xTitulo; ?><?php if($xSlogan==""){ echo " | ".$xSlogan; } ?>" />
+  <meta property="og:description" content="<?php echo $xDes; ?>" />
+  <meta property="og:image" content="<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xFace1; ?>" />
+  <meta property="og:image" content="<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xFace2; ?>" />
 </head>
 <body>
   <?php include("modulos/nav.php"); ?>

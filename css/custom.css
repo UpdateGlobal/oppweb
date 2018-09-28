@@ -27,6 +27,24 @@ p.rent_titl {
     font-weight: bold;
 }
 
+.imagen-carrusel{
+	width: 100%;
+	margin: 0px;
+}
+
+.item.inner {
+    height: auto;
+}
+
+a.jackbox{
+	margin: 0px;
+    width: 100%;
+}
+
+.jackbox-top-icons {
+    right: 10px !important;
+}
+
 @media screen and (min-width: 1440px){
 	.titulo-noticia{
 		height: 88px;
